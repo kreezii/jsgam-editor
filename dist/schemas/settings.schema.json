@@ -1,0 +1,104 @@
+{
+  "type": "object",
+  "properties": {
+    "Languages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default":["English"]
+    },
+    "Text": {
+      "type": "object",
+      "properties": {
+        "Style": {
+          "type": "object",
+          "properties": {
+            "font": {
+              "type": "string"
+            },
+            "align": {
+              "type": "string"
+            }
+          }
+        },
+        "ButtonStyle": {
+          "type": "object",
+          "properties": {
+            "font": {
+              "type": "string"
+            },
+            "align": {
+              "type": "string"
+            }
+          }
+        },
+        "Position": {
+          "type": "string"
+        },
+        "Size": {
+          "type": "string"
+        }
+      }
+    },
+    "TitleScreen": {
+      "type": "object",
+      "properties": {
+        "Background": {
+          "type": "string"
+        },
+        "Music": {
+          "type": "string"
+        }
+      }
+    },
+    "Help": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "FirstScene": {
+      "type": "string"
+    },
+    "HoldTime": {
+      "type": "number"
+    },
+    "Inventory": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "string",
+          "enum": [
+            "top-left",
+            "top-right",
+            "bottom-right",
+            "bottom-left"
+          ]
+        },
+        "Background": {
+          "type": "string"
+        },
+        "Icon": {
+          "type": "string"
+        }
+      },
+      "required":["Position","Background","Icon"]
+    },
+    "Logos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "Languages",
+    "Text",
+    "TitleScreen",
+    "Help",
+    "FirstScene",
+    "HoldTime",
+    "Inventory"
+  ]
+}

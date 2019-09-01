@@ -1,0 +1,63 @@
+{
+    "type": "object",
+    "properties": {
+      "Name": {
+        "type": "string"
+      },
+      "Background": {
+        "type": "string"
+      },
+      "Foreground": {
+        "type": "string"
+      },
+      "Music": {
+        "type": "string"
+      },
+      "WalkArea": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "Player": {
+        "type": "object",
+        "properties": {
+          "Size": {
+            "type": "number"
+          }
+        },
+        "description": "Player options in this scene"
+      },
+      "Objects": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "watch": {
+            "objects": "Objects"
+          },
+          "enumSource": [{
+            "source": "objects",
+            "value": "{{item.Name}}"
+          }]
+        },
+        "description": "Objects"
+      },
+      "CutScene": {
+        "type": "string"
+      },
+      "Depth": {
+        "type": "number"
+      },
+      "Characters": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "Name",
+      "Background",
+      "WalkArea"
+    ]
+}

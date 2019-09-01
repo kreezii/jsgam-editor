@@ -1,0 +1,49 @@
+{
+      "type": "object",
+      "format":"categories",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "VoiceSet": {
+          "type": "string"
+        },
+        "Sequence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Image": {
+                "type": "string"
+              },
+              "Text": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "Time": {
+                "type": "number"
+              },
+              "Music": {
+                "type": "string"
+              },
+              "Voice": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "Image",
+              "Text",
+              "Time"
+            ]
+          }
+        }
+      },
+      "required": [
+        "Name","Sequence"
+      ]
+}

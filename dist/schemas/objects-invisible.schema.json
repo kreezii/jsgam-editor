@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "format":"categories",
+  "properties": {
+    "Name": {
+      "type": "string"
+    },
+    "Area": {
+      "type": "array",
+      "format": "table",
+      "description": "Polygon"
+    },
+    "Description": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "If not defined, the NoDescription property of the Texts schema will be used."
+    },
+    "Interactive": {
+      "type": "boolean",
+      "description": "Set to true if the object is just for decoration",
+      "default": true
+    },
+    "Use": {
+      "type": "string",
+      "description": "Name of the puzzle "
+    },
+    "Door": {
+      "type": "object",
+      "properties": {
+        "To": {
+          "type": "string",
+          "description": "Name of the scene to go"
+        },
+        "Player": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Position of the player in the new scene"
+        }
+      },
+      "required": [
+        "To",
+        "Player"
+      ],
+      "description": "Using the object changes to another scene."
+    }
+  },
+  "required":["Area"]
+}

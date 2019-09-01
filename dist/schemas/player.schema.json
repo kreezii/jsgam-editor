@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+      "Avatar": {
+        "type": "string"
+      },
+      "Texture": {
+        "type": "string"
+      },
+      "Json": {
+        "type": "string"
+      },
+      "Skeleton": {
+        "type": "string"
+      },
+      "Armature": {
+        "type": "string"
+      },
+      "Animations": {
+        "type": "object",
+        "properties": {
+          "Stand": {
+            "type": "string"
+          },
+          "Walk": {
+            "type": "string"
+          },
+          "Take": {
+            "type": "string"
+          },
+          "Use": {
+            "type": "string"
+          },
+          "Say": {
+            "type": "string"
+          }
+        }
+      },
+      "Position": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "Color": {
+        "type": "string",
+        "description": "Tint text when player speaks"
+      },
+      "VoiceSet": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "Position",
+      "Armature",
+      "Skeleton",
+      "Json",
+      "Texture",
+      "Avatar"
+    ]
+}

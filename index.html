@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>JSGAM Editor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <style>
+  body {background-color: #eee;}
+</style>
+  <body>
+    <h1>JSGAM editor</h1>
+
+    <nav class="links">
+      <button id="download" title="Download current setup"><i class="icon-download"></i>Download</button>
+      <button id="upload" title="Upload previously saved setup"><i class="icon-upload"></i>Upload</button>
+      <input type="file" accept=".json" />
+    </nav>
+
+    <span id='valid_indicator'></span>
+    <div id='editor_holder'></div>
+    <script src="./index.js"></script>
+
+  </body>
+</html>

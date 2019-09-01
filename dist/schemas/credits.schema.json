@@ -1,0 +1,70 @@
+{
+    "title":"Credits",
+    "type": "object",
+    "properties": {
+      "Music": {
+        "type": "string",
+        "description": "Music to play when show the credits"
+      },
+      "Background": {
+        "type": "string",
+        "description": "Background image",
+        "options": {"hidden": true}
+      },
+      "Time": {
+        "type": "number",
+        "description": "Duration given in seconds of the credits.",
+        "default": "20"
+      },
+      "Style": {
+        "type": "object",
+        "properties": {
+          "font": {
+            "type": "string"
+          },
+          "align": {
+            "type": "string"
+          },
+          "tint": {
+            "type": "string"
+          }
+        },
+        "description": "Text style",
+        "required": [
+          "font"
+        ]
+      },
+      "Lines": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "Title": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Title of the credit"
+            },
+            "Text": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "People who made it!"
+            }
+          },
+          "required": [
+            "Title",
+            "Text"
+          ]
+        }
+      }
+    },
+    "required": [
+      "Lines",
+      "Style"
+    ],
+    "description": "Credits screen configuration",
+    "format":"categories"
+}

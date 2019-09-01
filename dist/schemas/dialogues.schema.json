@@ -1,0 +1,98 @@
+{
+      "type": "object",
+      "id": "idDialogues",
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "Dialogue name"
+        },
+        "DefaultBranch": {
+          "type": "string",
+          "watch": {
+            "ramas": "idDialogues.Branches"
+          },
+          "enumSource": [{
+            "source": "ramas",
+            "value": "{{item.Name}}"
+          }],
+          "description": "Name of the first branch to show."
+        },
+        "Branches": {
+          "type": "array",
+          "format": "tabs",
+          "items": {
+            "title": "Branch",
+            "headerTemplate": "{{i}} - {{self.Name}}",
+            "type": "object",
+            "properties": {
+              "Name": {
+                "type": "string",
+                "description": "Name of the branch"
+              },
+              "Choices": {
+                "type": "array",
+                "format": "tabs-top",
+                "items": {
+                  "title": "Choice",
+                  "headerTemplate": "{{i}}",
+                  "type": "object",
+                  "properties": {
+                    "Text": {
+                      "type": "array",
+                      "format": "tabs-top",
+                      "items": {
+                        "title": "Language Text",
+                        "type": "string"
+                      },
+                      "description": "Text for the player"
+                    },
+                    "Answer": {
+                      "type": "array",
+                      "format": "tabs-top",
+                      "items": {
+                        "title": "Language Answer",
+                        "type": "string"
+                      },
+                      "description": "Text for the non-playable character."
+                    },
+                    "Repeat": {
+                      "type": "boolean",
+                      "description": "If set to false the player only can use it one time.",
+                      "default": true
+                    },
+                    "Link": {
+                      "type": "string",
+                      "description": "Link to the name to another branch"
+                    },
+                    "Puzzle": {
+                      "type": "string",
+                      "description": "Puzzle to resolve when the choice is selected."
+                    },
+                    "EndDialogue": {
+                      "type": "boolean",
+                      "description": "If set to true, finish the dialogue."
+                    }
+                  },
+                  "required": [
+                    "Text",
+                    "Answer"
+                  ]
+                },
+                "description": "Array of choices to be shown."
+              }
+            },
+            "required": [
+              "Name",
+              "Choices"
+            ]
+          },
+          "description": "A branch is a group of choices."
+        }
+      },
+      "required": [
+        "Name",
+        "DefaultBranch",
+        "Branches"
+      ],
+    "description": "Game dialogues array"
+}

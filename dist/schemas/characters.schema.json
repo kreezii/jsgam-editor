@@ -1,0 +1,118 @@
+{
+        "type": "object",
+        "format":"categories",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "description": "Name to be used in the Characters property of the Scenes Schema"
+          },
+          "Description": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default":["idioma1","idioma2"],
+            "description": "What players says when you look at the character"
+          },
+          "Avatar": {
+            "type": "string",
+            "description": "Name of the image showed when the character talks"
+          },
+          "Texture": {
+            "type": "string",
+            "description": "Texture of the character"
+          },
+          "Json": {
+            "type": "string",
+            "description": "Texture json information of the character"
+          },
+          "Skeleton": {
+            "type": "string",
+            "description": "Skeleton json"
+          },
+          "Armature": {
+            "type": "string",
+            "description": "Name of the armature. Must be unique for each character."
+          },
+          "Animations": {
+            "type": "object",
+            "properties": {
+              "Stand": {
+                "type": "string",
+                "default": "stand"
+              },
+              "Say": {
+                "type": "string",
+                "default": "speak"
+              },
+              "Walk": {
+                "type": "string",
+                "default": "walk"
+              }
+            },
+            "required": [],
+            "description": "Animation names"
+          },
+          "Size": {
+            "type": "number",
+            "default": "1.0",
+            "description": "Size of the character"
+          },
+          "Position": {
+            "type": "array",
+            "items": [
+              {
+                "type": "number",
+                "headerTemplate": "x"
+              },
+              {
+                "type": "number",
+                "headerTemplate": "y"
+              }
+            ],
+            "default": [0,0],
+            "additionalItems": false,
+            "options":{
+              "disable_array_reorder": true,
+              "disable_array_delete":true,
+              "disable_array_add":true
+            },
+            "description": "Position of the character"
+          },
+          "Color": {
+            "type": "string",
+            "description": "Text color when the character speaks",
+            "format": "color"
+          },
+          "Dialogue": {
+            "type": "string",
+            "watch": {
+              "dialogues": "Dialogues"
+            },
+            "enumSource": [{
+              "source": "dialogues",
+              "value": "{{item.Name}}"
+            }],
+            "description": "Name of the dialogue when the player talk to the character"
+          },
+          "Mirror": {
+            "type": "boolean",
+            "default": false,
+            "description": "Flip horizontally the character"
+          },
+          "Font": {
+            "type": "string",
+            "description": "Text font when the character speaks"
+          }
+        },
+        "required": [
+          "Name",
+          "Description",
+          "Avatar",
+          "Texture",
+          "Json",
+          "Skeleton",
+          "Armature",
+          "Position"
+        ]
+}

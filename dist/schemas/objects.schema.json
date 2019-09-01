@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "format":"categories",
+    "properties": {
+      "Name": {
+        "type": "string"
+      },
+      "Description": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "If not defined, the NoDescription property of the Texts schema will be used."
+      },
+      "Position": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "description": "Position in the scene."
+      },
+      "Size": {
+        "type": "number",
+        "default": "1",
+        "description": "Size of the object"
+      },
+      "Mirror": {
+        "type": "boolean",
+        "description": "Flip horizontally",
+        "default": false
+      },
+      "Lock": {
+        "type": "boolean",
+        "description": "Player can use but cannot drag the object",
+        "default": false
+      },
+      "Interactive": {
+        "type": "boolean",
+        "description": "Set to true if the object is just for decoration",
+        "default": true
+      },
+      "Take": {
+        "type": "boolean",
+        "default": false,
+        "description": "If set to true, the object can be taken."
+      },
+      "Use": {
+        "type": "string",
+        "description": "Name of the puzzle "
+      },
+      "Door": {
+        "type": "object",
+        "properties": {
+          "To": {
+            "type": "string",
+            "description": "Name of the scene to go"
+          },
+          "Player": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Position of the player in the new scene"
+          }
+        },
+        "required": [
+          "To",
+          "Player"
+        ],
+        "description": "Using the object changes to another scene."
+      },
+      "Combine": {
+        "type": "object",
+        "properties": {
+          "With": {
+            "type": "string",
+            "description": "Name of the object in the inventory"
+          },
+          "Puzzle": {
+            "type": "string",
+            "description": "Name of the puzzle to resolve"
+          }
+        },
+        "description": "Check it when an object from the inventory is dragged over this object."
+      }
+    },
+    "required": [
+      "Name",
+      "Position"
+    ]
+}

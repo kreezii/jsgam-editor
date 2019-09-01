@@ -1,0 +1,22 @@
+{
+  "name": "jsgam-editor",
+  "version": "1.0.0",
+  "description": "JSON editor for JSGAM engine",
+  "keywords": [
+    "jsgam",
+    "json",
+    "editor"
+  ],
+  "license": "MIT",
+  "author": "R.Vañes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@json-editor/json-editor": "^1.4.0-beta.0"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10"
+  }
+}

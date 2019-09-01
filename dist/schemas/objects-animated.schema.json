@@ -1,0 +1,10 @@
+{
+  "$ref": "objects.schema.json",
+  "properties": {
+    "Animation": {
+      "type": "string",
+      "description": "Animated objects"
+    }
+  },
+  "required":["Animation"]
+}

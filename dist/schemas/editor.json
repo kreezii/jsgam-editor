@@ -1,0 +1,105 @@
+{
+  "title":"Adventure",
+  "type": "object",
+  "properties": {
+    "Settings":{
+      "title": "Settings",
+      "format":"categories",
+      "basicCategoryTitle": "Main",
+      "$ref": "settings.schema.json"
+    },
+    "Player":{
+      "title": "Player",
+      "format":"categories",
+      "$ref": "player.schema.json"
+    },
+    "Objects":{
+      "title": "Objects",
+      "type": "array",
+      "format": "tabs",
+      "items": {
+        "title": "Object",
+        "headerTemplate": "{{i}} - {{self.Name}}",
+        "oneOf": [
+          {
+            "$ref": "objects-static.schema.json",
+            "title":"Static"
+          },
+          {
+            "$ref": "objects-invisible.schema.json",
+            "title":"Invisible"
+          },
+          {
+            "$ref": "objects-animated.schema.json",
+            "title":"Animated"
+          }
+        ]
+      }
+    },
+    "Characters":{
+      "title": "Characters",
+      "type": "array",
+      "format": "tabs",
+      "items": {
+        "title": "Character",
+        "$ref": "characters.schema.json",
+        "headerTemplate": "{{i}} - {{self.Name}}"
+      }
+    },
+    "Dialogues":{
+      "title": "Dialogues",
+      "type": "array",
+      "format": "tabs",
+      "items": {
+        "title": "Dialogue",
+        "headerTemplate": "{{i}} - {{self.Name}}",
+        "$ref": "dialogues.schema.json"
+      }
+    },
+    "Scenes":{
+      "title": "Scenes",
+      "type": "array",
+      "format": "tabs",
+      "items": {
+        "title": "Scene",
+        "$ref": "scenes.schema.json",
+        "headerTemplate": "{{i}} - {{self.Name}}"
+      }
+    },
+    "Cutscenes":{
+      "title": "Cutscenes",
+      "type": "array",
+      "format": "tabs",
+      "items": {
+        "title": "Cutscene",
+        "headerTemplate": "{{i}} - {{self.Name}}",
+        "oneOf": [
+          {
+            "$ref": "cutscenes-vid.schema.json",
+            "title": "Video"
+          },
+          {
+            "$ref": "cutscenes.schema.json",
+            "title": "Images Sequence"
+          }
+        ]
+      }
+    },
+    "Credits":{
+      "title": "Credits",
+      "type": "object",
+      "$ref": "credits.schema.json"
+    }
+  },
+  "required":[
+    "Settings",
+    "Player",
+    "Credits",
+    "Objects",
+    "Scenes"
+  ],
+  "dependencies": {
+    "Dialogues": ["Characters"]
+  },
+  "format":"categories"
+}
