@@ -15,9 +15,16 @@
       },
       "WalkArea": {
         "type": "array",
+        "format": "tabs-top",
         "items": {
-          "type": "number"
+          "type": "number",
+          "headerTemplate": "{{self}}"
         }
+      },
+      "Obstacles": {
+        "type": "object",
+        "format":"tabs",
+        "additionalProperties": { "type": "array", "format": "tabs-top" }
       },
       "Player": {
         "type": "object",

@@ -59,7 +59,15 @@
       }
     },
     "FirstScene": {
-      "type": "string"
+      "type": "string",
+      "watch": {
+        "scenes": "Scenes"
+      },
+      "enumSource": [{
+        "source": "scenes",
+        "value": "{{item.Name}}"
+      }],
+      "description":"The scene where the game begins"
     },
     "HoldTime": {
       "type": "number"

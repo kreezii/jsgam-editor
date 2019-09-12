@@ -1,0 +1,145 @@
+{
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string"
+    },
+    "Objects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ModifyObject": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string",
+          "watch": {
+            "objects": "Objects"
+          },
+          "enumSource": [{
+            "source": "objects",
+            "value": "{{item.Name}}"
+          }]
+        },
+        "Description": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Door": {
+          "oneOf":[
+            {
+              "type":"boolean",
+              "title":"Disable",
+              "enum": [ false ],
+              "default":false,
+              "minLength":1
+            },
+            {
+              "type":"object",
+              "title":"Enable",
+              "properties": {
+                "Player": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "To": {
+                  "type": "string"
+                }
+              }
+            }
+          ],
+          "default":false,
+          "required": []
+        },
+        "Position": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "Mirror": {
+          "type":"boolean",
+          "title":"Disable",
+          "default":false
+        },
+        "Interactive":{
+          "type":"boolean",
+          "title":"Disable",
+          "default":false
+        },
+        "Texture":{
+          "type":"boolean",
+          "title":"Disable",
+          "default":false
+        },
+        "Lock":{
+          "type":"boolean",
+          "title":"Disable",
+          "default":false
+        },
+        "Use": {
+          "type": "string"
+        },
+        "Combine": {
+          "type": "object",
+          "properties": {
+            "With": {
+              "type": "string"
+            },
+            "Puzzle": {
+              "type": "string"
+            }
+          },
+          "required": []
+        }
+      },
+      "required": ["Name"]
+    },
+    "Say": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Resolve": {
+      "type": "string"
+    },
+    "AddObject": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Scene": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "RemoveObject": {
+      "type": "string"
+    },
+    "SetDialogue": {
+      "type": "object",
+      "properties": {
+        "Character": {
+          "type": "string"
+        },
+        "Dialogue": {
+          "type": "string"
+        }
+      },
+      "required": []
+    }
+  },
+  "required": [
+    "Name",
+    "Objects"
+  ]
+}

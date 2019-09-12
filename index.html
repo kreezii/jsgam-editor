@@ -4,22 +4,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>JSGAM Editor</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <style>
-  body {background-color: #eee;}
-</style>
+    body {background-color: #eee;}
+  </style>
   <body>
-    <h1>JSGAM editor</h1>
 
-    <nav class="links">
-      <button id="download" title="Download current setup"><i class="icon-download"></i>Download</button>
-      <button id="upload" title="Upload previously saved setup"><i class="icon-upload"></i>Upload</button>
-      <input type="file" accept=".json" />
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark shadow-sm mb-5">
+      <img src="imgs/jsgamLogo.png" height="100" alt="JSGAM Editor" class="navbar-brand">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <input id="uploadFile" style="display:none;" type="file" title="Upload adventure" accept=".json" aria-describedby="inputGroupFileAddon01">
+            <button id="upload" title="Load adventure" class="btn btn-primary mr-3"><i class="material-icons">cloud_upload</i> Load</button>
+          </li>
+          <li class="nav-item">
+            <button id="download" title="Download adventure" class="btn btn-success mr-3"><i class="material-icons">cloud_download</i> Save</button>
+          </li>
+          <li class="nav-item">
+            <button id="clear" title="Clear adventure"class="btn btn-warning mr-3"><i class="material-icons">insert_drive_file</i> Add Sources</button>
+          </li>
+          <li class="nav-item">
+            <button id="clear" title="Clear adventure"class="btn btn-danger mr-3"><i class="material-icons">delete</i> Clear</button>
+          </li>
+        </ul>
+        <h1><span id='valid_indicator'><i id='valid_icon' class="material-icons">done</i><span id="valid_text"></span></span></h1>
+      </div>
     </nav>
 
-    <span id='valid_indicator'></span>
     <div id='editor_holder'></div>
     <script src="./index.js"></script>
 

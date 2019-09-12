@@ -8,6 +8,11 @@
       "basicCategoryTitle": "Main",
       "$ref": "settings.schema.json"
     },
+    "Texts":{
+      "title": "Texts",
+      "format":"categories",
+      "$ref": "texts.schema.json"
+    },
     "Player":{
       "title": "Player",
       "format":"categories",
@@ -89,14 +94,26 @@
       "title": "Credits",
       "type": "object",
       "$ref": "credits.schema.json"
+    },
+    "Puzzles":{
+      "title": "Puzzles",
+      "type": "array",
+      "format": "tabs",
+      "items": {
+        "title": "Puzzle",
+        "headerTemplate": "{{i}} - {{self.Name}}",
+        "$ref": "puzzles.schema.json"
+      }
     }
   },
   "required":[
     "Settings",
+    "Texts",
     "Player",
     "Credits",
     "Objects",
-    "Scenes"
+    "Scenes",
+    "Puzzles"
   ],
   "dependencies": {
     "Dialogues": ["Characters"]

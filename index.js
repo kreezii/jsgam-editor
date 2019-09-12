@@ -4,7 +4,10 @@ import JSONEditor from "@json-editor/json-editor";
  // and to provide a "Restore to Default" button.
 //JSONEditor.defaults.theme = 'bootstrap4';
 var jsgamDownload = document.querySelector('#download');
+var jgameClear = document.querySelector('#clear');
 var jsgamUpload = document.querySelector('#upload');
+var jsgamFile = document.querySelector('#uploadFile');
+
 // Initialize the editor
 var editor = new JSONEditor(document.getElementById('editor_holder'),{
   // Enable fetching schemas via ajax
@@ -27,16 +30,20 @@ editor.on('change',function() {
   var errors = editor.validate();
 
   var indicator = document.getElementById('valid_indicator');
+  var indicatorIcon = document.getElementById('valid_icon');
+  var indicatorText = document.getElementById('valid_text');
 
   // Not valid
   if(errors.length) {
-    indicator.style.color = 'red';
-    indicator.textContent = "not valid";
+    indicator.className="badge badge-pill badge-danger";
+    indicatorIcon.textContent="clear";
+    indicatorText.textContent=" Not Valid";
   }
   // Valid
   else {
-    indicator.style.color = 'green';
-    indicator.textContent = "valid";
+    indicator.className="badge badge-pill badge-success";
+    indicatorIcon.textContent="done";
+    indicatorText.textContent=" Valid";
   }
 });
 
@@ -57,8 +64,8 @@ var parseJson = function(str) {
      'cancelable': false
    }));
  };
- // Save Schema, Start Value, JavaScript Styles and Config options in examples schema format
- var downloadJSONHandler = function() {
+ // Save JSON
+ var downloadJSON = function() {
    var title = prompt('Enter the name of your file', 'New Adventure');
    if (title === null) return;
    var json = editor.getValue(),
@@ -77,5 +84,29 @@ var parseJson = function(str) {
 
  };
 
+ //Upload JSON
+var uploadJSON = function(e) {
+  e.preventDefault();
+  var files = e.target.files || e.dataTransfer.files;
+  if (files.length !== 0) {
+    var file = files[0];
+
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var response = e.target.result;
+      editor.setValue(parseJson(response));
+      console.log(parseJson(response));
+    };
+    reader.readAsText(file)
+  }
+
+};
+
+var clearJSON=function(){
+  editor.setValue("{}");
+}
 // Set button event for downloading as example
-jsgamDownload.addEventListener('click', downloadJSONHandler, false);
+jsgamDownload.addEventListener('click', downloadJSON, false);
+jsgamUpload.addEventListener('click', eventClickFire.bind(null, jsgamFile), false);
+jsgamFile.addEventListener('change', uploadJSON, false);
+jgameClear.addEventListener('click', clearJSON, false);

@@ -46,6 +46,13 @@
       },
       "Use": {
         "type": "string",
+        "watch": {
+          "puzzles": "Puzzles"
+        },
+        "enumSource": [{
+          "source": "puzzles",
+          "value": "{{item.Name}}"
+        }],
         "description": "Name of the puzzle "
       },
       "Door": {
