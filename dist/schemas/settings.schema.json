@@ -4,7 +4,8 @@
     "Languages": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "title":"Language"
       },
       "default":["English"]
     },
@@ -15,42 +16,96 @@
           "type": "object",
           "properties": {
             "font": {
-              "type": "string"
+              "type":"object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "default":"bitmapfont"
+                },
+                "size": {
+                  "type": "integer",
+                  "default":55
+                }
+              },
+              "required":["name","size"]
             },
             "align": {
-              "type": "string"
+              "type": "string",
+              "default":"center"
             }
-          }
+          },
+          "required":["font","align"]
         },
         "ButtonStyle": {
           "type": "object",
           "properties": {
             "font": {
-              "type": "string"
+              "type":"object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "default":"bitmapfont"
+                },
+                "size": {
+                  "type": "integer",
+                  "default":55
+                }
+              },
+              "required":["name","size"]
             },
             "align": {
-              "type": "string"
+              "type": "string",
+              "default":"center"
             }
-          }
+          },
+          "required":["font","align"]
         },
         "Position": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "top",
+            "bottom"
+          ],
+          "default":"bottom"
         },
         "Size": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "half",
+            "fourth"
+          ],
+          "default":"fourth"
         }
-      }
+      },
+      "required":["Style","ButtonStyle","Position","Size"]
     },
     "TitleScreen": {
       "type": "object",
       "properties": {
         "Background": {
-          "type": "string"
+          "anyOf":[
+            {
+              "type": "string",
+              "title":"From Source",
+              "watch": {
+                "sources": "Sources.Images"
+              },
+              "enumSource": [{
+                "source": "sources",
+                "value": "{{item}}"
+              }]
+            },
+            {
+              "type":"string",
+              "title":"Custom"
+            }
+          ]
         },
         "Music": {
           "type": "string"
         }
-      }
+      },
+      "required":["Background"]
     },
     "Help": {
       "type": "array",

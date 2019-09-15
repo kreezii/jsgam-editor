@@ -4,7 +4,8 @@
     "NewGame": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "title":"Language"
       },
       "description":"Main menu text",
       "default":["New game"]
@@ -12,7 +13,8 @@
     "Continue": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "title":"Language"
       },
       "description":"Main menu text",
       "default":["Continue"]
@@ -20,7 +22,8 @@
     "Options": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "title":"Language"
       },
       "description":"Main menu text",
       "default":["Options"]
@@ -28,7 +31,8 @@
     "Help": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "title":"Language"
       },
       "description":"Main menu text",
       "default":["Help"]
@@ -36,7 +40,8 @@
     "Credits": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "title":"Language"
       },
       "description":"Main menu text",
       "default":["Credits"]
@@ -44,7 +49,8 @@
     "Back": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "title":"Language"
       },
       "description":"Main menu text",
       "default":["Back"]
@@ -52,7 +58,8 @@
     "Warning": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "title":"Language"
       },
       "description":"Main menu text",
       "default":["Warning"]
@@ -60,7 +67,8 @@
     "Yes": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "title":"Language"
       },
       "description":"Main menu text",
       "default":["Yes"]
@@ -68,7 +76,8 @@
     "No": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "title":"Language"
       },
       "description":"Main menu text",
       "default":["No"]
@@ -76,7 +85,8 @@
     "NotUsable": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "title":"Language"
       },
       "description":"Text to say when player tries to use an object not usable",
       "default":["It doesn't work"]
@@ -84,7 +94,8 @@
     "NoDescription": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "title":"Language"
       },
       "description":"Text to say when player looks at an object without description",
       "default":["I don't know what to say"]

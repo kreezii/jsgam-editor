@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "Images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "options":{
+        "disable_properties":true,
+        "disable_array_add":true
+      }
+    }
+  },
+  "required":[
+    "Images"
+  ]
+}

@@ -3,10 +3,7 @@ import JSONEditor from "@json-editor/json-editor";
  // We will use this to seed the initial editor
  // and to provide a "Restore to Default" button.
 //JSONEditor.defaults.theme = 'bootstrap4';
-var jsgamDownload = document.querySelector('#download');
-var jgameClear = document.querySelector('#clear');
-var jsgamUpload = document.querySelector('#upload');
-var jsgamFile = document.querySelector('#uploadFile');
+
 
 // Initialize the editor
 var editor = new JSONEditor(document.getElementById('editor_holder'),{
@@ -56,14 +53,6 @@ var parseJson = function(str) {
 };
 
 
- // Trigger mouse click event
- var eventClickFire = function(el) {
-   el.dispatchEvent(new MouseEvent('click', {
-     'view': window,
-     'bubbles': true,
-     'cancelable': false
-   }));
- };
  // Save JSON
  var downloadJSON = function() {
    var title = prompt('Enter the name of your file', 'New Adventure');
@@ -95,18 +84,70 @@ var uploadJSON = function(e) {
     reader.onload = function(e) {
       var response = e.target.result;
       editor.setValue(parseJson(response));
-      console.log(parseJson(response));
     };
     reader.readAsText(file)
   }
 
 };
 
+//Import JSON
+var importJSON = function(e) {
+ e.preventDefault();
+ var files = e.target.files || e.dataTransfer.files;
+ if (files.length !== 0) {
+   var file = files[0];
+
+   var reader = new FileReader();
+   reader.onload = function(e) {
+     var response = e.target.result;
+     var adventure=editor.getValue();
+     editor.setValue($.extend( true, adventure, parseJson(response))); //Merge imported JSON with existing values
+   };
+   reader.readAsText(file)
+ }
+
+};
+
+//Import Sources
+var importSources = function(e) {
+ e.preventDefault();
+ var files = e.target.files || e.dataTransfer.files;
+ if (files.length !== 0) {
+   var file = files[0];
+
+   var reader = new FileReader();
+   reader.onload = function(e) {
+     var response = e.target.result;
+     setSources(parseJson(response));
+   };
+   reader.readAsText(file)
+ }
+
+};
+
+function setSources(sources){
+  var adventure;
+  if(sources.frames){
+    adventure=editor.getEditor('root.Sources.Images')
+    var currentSrc=adventure.getValue();
+    adventure.setValue($.merge(currentSrc,Object.getOwnPropertyNames(sources.frames)));
+
+  }
+}
+
 var clearJSON=function(){
   editor.setValue("{}");
 }
-// Set button event for downloading as example
-jsgamDownload.addEventListener('click', downloadJSON, false);
-jsgamUpload.addEventListener('click', eventClickFire.bind(null, jsgamFile), false);
-jsgamFile.addEventListener('change', uploadJSON, false);
-jgameClear.addEventListener('click', clearJSON, false);
+
+function fileUpload(){
+  $('#uploadFile').click();
+}
+
+$('#download').click(downloadJSON);
+$('#upload').click(function(){$('#uploadFile').click();});
+$('#uploadFile').change(uploadJSON);
+$('#import').click(function(){$('#importFile').click();});
+$('#importFile').change(importJSON);
+$('#addsrc').click(function(){$('#srcFile').click();});
+$('#srcFile').change(importSources);
+$('#reset').click(clearJSON);

@@ -104,6 +104,14 @@
         "headerTemplate": "{{i}} - {{self.Name}}",
         "$ref": "puzzles.schema.json"
       }
+    },
+    "Sources":{
+      "type": "object",
+      "$ref": "sources.schema.json",
+      "options":{
+        "disable_properties":true,
+        "disable_array_add":true
+      }
     }
   },
   "required":[
@@ -113,7 +121,8 @@
     "Credits",
     "Objects",
     "Scenes",
-    "Puzzles"
+    "Puzzles",
+    "Sources"
   ],
   "dependencies": {
     "Dialogues": ["Characters"]
