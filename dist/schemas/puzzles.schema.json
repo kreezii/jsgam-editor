@@ -5,101 +5,24 @@
       "type": "string"
     },
     "Objects": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "$ref":"watch-objects.schema.json"
     },
-    "ModifyObject": {
-      "type": "object",
-      "properties": {
-        "Name": {
-          "type": "string",
-          "watch": {
-            "objects": "Objects"
+    "Modify":{
+      "type":"array",
+      "format": "tabs-top",
+      "items":{
+        "title":"Target",
+        "anyOf":[
+          {
+            "$ref":"property-objects.schema.json",
+            "title":"Object"
           },
-          "enumSource": [{
-            "source": "objects",
-            "value": "{{item.Name}}"
-          }]
-        },
-        "Description": {
-          "type": "array",
-          "items": {
-            "type": "string"
+          {
+            "type":"object",
+            "title":"Player"
           }
-        },
-        "Door": {
-          "oneOf":[
-            {
-              "type":"boolean",
-              "title":"Disable",
-              "enum": [ false ],
-              "default":false,
-              "minLength":1
-            },
-            {
-              "type":"object",
-              "title":"Enable",
-              "properties": {
-                "Player": {
-                  "type": "array",
-                  "items": {
-                    "type": "number"
-                  }
-                },
-                "To": {
-                  "type": "string"
-                }
-              }
-            }
-          ],
-          "default":false,
-          "required": []
-        },
-        "Position": {
-          "type": "array",
-          "items": {
-            "type": "number"
-          }
-        },
-        "Mirror": {
-          "type":"boolean",
-          "title":"Disable",
-          "default":false
-        },
-        "Interactive":{
-          "type":"boolean",
-          "title":"Disable",
-          "default":false
-        },
-        "Texture":{
-          "type":"boolean",
-          "title":"Disable",
-          "default":false
-        },
-        "Lock":{
-          "type":"boolean",
-          "title":"Disable",
-          "default":false
-        },
-        "Use": {
-          "type": "string"
-        },
-        "Combine": {
-          "type": "object",
-          "properties": {
-            "With": {
-              "type": "string"
-            },
-            "Puzzle": {
-              "type": "string"
-            }
-          },
-          "required": []
-        }
-      },
-      "required": ["Name"]
+        ]
+      }
     },
     "Say": {
       "type": "array",
@@ -140,6 +63,7 @@
   },
   "required": [
     "Name",
-    "Objects"
+    "Objects",
+    "Modify"
   ]
 }

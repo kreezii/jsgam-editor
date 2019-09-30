@@ -15,7 +15,7 @@
             "description": "What players says when you look at the character"
           },
           "Avatar": {
-            "type": "string",
+            "$ref": "sources-img.schema.json",
             "description": "Name of the image showed when the character talks"
           },
           "Texture": {

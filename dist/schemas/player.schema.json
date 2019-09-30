@@ -1,8 +1,9 @@
 {
     "type": "object",
+    "format": "grid-strict",
     "properties": {
       "Avatar": {
-        "type": "string"
+        "$ref": "sources-img.schema.json"
       },
       "Texture": {
         "type": "string"
@@ -38,9 +39,18 @@
       },
       "Position": {
         "type": "array",
+        "format":"table",
         "items": {
-          "type": "number"
-        }
+          "type": "number",
+          "format":"number",
+          "title":"Coordinates"
+        },
+        "options":{
+          "disable_array_reorder":true
+        },
+        "maxItems": 2,
+        "minItems": 2,
+        "description": "Player's position in the first scene."
       },
       "Color": {
         "type": "string",

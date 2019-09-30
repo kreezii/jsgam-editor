@@ -36,7 +36,31 @@
           },
           "required":["font","align"]
         },
-        "ButtonStyle": {
+        "Button": {
+          "type": "object",
+          "properties": {
+            "font": {
+              "type":"object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "default":"bitmapfont"
+                },
+                "size": {
+                  "type": "integer",
+                  "default":55
+                }
+              },
+              "required":["name","size"]
+            },
+            "align": {
+              "type": "string",
+              "default":"center"
+            }
+          },
+          "required":["font","align"]
+        },
+        "Credits": {
           "type": "object",
           "properties": {
             "font": {
@@ -77,29 +101,13 @@
           "default":"fourth"
         }
       },
-      "required":["Style","ButtonStyle","Position","Size"]
+      "required":["Style","Button","Position","Size"]
     },
     "TitleScreen": {
       "type": "object",
       "properties": {
         "Background": {
-          "anyOf":[
-            {
-              "type": "string",
-              "title":"From Source",
-              "watch": {
-                "sources": "Sources.Images"
-              },
-              "enumSource": [{
-                "source": "sources",
-                "value": "{{item}}"
-              }]
-            },
-            {
-              "type":"string",
-              "title":"Custom"
-            }
-          ]
+          "$ref": "sources-img.schema.json"
         },
         "Music": {
           "type": "string"
@@ -107,25 +115,13 @@
       },
       "required":["Background"]
     },
-    "Help": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
     "FirstScene": {
-      "type": "string",
-      "watch": {
-        "scenes": "Scenes"
-      },
-      "enumSource": [{
-        "source": "scenes",
-        "value": "{{item.Name}}"
-      }],
+      "$ref":"watch-scenes.schema.json",
       "description":"The scene where the game begins"
     },
     "HoldTime": {
-      "type": "number"
+      "type": "number",
+      "default":0.1
     },
     "Inventory": {
       "type": "object",
@@ -140,10 +136,10 @@
           ]
         },
         "Background": {
-          "type": "string"
+          "$ref": "sources-img.schema.json"
         },
         "Icon": {
-          "type": "string"
+          "$ref": "sources-img.schema.json"
         }
       },
       "required":["Position","Background","Icon"]
@@ -151,7 +147,24 @@
     "Logos": {
       "type": "array",
       "items": {
-        "type": "string"
+        "title":"Logo",
+        "anyOf":[
+          {
+            "type": "string",
+            "title":"From Source",
+            "watch": {
+              "sources": "Sources.Images"
+            },
+            "enumSource": [{
+              "source": "sources",
+              "value": "{{item}}"
+            }]
+          },
+          {
+            "type":"string",
+            "title":"Custom"
+          }
+        ]
       }
     }
   },
@@ -159,7 +172,6 @@
     "Languages",
     "Text",
     "TitleScreen",
-    "Help",
     "FirstScene",
     "HoldTime",
     "Inventory"

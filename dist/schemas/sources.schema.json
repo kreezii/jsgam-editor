@@ -1,5 +1,35 @@
 {
   "properties": {
+    "Folders":{
+      "type":"object",
+      "format":"grid-strict",
+      "id": "structure",
+      "properties":{
+        "Main":{
+          "type":"string",
+          "default":"data/"
+        },
+        "Player":{
+          "type":"string",
+          "template": "{{mainFolder}}player/",
+          "watch": {
+            "mainFolder": "structure.Main"
+          }
+        },
+        "Atlas":{
+          "type":"string",
+          "default":"data/"
+        },
+        "Atlas":{
+          "type":"string",
+          "default":"data/"
+        }
+      },
+      "description":"Game structure folders",
+      "required":[
+        "Main"
+      ]
+    },
     "Images": {
       "type": "array",
       "items": {
@@ -12,6 +42,7 @@
     }
   },
   "required":[
-    "Images"
+    "Images",
+    "Folders"
   ]
 }

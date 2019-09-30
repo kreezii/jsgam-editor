@@ -1,0 +1,9 @@
+{
+  "type": "array",
+  "items": {
+    "$ref": "sources-img.schema.json",
+    "title":"Language"
+  },
+  "description": "Help screen to show the player how to play.",
+  "format":"categories"
+}

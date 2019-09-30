@@ -4,7 +4,7 @@ import JSONEditor from "@json-editor/json-editor";
  // and to provide a "Restore to Default" button.
 //JSONEditor.defaults.theme = 'bootstrap4';
 
-
+var importPlayer=false;
 // Initialize the editor
 var editor = new JSONEditor(document.getElementById('editor_holder'),{
   // Enable fetching schemas via ajax
@@ -52,6 +52,14 @@ var parseJson = function(str) {
   return res;
 };
 
+// Trigger mouse click event
+var eventClickFire = function(el) {
+  el.dispatchEvent(new MouseEvent('click', {
+    'view': window,
+    'bubbles': true,
+    'cancelable': false
+  }));
+};
 
  // Save JSON
  var downloadJSON = function() {
@@ -61,16 +69,11 @@ var parseJson = function(str) {
        filename = (title || 'jsgam').toLowerCase().replace(/[\s<>:"\\|*]/g, "-") + '.json',
        blob = new Blob([JSON.stringify(json, null, 2)], {type: "application/json;charset=utf-8"});
 
-   if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-       window.navigator.msSaveOrOpenBlob(blob, filename);
-   } else {
-       var a = document.createElement('a');
-       a.download = filename;
-       a.href = URL.createObjectURL(blob);
-       a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
-       eventClickFire(a);
-   }
-
+   var a = document.createElement('a');
+   a.download = filename;
+   a.href = URL.createObjectURL(blob);
+   a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
+   eventClickFire(a);
  };
 
  //Upload JSON
@@ -118,7 +121,8 @@ var importSources = function(e) {
    var reader = new FileReader();
    reader.onload = function(e) {
      var response = e.target.result;
-     setSources(parseJson(response));
+     if(importPlayer) setPlayer(file.name,parseJson(response));
+     else setSources(parseJson(response));
    };
    reader.readAsText(file)
  }
@@ -131,8 +135,24 @@ function setSources(sources){
     adventure=editor.getEditor('root.Sources.Images')
     var currentSrc=adventure.getValue();
     adventure.setValue($.merge(currentSrc,Object.getOwnPropertyNames(sources.frames)));
-
   }
+}
+
+function setPlayer(name,data){
+  importPlayer=false;
+  let folder=editor.getEditor('root.Sources.Folders').getValue();
+  let path=folder.Main;
+  if(folder.Player!==undefined) path=folder.Player;
+  let playerSettings=editor.getEditor('root.Player');
+  let nameJson=name.replace("ske", "tex");
+  let nameTex=nameJson.replace("json", "png")
+  let playerObj={
+    Skeleton:path+name,
+    Texture:path+nameTex,
+    Json:path+nameJson,
+    Armature:data.armature[0].name
+  }
+  playerSettings.setValue(playerObj);
 }
 
 var clearJSON=function(){
@@ -149,5 +169,6 @@ $('#uploadFile').change(uploadJSON);
 $('#import').click(function(){$('#importFile').click();});
 $('#importFile').change(importJSON);
 $('#addsrc').click(function(){$('#srcFile').click();});
+$('#addplayer').click(function(){$('#srcFile').click();importPlayer=true;});
 $('#srcFile').change(importSources);
 $('#reset').click(clearJSON);

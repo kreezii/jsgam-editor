@@ -1,0 +1,19 @@
+{
+  "anyOf":[
+    {
+      "type": "string",
+      "title":"From Source",
+      "watch": {
+        "sources": "Sources.Images"
+      },
+      "enumSource": [{
+        "source": "sources",
+        "value": "{{item}}"
+      }]
+    },
+    {
+      "type":"string",
+      "title":"Custom"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "watch": {
+    "scenes": "Scenes"
+  },
+  "enumSource": [{
+    "source": "scenes",
+    "value": "{{item.Name}}"
+  }]
+}

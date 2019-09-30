@@ -8,15 +8,24 @@
       "Description": {
         "type": "array",
         "items": {
-          "type": "string"
+          "type": "string",
+          "title":"Language"
         },
         "description": "If not defined, the NoDescription property of the Texts schema will be used."
       },
       "Position": {
         "type": "array",
+        "format":"table",
         "items": {
-          "type": "number"
+          "type": "number",
+          "format":"number",
+          "title":"Coordinates"
         },
+        "options":{
+          "disable_array_reorder":true
+        },
+        "maxItems": 2,
+        "minItems": 2,
         "description": "Position in the scene."
       },
       "Size": {
@@ -41,8 +50,9 @@
       },
       "Take": {
         "type": "boolean",
-        "default": false,
-        "description": "If set to true, the object can be taken."
+        "format": "checkbox",
+        "default": true,
+        "readOnly": true
       },
       "Use": {
         "type": "string",

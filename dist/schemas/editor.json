@@ -15,7 +15,6 @@
     },
     "Player":{
       "title": "Player",
-      "format":"categories",
       "$ref": "player.schema.json"
     },
     "Objects":{
@@ -95,6 +94,10 @@
       "type": "object",
       "$ref": "credits.schema.json"
     },
+    "Help":{
+      "title": "Help",
+      "$ref": "help.schema.json"
+    },
     "Puzzles":{
       "title": "Puzzles",
       "type": "array",
@@ -118,7 +121,6 @@
     "Settings",
     "Texts",
     "Player",
-    "Credits",
     "Objects",
     "Scenes",
     "Puzzles",

@@ -2,8 +2,7 @@
   "$ref": "objects.schema.json",
   "properties": {
     "Texture": {
-      "type": "string",
-      "description": "Texture object"
+      "$ref": "sources-img.schema.json"
     }
   },
   "required":["Texture"]

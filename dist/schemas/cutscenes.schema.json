@@ -14,7 +14,7 @@
             "type": "object",
             "properties": {
               "Image": {
-                "type": "string"
+                "$ref": "sources-img.schema.json"
               },
               "Text": {
                 "type": "array",

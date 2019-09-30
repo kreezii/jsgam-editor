@@ -5,10 +5,10 @@
         "type": "string"
       },
       "Background": {
-        "type": "string"
+        "$ref": "sources-img.schema.json"
       },
       "Foreground": {
-        "type": "string"
+        "$ref": "sources-img.schema.json"
       },
       "Music": {
         "type": "string"
@@ -36,18 +36,7 @@
         "description": "Player options in this scene"
       },
       "Objects": {
-        "type": "array",
-        "items": {
-          "type": "string",
-          "watch": {
-            "objects": "Objects"
-          },
-          "enumSource": [{
-            "source": "objects",
-            "value": "{{item.Name}}"
-          }]
-        },
-        "description": "Objects"
+        "$ref":"watch-objects.schema.json"
       },
       "CutScene": {
         "type": "string"

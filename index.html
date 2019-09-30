@@ -12,11 +12,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
-  <style>
-    body {background-color: #eee;}
-  </style>
-  <body>
 
+  <body>
     <!-- Modal -->
     <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -37,6 +34,7 @@
         </div>
       </div>
     </div>
+    <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-dark shadow-sm mb-5">
       <img src="imgs/jsgamLogo.png" height="100" alt="JSGAM Editor" class="navbar-brand">
       <div class="collapse navbar-collapse">
@@ -45,25 +43,32 @@
             <input id="uploadFile" style="display:none;" type="file" title="Upload adventure" accept=".json">
             <button id="upload" title="Load adventure" class="btn btn-primary mr-3"><i class="material-icons">file_upload</i> Load</button>
           </li>
+
           <li class="nav-item">
             <button id="download" title="Save adventure" class="btn btn-success mr-3"><i class="material-icons">file_download</i> Save</button>
           </li>
-          <li class="nav-item">
-            <input id="srcFile" style="display:none;" type="file" title="Add sources">
-            <button id="addsrc" title="Add sources"class="btn btn-warning mr-3"><i class="material-icons">add_box</i> Add Sources</button>
-          </li>
+
           <li class="nav-item">
             <input id="importFile" style="display:none;" type="file" title="Import scenes and objects" accept=".json">
             <button id="import" title="Import"class="btn btn-info mr-3"><i class="material-icons">archive</i> Import</button>
           </li>
-          <li class="nav-item">
-            <button title="Reset adventure"class="btn btn-danger mr-3" data-toggle="modal" data-target="#ModalCenter"><i class="material-icons">delete</i> Reset</button>
-          </li>
         </ul>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button title="Add sources"class="btn btn-warning mr-3"><i class="material-icons">add_box</i> Sources</button>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <input id="srcFile" style="display:none;" type="file" title="Add sources">
+            <a id="addsrc" class="dropdown-item" href="#">Atlas</a>
+            <a id="addplayer" class="dropdown-item" href="#">Player</a>
+            <a class="dropdown-item" href="#">Characters</a>
+          </div>
+        </div>
+        <button title="Reset adventure"class="btn btn-danger mr-3" data-toggle="modal" data-target="#ModalCenter"><i class="material-icons">delete</i> Reset</button>
         <h1><span id='valid_indicator'><i id='valid_icon' class="material-icons">done</i><span id="valid_text"></span></span></h1>
       </div>
     </nav>
-
+    <!-- Editor -->
     <div id='editor_holder'></div>
     <script src="./index.js"></script>
 
