@@ -6,12 +6,18 @@
       "title": "Settings",
       "format":"categories",
       "basicCategoryTitle": "Main",
-      "$ref": "settings.schema.json"
+      "$ref": "settings.schema.json",
+      "options":{
+        "disable_collapse": true
+      }
     },
     "Texts":{
       "title": "Texts",
       "format":"categories",
-      "$ref": "texts.schema.json"
+      "$ref": "texts.schema.json",
+      "options":{
+        "disable_collapse": true
+      }
     },
     "Player":{
       "title": "Player",
@@ -128,6 +134,9 @@
   ],
   "dependencies": {
     "Dialogues": ["Characters"]
+  },
+  "options":{
+    "disable_collapse": true
   },
   "format":"categories"
 }

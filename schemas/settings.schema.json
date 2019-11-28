@@ -119,6 +119,22 @@
       "$ref":"watch-scenes.schema.json",
       "description":"The scene where the game begins"
     },
+    "Resolution":{
+      "type": "array",
+      "format":"table",
+      "items": {
+        "type": "number",
+        "format":"number",
+        "title":"Coordinates"
+      },
+      "options":{
+        "disable_array_reorder":true
+      },
+      "default":[960,540],
+      "maxItems": 2,
+      "minItems": 2,
+      "description": "Game resolution"
+    },
     "HoldTime": {
       "type": "number",
       "default":0.1
@@ -174,6 +190,7 @@
     "TitleScreen",
     "FirstScene",
     "HoldTime",
+    "Resolution",
     "Inventory"
   ]
 }

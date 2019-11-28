@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "Description": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Door": {
+      "oneOf":[
+        {
+          "type":"boolean",
+          "title":"Disable",
+          "enum": [ false ],
+          "default":false,
+          "minLength":1
+        },
+        {
+          "type":"object",
+          "title":"Enable",
+          "properties": {
+            "Player": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "To": {
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "default":false,
+      "required": []
+    },
+    "Position": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "Mirror": {
+      "type":"boolean",
+      "default":false
+    },
+    "Interactive":{
+      "type":"boolean",
+      "title":"Disable",
+      "default":false
+    },
+    "Texture":{
+      "type":"boolean",
+      "default":false
+    },
+    "Lock":{
+      "type":"boolean",
+      "default":false
+    },
+    "Use": {
+      "type": "string"
+    },
+    "Combine": {
+      "type": "object",
+      "properties": {
+        "With": {
+          "type": "string"
+        },
+        "Puzzle": {
+          "type": "string"
+        }
+      },
+      "required": []
+    }
+  }
+}

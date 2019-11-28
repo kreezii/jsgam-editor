@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "watch": {
+    "dialogues": "Dialogues"
+  },
+  "enumSource": [{
+    "source": "dialogues",
+    "value": "{{item.Name}}"
+  }]
+}

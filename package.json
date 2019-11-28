@@ -17,6 +17,7 @@
     "@json-editor/json-editor": "^1.4.0-beta.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
     "cssnano": "^4.1.10"
   }
 }

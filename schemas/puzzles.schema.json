@@ -14,12 +14,45 @@
         "title":"Target",
         "anyOf":[
           {
-            "$ref":"property-objects.schema.json",
+            "properties":{
+              "Object":{
+                "$ref":"property-objects.schema.json",
+                "title":"Properties"
+              }
+            },
+            "options":{
+              "disable_properties":true
+            },
+            "required":["Object"],
             "title":"Object"
           },
           {
             "type":"object",
+            "properties":{
+              "Player":{
+                "$ref":"property-player.schema.json",
+                "title":"Properties"
+              }
+            },
+            "options":{
+              "disable_properties":true
+            },
+            "required":["Player"],
             "title":"Player"
+          },
+          {
+            "type":"object",
+            "properties":{
+              "NPC":{
+                "$ref":"property-character.schema.json",
+                "title":"Properties"
+              }
+            },
+            "options":{
+              "disable_properties":true
+            },
+            "required":["NPC"],
+            "title":"Character"
           }
         ]
       }

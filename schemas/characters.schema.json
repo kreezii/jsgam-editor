@@ -85,14 +85,7 @@
             "format": "color"
           },
           "Dialogue": {
-            "type": "string",
-            "watch": {
-              "dialogues": "Dialogues"
-            },
-            "enumSource": [{
-              "source": "dialogues",
-              "value": "{{item.Name}}"
-            }],
+            "$ref":"watch-dialogues.schema.json",
             "description": "Name of the dialogue when the player talk to the character"
           },
           "Mirror": {

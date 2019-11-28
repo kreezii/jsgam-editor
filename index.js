@@ -1,16 +1,10 @@
-import JSONEditor from "@json-editor/json-editor";
-// This is the starting value for the editor
- // We will use this to seed the initial editor
- // and to provide a "Restore to Default" button.
-//JSONEditor.defaults.theme = 'bootstrap4';
-
 var importPlayer=false;
 // Initialize the editor
 var editor = new JSONEditor(document.getElementById('editor_holder'),{
   // Enable fetching schemas via ajax
   ajax: true,
-  theme : 'bootstrap4',
-  iconlib : 'materialicons',
+  theme : 'spectre',
+  iconlib : 'fontawesome5',
   // The schema for the editor
   schema: {
     $ref: "schemas/editor.json"
@@ -32,13 +26,13 @@ editor.on('change',function() {
 
   // Not valid
   if(errors.length) {
-    indicator.className="badge badge-pill badge-danger";
+  //  indicator.className="badge badge-pill badge-danger";
     indicatorIcon.textContent="clear";
     indicatorText.textContent=" Not Valid";
   }
   // Valid
   else {
-    indicator.className="badge badge-pill badge-success";
+    //indicator.className="badge badge-pill badge-success";
     indicatorIcon.textContent="done";
     indicatorText.textContent=" Valid";
   }
@@ -160,15 +154,24 @@ var clearJSON=function(){
 }
 
 function fileUpload(){
-  $('#uploadFile').click();
+  document.querySelector('#uploadFile').click();
 }
 
-$('#download').click(downloadJSON);
-$('#upload').click(function(){$('#uploadFile').click();});
-$('#uploadFile').change(uploadJSON);
-$('#import').click(function(){$('#importFile').click();});
-$('#importFile').change(importJSON);
-$('#addsrc').click(function(){$('#srcFile').click();});
-$('#addplayer').click(function(){$('#srcFile').click();importPlayer=true;});
-$('#srcFile').change(importSources);
-$('#reset').click(clearJSON);
+document.getElementById("download").addEventListener('click',downloadJSON);
+document.getElementById("upload").addEventListener('click',()=>{
+  document.getElementById("uploadFile").click();
+});
+document.getElementById("uploadFile").addEventListener('change',uploadJSON);
+
+document.getElementById("import").addEventListener('click',()=>{
+  document.getElementById("importFile").click();
+});
+document.getElementById("importFile").addEventListener('change',importJSON);
+
+
+/*
+  $('#addsrc').click(function(){$('#srcFile').click();});
+  $('#addplayer').click(function(){$('#srcFile').click();importPlayer=true;});
+  $('#srcFile').change(importSources);
+  $('#reset').click(clearJSON);
+*/

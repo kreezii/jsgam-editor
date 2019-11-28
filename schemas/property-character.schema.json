@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "Dialogue": {
+      "$ref":"watch-dialogues.schema.json"
+    }
+  },
+  "dependencies": {
+    "Dialogue": ["Dialogues"]
+  }
+}
