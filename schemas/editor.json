@@ -21,7 +21,10 @@
     },
     "Player":{
       "title": "Player",
-      "$ref": "player.schema.json"
+      "$ref": "player.schema.json",
+      "options":{
+        "disable_collapse": true
+      }
     },
     "Objects":{
       "title": "Objects",
@@ -44,6 +47,9 @@
             "title":"Animated"
           }
         ]
+      },
+      "options":{
+        "disable_collapse": true
       }
     },
     "Characters":{
@@ -54,6 +60,9 @@
         "title": "Character",
         "$ref": "characters.schema.json",
         "headerTemplate": "{{i}} - {{self.Name}}"
+      },
+      "options":{
+        "disable_collapse": true
       }
     },
     "Dialogues":{
@@ -64,6 +73,9 @@
         "title": "Dialogue",
         "headerTemplate": "{{i}} - {{self.Name}}",
         "$ref": "dialogues.schema.json"
+      },
+      "options":{
+        "disable_collapse": true
       }
     },
     "Scenes":{
@@ -74,6 +86,9 @@
         "title": "Scene",
         "$ref": "scenes.schema.json",
         "headerTemplate": "{{i}} - {{self.Name}}"
+      },
+      "options":{
+        "disable_collapse": true
       }
     },
     "Cutscenes":{
@@ -93,16 +108,25 @@
             "title": "Images Sequence"
           }
         ]
+      },
+      "options":{
+        "disable_collapse": true
       }
     },
     "Credits":{
       "title": "Credits",
       "type": "object",
-      "$ref": "credits.schema.json"
+      "$ref": "credits.schema.json",
+      "options":{
+        "disable_collapse": true
+      }
     },
     "Help":{
       "title": "Help",
-      "$ref": "help.schema.json"
+      "$ref": "help.schema.json",
+      "options":{
+        "disable_collapse": true
+      }
     },
     "Puzzles":{
       "title": "Puzzles",
@@ -112,6 +136,9 @@
         "title": "Puzzle",
         "headerTemplate": "{{i}} - {{self.Name}}",
         "$ref": "puzzles.schema.json"
+      },
+      "options":{
+        "disable_collapse": true
       }
     },
     "Sources":{
@@ -120,6 +147,9 @@
       "options":{
         "disable_properties":true,
         "disable_array_add":true
+      },
+      "options":{
+        "disable_collapse": true
       }
     }
   },
@@ -136,7 +166,8 @@
     "Dialogues": ["Characters"]
   },
   "options":{
-    "disable_collapse": true
+    "disable_collapse": true,
+    "compact": true
   },
   "format":"categories"
 }

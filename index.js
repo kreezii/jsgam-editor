@@ -20,21 +20,19 @@ editor.on('change',function() {
   // Get an array of errors from the validator
   var errors = editor.validate();
 
-  var indicator = document.getElementById('valid_indicator');
-  var indicatorIcon = document.getElementById('valid_icon');
-  var indicatorText = document.getElementById('valid_text');
+  var indicator = document.getElementById('valid_icon');
 
   // Not valid
   if(errors.length) {
-  //  indicator.className="badge badge-pill badge-danger";
-    indicatorIcon.textContent="clear";
-    indicatorText.textContent=" Not Valid";
+    indicator.classList.remove("fa-check","text-sucess");
+    indicator.classList.add("fa-times","text-error");
+    indicator.dataset.tooltip="Error";
   }
   // Valid
   else {
-    //indicator.className="badge badge-pill badge-success";
-    indicatorIcon.textContent="done";
-    indicatorText.textContent=" Valid";
+    indicator.classList.remove("fa-times","text-error");
+    indicator.classList.add("fa-check","text-sucess");
+    indicator.dataset.tooltip="Valid";
   }
 });
 
