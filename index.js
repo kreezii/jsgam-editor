@@ -1,9 +1,10 @@
 var importPlayer=false;
 // Initialize the editor
+
 var editor = new JSONEditor(document.getElementById('editor_holder'),{
   // Enable fetching schemas via ajax
   ajax: true,
-  theme : 'spectre',
+  theme: 'spectre',
   iconlib : 'fontawesome5',
   // The schema for the editor
   schema: {
@@ -155,18 +156,34 @@ function fileUpload(){
   document.querySelector('#uploadFile').click();
 }
 
+//Save Adventure
 document.getElementById("download").addEventListener('click',downloadJSON);
+
+//Load Adventure
 document.getElementById("upload").addEventListener('click',()=>{
   document.getElementById("uploadFile").click();
 });
 document.getElementById("uploadFile").addEventListener('change',uploadJSON);
 
+//Import Scene
 document.getElementById("import").addEventListener('click',()=>{
   document.getElementById("importFile").click();
 });
 document.getElementById("importFile").addEventListener('change',importJSON);
 
+//Reset Adventure
+document.querySelector("#reset").addEventListener('click',()=>{
+  document.querySelector("#resetConfirm").classList.add("active");
+});
 
+document.querySelector("#closeReset").addEventListener('click',()=>{
+  document.querySelector("#resetConfirm").classList.remove("active");
+});
+
+document.querySelector("#resetYes").addEventListener('click',clearJSON);
+
+//Add sources
+document.getElementById("srcFile")
 /*
   $('#addsrc').click(function(){$('#srcFile').click();});
   $('#addplayer').click(function(){$('#srcFile').click();importPlayer=true;});

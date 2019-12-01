@@ -1,8 +1,61 @@
-main{
-  /*display: flex;*/
-/*  text-align: center;*/
+:root{
+  --body-bg-color: #282c34;
+  --header-bg-color: #21252b;
+  --hover-color: #20262e;
+  --input-color: #343a40;
+  --border-color: #181a1f;
+  --text-color: #abb2bf;
+}
+header, footer{
+  background-color: var(--header-bg-color);
+  text-align: center;
+  margin: 0;
+}
+
+body{
+  background-color: var(--body-bg-color);
+}
+
+footer{
+
+}
+
+div:not(.modal) {
+    background-color: var(--body-bg-color);
+}
+
+.menu{
+  flex-direction: row;
+  justify-content: space-between;
+  background: var(--header-bg-color);
+  margin: 0;
+  padding: 0;
+  transform: none !important;
+  border-radius: 0 !important;
 }
 
 .logo{
   max-height: 15vh;
+}
+
+#editor_holder{
+  margin: 0 5%;
+  min-height: 100vh !important;
+}
+
+main[data-theme="spectre"] div[data-schematype]:not([data-schematype="object"]):hover{
+  background-color: transparent !important;
+}
+
+.form-input{
+  color: black !important;
+
+}
+
+.form-input::placeholder {
+    color: var(--text-color) !important;
+}
+
+.form-select:not([multiple]):not([size]) {
+    background: #3a3f47 !important;
 }

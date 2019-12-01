@@ -4,95 +4,75 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>JSGAM Editor</title>
-    <link rel="stylesheet" href="css/jsgam-editor.css" />
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="css/spectre.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/jsgam-editor.css" />
   </head>
 
-  <body class="bg-gray">
-
-<!--
-    <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="ModalCenterTitle">Warning</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
+  <body>
+    <!-- Modal -->
+    <div class="modal" id="resetConfirm">
+      <a href="#close" class="modal-overlay" aria-label="Close"></a>
+      <div class="modal-container">
+        <div class="modal-header">
+          <a href="#close" id="closeReset" class="btn btn-clear float-right" aria-label="Close"></a>
+          <div class="modal-title h5">Reset Adventure</div>
+        </div>
+        <div class="modal-body">
+          <div class="content">
             Are you sure you want to reset your adventure?
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-            <button id="reset" type="button" class="btn btn-secondary" data-dismiss="modal">Reset</button>
-          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="resetYes" class="btn btn-success">Yes</button>
+          <button class="btn btn-error">No</button>
         </div>
       </div>
     </div>
 
+    <!-- Header -->
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-dark shadow-sm mb-5">
-        <img src="imgs/jsgamLogo.png" height="100" alt="JSGAM Editor" class="navbar-brand">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <input id="uploadFile" style="display:none;" type="file" title="Upload adventure" accept=".json">
-              <a href=# id="upload" title="Load adventure" class="btn btn-secondary"><i class="material-icons">file_upload</i> Load</a>
-            </li>
-
-            <li class="nav-item">
-              <button id="download" title="Save adventure" class="btn btn-success mr-3"><i class="material-icons">file_download</i> Save</button>
-            </li>
-
-            <li class="nav-item">
-              <input id="importFile" style="display:none;" type="file" title="Import scenes and objects" accept=".json">
-              <button id="import" title="Import"class="btn btn-info mr-3"><i class="material-icons">archive</i> Import</button>
-            </li>
-          </ul>
-          <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <button title="Add sources"class="btn btn-warning mr-3"><i class="material-icons">add_box</i> Sources</button>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <input id="srcFile" style="display:none;" type="file" title="Add sources">
-              <a id="addsrc" class="dropdown-item" href="#">Atlas</a>
-              <a id="addplayer" class="dropdown-item" href="#">Player</a>
-              <a class="dropdown-item" href="#">Characters</a>
-            </div>
-          </div>
-          <button title="Reset adventure"class="btn btn-danger mr-3" data-toggle="modal" data-target="#ModalCenter"><i class="material-icons">delete</i> Reset</button>
-        </div>
-      </nav>
-
-    </header>    -->
-    <header class="bg-dark">
       <img class="logo" src="imgs/jsgam-logo.svg" alt="jsgam-logo"/>
     </header>
-      <span id='valid_indicator'><i id="valid_icon" class="fas fa-check text-success tooltip tooltip-right" data-tooltip="Valid"></i></span>
-      <ul class="nav">
-        <li class="nav-item">
-          <input id="uploadFile" class="d-none" type="file" title="Upload adventure" accept=".json">
-          <a href=# id="upload" class="btn btn-link tooltip tooltip-right" data-tooltip="Load adventure"><i class="fas fa-upload fa-lg"></i></a>
-        </li>
 
-        <li class="nav-item">
-          <a id="download" title="Save adventure" class="btn btn-link"><i class="fas fa-download fa-lg"></i></a>
-        </li>
-
-        <li class="nav-item">
-          <input id="importFile" class="d-none" type="file" title="Import scenes and objects" accept=".json">
-          <a id="import" title="Import" class="btn btn-link"><i class="fas fa-file-import fa-lg"></i></a>
-        </li>
-      </ul>
     <!-- Editor -->
     <main id='editor_holder'>
+      <div class="menubar">
+        <ul class="nav menu">
+          <li class="nav-item">
+            <input id="uploadFile" class="d-none" type="file" title="Upload adventure" accept=".json">
+            <a href=# id="upload" class="btn btn-link tooltip tooltip-bottom" data-tooltip="Load adventure"><i class="fas fa-upload fa-lg"></i></a>
+          </li>
+
+          <li class="nav-item">
+            <a id="download" title="Save adventure" class="btn btn-link tooltip tooltip-bottom" data-tooltip="Save adventure"><i class="fas fa-download fa-lg"></i></a>
+          </li>
+
+          <li class="nav-item">
+            <input id="importFile" class="d-none" type="file" title="Import scenes and objects" accept=".json">
+            <a id="import" title="Import" class="btn btn-link tooltip tooltip-bottom" data-tooltip="Load adventure"><i class="fas fa-file-import fa-lg"></i></a>
+          </li>
+          <li class="nav-item">
+            <a id="reset" title="Reset adventure" class="btn btn-link tooltip tooltip-bottom" data-tooltip="Reset adventure"><i class="fas fa-trash-alt fa-lg"></i></a>
+          </li>
+          <li class="nav-item">
+            <a id="addsrc" class="btn btn-link tooltip tooltip-bottom" data-tooltip="Add image atlas" href="#"><i class="fas fa-images fa-lg"></i></a>
+            <input id="srcFile" class="d-none" type="file" title="Add sources">
+          </li>
+          <li class="nav-item">
+            <a id="addplayer" class="btn btn-link tooltip tooltip-bottom" data-tooltip="Add player" href="#"><i class="fas fa-user fa-lg"></i></a>
+          </li>
+
+          <li class="nav-item ">
+            <i id="valid_icon" class="fas fa-check text-success tooltip tooltip-bottom" data-tooltip="Valid"></i>
+          </li>
+        </ul>
+    </div>
     </main>
-    <footer class="bg-dark">
+
+    <!-- Footer -->
+    <footer>
+      2019
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@json-editor/json-editor@latest/dist/jsoneditor.min.js"></script>
     <script src="./index.js"></script>
