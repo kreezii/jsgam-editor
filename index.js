@@ -6,6 +6,7 @@ var editor = new JSONEditor(document.getElementById('editor_holder'),{
   ajax: true,
   theme: 'spectre',
   iconlib : 'fontawesome5',
+  no_additional_properties: true,
   // The schema for the editor
   schema: {
     $ref: "schemas/editor.json"
@@ -127,7 +128,7 @@ function setSources(sources){
   if(sources.frames){
     adventure=editor.getEditor('root.Sources.Images')
     var currentSrc=adventure.getValue();
-    adventure.setValue($.merge(currentSrc,Object.getOwnPropertyNames(sources.frames)));
+    adventure.setValue(Object.assign(currentSrc,Object.getOwnPropertyNames(sources.frames)));
   }
 }
 
@@ -176,17 +177,23 @@ document.querySelector("#reset").addEventListener('click',()=>{
   document.querySelector("#resetConfirm").classList.add("active");
 });
 
-document.querySelector("#closeReset").addEventListener('click',()=>{
-  document.querySelector("#resetConfirm").classList.remove("active");
+document.querySelectorAll('[aria-label="Close"]').forEach(el=>{
+  el.addEventListener('click',()=>{
+    document.querySelector("#resetConfirm").classList.remove("active");
+  })
 });
 
 document.querySelector("#resetYes").addEventListener('click',clearJSON);
 
 //Add sources
-document.getElementById("srcFile")
-/*
-  $('#addsrc').click(function(){$('#srcFile').click();});
-  $('#addplayer').click(function(){$('#srcFile').click();importPlayer=true;});
-  $('#srcFile').change(importSources);
-  $('#reset').click(clearJSON);
-*/
+document.getElementById("addsrc").addEventListener('click',()=>{
+  document.getElementById("srcFile").click();
+});
+
+//Add Player
+document.getElementById("addplayer").addEventListener('click',()=>{
+  document.getElementById("srcFile").click();
+  importPlayer=true;
+});
+
+document.getElementById("srcFile").addEventListener('change',importSources);
