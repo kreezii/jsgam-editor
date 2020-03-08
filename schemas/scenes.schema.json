@@ -11,14 +11,14 @@
         "$ref": "sources-img.schema.json"
       },
       "Music": {
-        "type": "string"
+        "$ref":"watch-music.schema.json"
       },
       "WalkArea": {
         "type": "array",
         "format": "tabs-top",
         "items": {
           "type": "number",
-          "headerTemplate": "{{self}}"
+          "headerTemplate": "{{i}}"
         }
       },
       "Obstacles": {

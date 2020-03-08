@@ -10,19 +10,55 @@
           "default":"data/"
         },
         "Player":{
-          "type":"string",
-          "template": "{{mainFolder}}player/",
-          "watch": {
-            "mainFolder": "structure.Main"
-          }
+          "anyOf": [
+            {
+              "type":"string",
+              "title":"Auto",
+              "template": "{{mainFolder}}characters/",
+              "watch": {
+                "mainFolder": "structure.Main"
+              }
+            },
+            {
+              "type":"string",
+              "title": "Edit",
+              "default":"data/player/"
+            }
+          ]
         },
-        "Atlas":{
-          "type":"string",
-          "default":"data/"
+        "NPC":{
+          "anyOf": [
+            {
+              "type":"string",
+              "title":"Auto",
+              "template": "{{mainFolder}}characters/",
+              "watch": {
+                "mainFolder": "structure.Main"
+              }
+            },
+            {
+              "type":"string",
+              "title": "Edit",
+              "default":"data/npc/"
+            }
+          ]
         },
-        "Atlas":{
-          "type":"string",
-          "default":"data/"
+        "Sounds":{
+          "anyOf": [
+            {
+              "type":"string",
+              "title":"Auto",
+              "template": "{{mainFolder}}sounds/",
+              "watch": {
+                "mainFolder": "structure.Main"
+              }
+            },
+            {
+              "type":"string",
+              "title": "Edit",
+              "default":"data/sounds/"
+            }
+          ]
         }
       },
       "description":"Game structure folders",
@@ -39,10 +75,29 @@
         "disable_properties":true,
         "disable_array_add":true
       }
+    },
+    "Fonts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "size":{
+            "type": "number"
+          }
+        }
+      },
+      "options":{
+        "disable_properties":true,
+        "disable_array_add":true
+      }
     }
   },
   "required":[
     "Images",
-    "Folders"
+    "Folders",
+    "Fonts"
   ]
 }

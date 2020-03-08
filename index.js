@@ -1,4 +1,7 @@
 var importPlayer=false;
+var importNPC=false;
+var importFont=false;
+var removeSources=false;
 // Initialize the editor
 
 var editor = new JSONEditor(document.getElementById('editor_holder'),{
@@ -58,8 +61,13 @@ var eventClickFire = function(el) {
  // Save JSON
  var downloadJSON = function() {
    var title = prompt('Enter the name of your file', 'New Adventure');
+   var editorJSON=editor.getValue();
+   if(removeSources) delete editorJSON["Sources"];
+   removeSources=false;
+
    if (title === null) return;
-   var json = editor.getValue(),
+
+   var json = editorJSON,
        filename = (title || 'jsgam').toLowerCase().replace(/[\s<>:"\\|*]/g, "-") + '.json',
        blob = new Blob([JSON.stringify(json, null, 2)], {type: "application/json;charset=utf-8"});
 
@@ -69,6 +77,12 @@ var eventClickFire = function(el) {
    a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
    eventClickFire(a);
  };
+
+ //Export JSON
+ function exportJSON(){
+   removeSources=true;
+   downloadJSON();
+ }
 
  //Upload JSON
 var uploadJSON = function(e) {
@@ -81,6 +95,7 @@ var uploadJSON = function(e) {
     reader.onload = function(e) {
       var response = e.target.result;
       editor.setValue(parseJson(response));
+      editor.setValue(parseJson(response)); //Temporal fix for don't applying values to the form correctly
     };
     reader.readAsText(file)
   }
@@ -98,7 +113,8 @@ var importJSON = function(e) {
    reader.onload = function(e) {
      var response = e.target.result;
      var adventure=editor.getValue();
-     editor.setValue($.extend( true, adventure, parseJson(response))); //Merge imported JSON with existing values
+     console.log(adventure,parseJson(response));
+     editor.setValue(Object.assign(adventure,parseJson(response)));//Merge imported JSON with existing values
    };
    reader.readAsText(file)
  }
@@ -116,6 +132,8 @@ var importSources = function(e) {
    reader.onload = function(e) {
      var response = e.target.result;
      if(importPlayer) setPlayer(file.name,parseJson(response));
+     else if(importNPC) setNPC(file.name,parseJson(response));
+     else if(importFont) setFont(response);
      else setSources(parseJson(response));
    };
    reader.readAsText(file)
@@ -128,8 +146,32 @@ function setSources(sources){
   if(sources.frames){
     adventure=editor.getEditor('root.Sources.Images')
     var currentSrc=adventure.getValue();
-    adventure.setValue(Object.assign(currentSrc,Object.getOwnPropertyNames(sources.frames)));
+    adventure.setValue(currentSrc.concat(Object.getOwnPropertyNames(sources.frames)));
   }
+}
+
+function setFont(sources){
+  importFont=false;
+  let parser = new DOMParser();
+  let xmlDoc = parser.parseFromString(sources,"text/xml");
+  let fntInfo=xmlDoc.getElementsByTagName("info")[0];
+
+  if(fntInfo){
+    let fontValues={
+      "name":fntInfo.attributes["face"].nodeValue,
+      "size":fntInfo.attributes["size"].nodeValue
+    }
+    let adventure=editor.getEditor('root.Sources.Fonts')
+    var currentSrc=adventure.getValue();
+    adventure.setValue(currentSrc.concat(fontValues));
+  }
+  /*
+  var adventure;
+  if(sources.frames){
+    adventure=editor.getEditor('root.Sources.Images')
+    var currentSrc=adventure.getValue();
+    adventure.setValue(currentSrc.concat(Object.getOwnPropertyNames(sources.frames)));
+  }*/
 }
 
 function setPlayer(name,data){
@@ -149,6 +191,27 @@ function setPlayer(name,data){
   playerSettings.setValue(playerObj);
 }
 
+function setNPC(name,data){
+  importNPC=false;
+  let folder=editor.getEditor('root.Sources.Folders').getValue();
+  let path=folder.Main;
+  if(folder.Characters!==undefined) path=folder.Characters;
+  let characterSettings=editor.getEditor('root.Characters');
+  if(characterSettings!==undefined){
+    let nameJson=name.replace("ske", "tex");
+    let nameTex=nameJson.replace("json", "png")
+    let characterObj={
+      Skeleton:path+name,
+      Texture:path+nameTex,
+      Json:path+nameJson,
+      Armature:data.armature[0].name
+    }
+
+    var currentCharacters=characterSettings.getValue();
+    characterSettings.setValue(currentCharacters.concat(characterObj));
+  }
+}
+
 var clearJSON=function(){
   editor.setValue("{}");
 }
@@ -159,6 +222,9 @@ function fileUpload(){
 
 //Save Adventure
 document.getElementById("download").addEventListener('click',downloadJSON);
+
+//Export Adventure
+document.getElementById("export").addEventListener('click',exportJSON);
 
 //Load Adventure
 document.getElementById("upload").addEventListener('click',()=>{
@@ -190,10 +256,22 @@ document.getElementById("addsrc").addEventListener('click',()=>{
   document.getElementById("srcFile").click();
 });
 
+//Add fonts
+document.getElementById("addfnt").addEventListener('click',()=>{
+  document.getElementById("srcFile").click();
+  importFont=true;
+});
+
 //Add Player
 document.getElementById("addplayer").addEventListener('click',()=>{
   document.getElementById("srcFile").click();
   importPlayer=true;
+});
+
+//Add Character
+document.getElementById("addcharacter").addEventListener('click',()=>{
+  document.getElementById("srcFile").click();
+  importNPC=true;
 });
 
 document.getElementById("srcFile").addEventListener('change',importSources);

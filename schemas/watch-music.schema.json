@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "watch": {
+    "music": "Music"
+  },
+  "enumSource": [{
+    "source": "music",
+    "value": "{{item.Name}}"
+  }]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "watch": {
+    "scenes": "Sources.Fonts"
+  },
+  "enumSource": [{
+    "source": "scenes",
+    "value": "{{item.name}}"
+  }]
+}

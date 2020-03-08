@@ -141,6 +141,19 @@
         "disable_collapse": true
       }
     },
+    "Music":{
+      "title": "Music",
+      "type": "array",
+      "format": "tabs",
+      "items": {
+        "title": "Music",
+        "$ref": "music.schema.json",
+        "headerTemplate": "{{i}} - {{self.Name}}"
+      },
+      "options":{
+        "disable_collapse": true
+      }
+    },
     "Sources":{
       "type": "object",
       "$ref": "sources.schema.json",

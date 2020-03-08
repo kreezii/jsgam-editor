@@ -57,6 +57,119 @@
         ]
       }
     },
+    "Remove":{
+      "type":"array",
+      "format": "tabs-top",
+      "items":{
+        "title":"Target",
+        "anyOf":[
+          {
+            "properties":{
+              "Object":{
+                "$ref":"property-objects.schema.json",
+                "title":"Properties"
+              }
+            },
+            "options":{
+              "disable_properties":true
+            },
+            "required":["Object"],
+            "title":"Object"
+          },
+          {
+            "properties":{
+              "Door":{
+                "$ref":"property-objects.schema.json",
+                "title":"Properties"
+              }
+            },
+            "options":{
+              "disable_properties":true
+            },
+            "required":["Door"],
+            "title":"Door"
+          },
+          {
+            "type":"object",
+            "properties":{
+              "Player":{
+                "$ref":"property-player.schema.json",
+                "title":"Properties"
+              }
+            },
+            "options":{
+              "disable_properties":true
+            },
+            "required":["Player"],
+            "title":"Player"
+          },
+          {
+            "type":"object",
+            "properties":{
+              "NPC":{
+                "$ref":"property-character.schema.json",
+                "title":"Properties"
+              }
+            },
+            "options":{
+              "disable_properties":true
+            },
+            "required":["NPC"],
+            "title":"Character"
+          }
+        ]
+      }
+    },
+    "Add":{
+      "type":"array",
+      "format": "tabs-top",
+      "items":{
+        "title":"Target",
+        "anyOf":[
+          {
+            "properties":{
+              "Object":{
+                "$ref":"property-objects.schema.json",
+                "title":"Properties"
+              }
+            },
+            "options":{
+              "disable_properties":true
+            },
+            "required":["Object"],
+            "title":"Object"
+          },
+          {
+            "type":"object",
+            "properties":{
+              "Player":{
+                "$ref":"property-player.schema.json",
+                "title":"Properties"
+              }
+            },
+            "options":{
+              "disable_properties":true
+            },
+            "required":["Player"],
+            "title":"Player"
+          },
+          {
+            "type":"object",
+            "properties":{
+              "NPC":{
+                "$ref":"property-character.schema.json",
+                "title":"Properties"
+              }
+            },
+            "options":{
+              "disable_properties":true
+            },
+            "required":["NPC"],
+            "title":"Character"
+          }
+        ]
+      }
+    },
     "Say": {
       "type": "array",
       "items": {
@@ -66,6 +179,7 @@
     "Resolve": {
       "type": "string"
     },
+
     "AddObject": {
       "type": "object",
       "properties": {
@@ -96,7 +210,6 @@
   },
   "required": [
     "Name",
-    "Objects",
-    "Modify"
+    "Objects"
   ]
 }
