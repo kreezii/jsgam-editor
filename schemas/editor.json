@@ -32,7 +32,7 @@
       "format": "tabs",
       "items": {
         "title": "Object",
-        "headerTemplate": "{{i}} - {{self.Name}}",
+        "headerTemplate": "{{self.Name}}",
         "oneOf": [
           {
             "$ref": "objects-static.schema.json",
@@ -59,7 +59,7 @@
       "items": {
         "title": "Character",
         "$ref": "characters.schema.json",
-        "headerTemplate": "{{i}} - {{self.Name}}"
+        "headerTemplate": "{{self.Name}}"
       },
       "options":{
         "disable_collapse": true
@@ -71,7 +71,7 @@
       "format": "tabs",
       "items": {
         "title": "Dialogue",
-        "headerTemplate": "{{i}} - {{self.Name}}",
+        "headerTemplate": "{{self.Name}}",
         "$ref": "dialogues.schema.json"
       },
       "options":{
@@ -85,7 +85,7 @@
       "items": {
         "title": "Scene",
         "$ref": "scenes.schema.json",
-        "headerTemplate": "{{i}} - {{self.Name}}"
+        "headerTemplate": "{{self.Name}}"
       },
       "options":{
         "disable_collapse": true
@@ -97,7 +97,7 @@
       "format": "tabs",
       "items": {
         "title": "Cutscene",
-        "headerTemplate": "{{i}} - {{self.Name}}",
+        "headerTemplate": "{{self.Name}}",
         "oneOf": [
           {
             "$ref": "cutscenes-vid.schema.json",
@@ -134,7 +134,7 @@
       "format": "tabs",
       "items": {
         "title": "Puzzle",
-        "headerTemplate": "{{i}} - {{self.Name}}",
+        "headerTemplate": "{{self.Name}}",
         "$ref": "puzzles.schema.json"
       },
       "options":{
@@ -148,7 +148,7 @@
       "items": {
         "title": "Music",
         "$ref": "music.schema.json",
-        "headerTemplate": "{{i}} - {{self.Name}}"
+        "headerTemplate": "{{self.Name}}"
       },
       "options":{
         "disable_collapse": true

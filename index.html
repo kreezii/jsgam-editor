@@ -4,109 +4,62 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>JSGAM Editor</title>
-    <link rel="stylesheet" href="css/spectre.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/jsgam-editor.css" />
+    <link rel="stylesheet" href="css/jsgam-editor.css">
   </head>
 
   <body>
+    <aside id="inputs">
+      <input id="uploadFile" type="file" title="Upload adventure" accept=".json">
+      <input id="srcFile" type="file" title="Add sources">
+      <input id="importFile" type="file" title="Import scenes and objects" accept=".json">
+    </aside>
     <!-- Modal -->
-    <div class="modal" id="resetConfirm">
-      <a href="#close" class="modal-overlay" aria-label="Close"></a>
-      <div class="modal-container">
-        <div class="modal-header">
-          <a href="#close" class="btn btn-clear float-right" aria-label="Close"></a>
-          <div class="modal-title h5">Reset Adventure</div>
-        </div>
-        <div class="modal-body">
-          <div class="content">
-            Are you sure you want to reset your adventure?
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button id="resetYes" class="btn btn-success" aria-label="Close">Yes</button>
-          <button class="btn btn-error" aria-label="Close">No</button>
-        </div>
-      </div>
-    </div>
+    <aside id="resetConfirm">
+    	<p>Reset Adventure<br>Are you sure you want to reset your adventure?</p>
+    	<form action="#ok">
+    		<p>
+    			          <button id="resetYes">Yes</button>
+    			<a href="#cancel">Cancel</a>
+    		</p>
+    	</form>
+    </aside>
+
 
     <!-- Header -->
     <header>
       <img class="logo" src="imgs/jsgam-logo.svg" alt="jsgam-logo"/>
+      <nav>
+        <ul>
+          <li><a href="#" id="upload" title="Load adventure" ><i class="fas fa-upload fa-lg"></i></a></li>
+          <li><a href="#" id="download" title="Save adventure"  popover-bottom="Save adventure"><i class="fas fa-download fa-lg"></i></a></li>
+          <li><a href="#" id="export" title="Export adventure"  popover-bottom="Export adventure"><i class="fas fa-file-export fa-lg"></i></a></li>
+          <li><a href="#resetConfirm" id="reset" title="Reset adventure" class="btn btn-link tooltip tooltip-bottom" data-tooltip="Reset adventure"><i class="fas fa-trash-alt fa-lg"></i></a>
+          </li>
+
+          <li><a href="#" id="import" title="Import"  popover-bottom="Import scene"><i class="far fa-object-group fa-lg"></i></a></li>
+          <li><a href="#sources-sub"><i class="fas fa-photo-video fa-lg"></i></a>
+                <ul id="sources-sub">
+                <li><a href="#" id="addsrc"><i class="fas fa-images fa-lg"></i> Images</a></li>
+                <li><a href="#" id="addfnt" ><i class="fas fa-font fa-lg"></i> Font</a></li>
+                <li><a href="#" id="addsnd" ><i class="fas fa-music fa-lg"></i> Music</a></li>
+              </ul>
+          </li>
+          <li><a href="#sources-sub"><i class="fas fa-user-plus fa-lg"></i></a>
+            <ul id="npc-sub">
+              <li><a href="#" id="addplayer"><i class="fas fa-user fa-lg"></i> Player</a></li>
+              <li><a href="#" id="addcharacter"><i class="fas fa-users fa-lg"></i> NPC</a></li>
+            </ul>
+          </li>
+          <li><a href="#" title="Texture packer" href="https://www.codeandweb.com/tp-online/" target="_blank"><i class="fas fa-box-open fa-lg"></i></a></li>
+          <li><a href="#" title="Help" href="https://github.com/kreezii/jsgam" target="_blank"><i class="fas fa-question-circle fa-lg"></i></a></li>
+          <li><i id="valid_icon" class="fas fa-check text-success tooltip tooltip-bottom" data-tooltip="Valid"></i></li>
+        </ul>
+      </nav>
     </header>
 
     <!-- Editor -->
     <main id='editor_holder'>
-      <div class="collapse navbar-collapse">
-        <ul class="nav menu">
-          <li class="nav-item">
-            <input id="uploadFile" class="d-none" type="file" title="Upload adventure" accept=".json">
-            <a href=# id="upload" class="btn btn-link tooltip tooltip-bottom" data-tooltip="Load adventure"><i class="fas fa-upload fa-lg"></i></a>
-          </li>
-
-          <li class="nav-item">
-            <a id="download" title="Save adventure" class="btn btn-link tooltip tooltip-bottom" data-tooltip="Save adventure"><i class="fas fa-download fa-lg"></i></a>
-          </li>
-
-          <li class="nav-item">
-            <a id="export" title="Export adventure" class="btn btn-link tooltip tooltip-bottom" data-tooltip="Export adventure"><i class="fas fa-file-export fa-lg"></i></a>
-          </li>
-
-          <li class="nav-item">
-            <a id="reset" title="Reset adventure" class="btn btn-link tooltip tooltip-bottom" data-tooltip="Reset adventure"><i class="fas fa-trash-alt fa-lg"></i></a>
-          </li>
-
-          <li class="nav-item">
-            <input id="importFile" class="d-none" type="file" title="Import scenes and objects" accept=".json">
-            <a id="import" title="Import" class="btn btn-link tooltip tooltip-bottom" data-tooltip="Import scene"><i class="far fa-object-group fa-lg"></i></a>
-          </li>
-          <li class="nav-item ">
-            <div class="dropdown">
-              <a href="#" class="btn btn-link dropdown-toggle tooltip tooltip-bottom" data-tooltip="Add Sources" tabindex="0">
-                <i class="fas fa-photo-video fa-lg"></i>
-              </a>
-              <ul class="menu">
-                <li class="menu-item">
-                  <a id="addsrc" class="btn btn-link tooltip" href="#"><i class="fas fa-images fa-lg"></i> Image Atlas</a>
-                  <input id="srcFile" class="d-none" type="file" title="Add sources">
-                </li>
-                <li class="menu-item">
-                  <a id="addfnt" class="btn btn-link" href="#"><i class="fas fa-font fa-lg"></i> Font</a>
-                  <input id="srcFile" class="d-none" type="file" title="Add Font">
-                </li>
-                <li class="menu-item">
-                  <a id="addsnd" class="btn btn-link" href="#"><i class="fas fa-music fa-lg"></i> Music</a>
-                  <input id="srcFile" class="d-none" type="file" title="Add Sound">
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item ">
-            <div class="dropdown">
-              <a href="#" class="btn btn-link dropdown-toggle tooltip tooltip-bottom" data-tooltip="Add Character" tabindex="0">
-                <i class="fas fa-user-plus fa-lg"></i>
-              </a>
-              <ul class="menu">
-                <li class="menu-item">
-                  <a id="addplayer" class="btn btn-link" href="#"><i class="fas fa-user fa-lg"></i> Player</a>
-                </li>
-                <li class="menu-item">
-                  <a id="addcharacter" class="btn btn-link" href="#"><i class="fas fa-users fa-lg"></i> NPC</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-link tooltip tooltip-bottom" data-tooltip="Texture packer" href="https://www.codeandweb.com/tp-online/" target="_blank"><i class="fas fa-box-open fa-lg"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-link tooltip tooltip-bottom" data-tooltip="Help" href="https://github.com/kreezii/jsgam" target="_blank"><i class="fas fa-question-circle fa-lg"></i></a>
-          </li>
-          <li class="nav-item ">
-            <i id="valid_icon" class="fas fa-check text-success tooltip tooltip-bottom" data-tooltip="Valid"></i>
-          </li>
-        </ul>
-    </div>
     </main>
 
     <!-- Footer -->
@@ -116,6 +69,6 @@
 
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@json-editor/json-editor@latest/dist/jsoneditor.min.js"></script>
-    <script src="./index.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

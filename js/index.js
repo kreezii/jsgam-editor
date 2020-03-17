@@ -7,7 +7,7 @@ var removeSources=false;
 var editor = new JSONEditor(document.getElementById('editor_holder'),{
   // Enable fetching schemas via ajax
   ajax: true,
-  theme: 'spectre',
+
   iconlib : 'fontawesome5',
   no_additional_properties: true,
   // The schema for the editor
@@ -40,6 +40,30 @@ editor.on('change',function() {
     indicator.dataset.tooltip="Valid";
   }
 });
+
+editor.on('ready',() => {
+  // Now the api methods will be available
+  editor.validate();
+  setEditorStyle();
+});
+
+function addClasses(tag,classes){
+  Array.from(document.querySelectorAll(tag)).forEach(
+    el=>{
+      classes.forEach(
+        clase=>{
+          el.classList.add(clase);
+        }
+      )
+
+    }
+
+  );
+}
+function setEditorStyle(){
+  addClasses('button',["siimple-btn", "siimple-btn--dark"]);
+  addClasses('input',["siimple-input", "siimple-input--fluid"]);
+}
 
 //  Parse JSON string and return JSON object. Empty object returned on error
 var parseJson = function(str) {
@@ -219,59 +243,59 @@ var clearJSON=function(){
 function fileUpload(){
   document.querySelector('#uploadFile').click();
 }
+function setupButtons(){
+  //Save Adventure
+  document.getElementById("download").addEventListener('click',downloadJSON);
 
-//Save Adventure
-document.getElementById("download").addEventListener('click',downloadJSON);
+  //Export Adventure
+  document.getElementById("export").addEventListener('click',exportJSON);
 
-//Export Adventure
-document.getElementById("export").addEventListener('click',exportJSON);
+  //Load Adventure
+  document.getElementById("upload").addEventListener('click',()=>{
+    document.getElementById("uploadFile").click();
+  });
+  document.getElementById("uploadFile").addEventListener('change',uploadJSON);
 
-//Load Adventure
-document.getElementById("upload").addEventListener('click',()=>{
-  document.getElementById("uploadFile").click();
-});
-document.getElementById("uploadFile").addEventListener('change',uploadJSON);
+  //Import Scene
+  document.getElementById("import").addEventListener('click',()=>{
+    document.getElementById("importFile").click();
+  });
+  document.getElementById("importFile").addEventListener('change',importJSON);
 
-//Import Scene
-document.getElementById("import").addEventListener('click',()=>{
-  document.getElementById("importFile").click();
-});
-document.getElementById("importFile").addEventListener('change',importJSON);
 
-//Reset Adventure
-document.querySelector("#reset").addEventListener('click',()=>{
-  document.querySelector("#resetConfirm").classList.add("active");
-});
 
-document.querySelectorAll('[aria-label="Close"]').forEach(el=>{
-  el.addEventListener('click',()=>{
-    document.querySelector("#resetConfirm").classList.remove("active");
-  })
-});
+  document.querySelectorAll('[aria-label="Close"]').forEach(el=>{
+    el.addEventListener('click',()=>{
+      document.querySelector("#resetConfirm").classList.remove("active");
+    })
+  });
 
-document.querySelector("#resetYes").addEventListener('click',clearJSON);
+  document.querySelector("#resetYes").addEventListener('click',clearJSON);
 
-//Add sources
-document.getElementById("addsrc").addEventListener('click',()=>{
-  document.getElementById("srcFile").click();
-});
+  //Add sources
+  document.getElementById("addsrc").addEventListener('click',()=>{
+    document.getElementById("srcFile").click();
+  });
 
-//Add fonts
-document.getElementById("addfnt").addEventListener('click',()=>{
-  document.getElementById("srcFile").click();
-  importFont=true;
-});
+  //Add fonts
+  document.getElementById("addfnt").addEventListener('click',()=>{
+    document.getElementById("srcFile").click();
+    importFont=true;
+  });
 
-//Add Player
-document.getElementById("addplayer").addEventListener('click',()=>{
-  document.getElementById("srcFile").click();
-  importPlayer=true;
-});
+  //Add Player
+  document.getElementById("addplayer").addEventListener('click',()=>{
+    document.getElementById("srcFile").click();
+    importPlayer=true;
+  });
 
-//Add Character
-document.getElementById("addcharacter").addEventListener('click',()=>{
-  document.getElementById("srcFile").click();
-  importNPC=true;
-});
+  //Add Character
+  document.getElementById("addcharacter").addEventListener('click',()=>{
+    document.getElementById("srcFile").click();
+    importNPC=true;
+  });
 
-document.getElementById("srcFile").addEventListener('change',importSources);
+  document.getElementById("srcFile").addEventListener('change',importSources);
+}
+
+setupButtons();
