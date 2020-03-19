@@ -7,7 +7,7 @@
 --text-hilite: inherit;
 --link: #383d48;
 --hover: #07f;
---visited: #9da5b4;
+--visited: #383d48;
 --rad: .2; /*em*/
 --gap: 1; /*em*/
 --gap-rate: .5; /* horizontal/vertical */
@@ -33,7 +33,7 @@
 /* reset*/
 
 /* https: //github.com/jgthms/minireset.css/ */
-button,input,select,textarea{margin:0;}
+button,input,select,textarea{margin:.2rem .4rem;}
 html{box-sizing:border-box;/*scroll-behavior:smooth;*/}
 *,*:before,*:after{box-sizing:inherit;}
 img,embed,iframe,object,audio,video{/*height:auto;*/max-width:100%;}
@@ -160,11 +160,11 @@ section>table td:empty{padding:0;}
 @media screen{
 
 /* wrap main */
-main{max-width:90%;margin:0 auto;padding:0 1em;height: 100vh;}
+main{max-width:90%;margin:0 auto;padding:0 1em;height: 100%;}
 
 /* form */
 input,button,select,textarea{padding:var(--gap-xs);line-height:normal;}
-input,button,select,textarea{border:thin solid rgba(0,0,0,.3);}
+/*input,button,select,textarea{border:thin solid rgba(0,0,0,.3);}*/
 button,[type="submit"]{padding:var(--gaps-n);border-radius:var(--radius);margin:var(--gap-xs) 0;border-color:transparent;cursor:pointer;}
 form>button, form>[type="submit"], form>a>button{padding:var(--gap-xs) var(--gap-s);margin:0;}/* see [.nav a] padding */
 button:hover:not([disabled]), [type="submit"]:hover:not([disabled]),
@@ -282,17 +282,19 @@ footer{
 	width: 100%;
 	text-align: center;
 	background: var(--bg-pane);
-	position: fixed;
+	position: relative;
+	margin-top: .5rem;
 	bottom: 0;
 }
 /* JSGAM theme */
 .logo{
-	text-size: 2rem;
-	text-align: center;
+	max-width: 100%;
+  height: auto;
+	margin: .5rem;
 }
 
 .je-indented-panel {
-	border: 2px solid rgba(20,20,20,.5) !important;
+	border: 1.5px solid rgba(20,20,20,.5) !important;
 	background: rgba(50,55,62,.1);
 }
 

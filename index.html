@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <!-- Inputs -->
     <aside id="inputs">
       <input id="uploadFile" type="file" title="Upload adventure" accept=".json">
       <input id="srcFile" type="file" title="Add sources">
@@ -28,7 +29,7 @@
 
     <!-- Header -->
     <header>
-      <img class="logo" src="imgs/jsgam-logo.svg" alt="jsgam-logo"/>
+      <a title="JSGAM Homepage" class="logo" href="https://github.com/kreezii/jsgam" target="_blank"><img src="imgs/jsgam-logo.svg" alt="jsgam-logo"/></a>
       <nav>
         <ul>
           <li><a href="#" id="upload" title="Load adventure" ><i class="fas fa-upload fa-lg"></i></a></li>
@@ -51,8 +52,8 @@
               <li><a href="#" id="addcharacter"><i class="fas fa-users fa-lg"></i> NPC</a></li>
             </ul>
           </li>
-          <li><a href="#" title="Texture packer" href="https://www.codeandweb.com/tp-online/" target="_blank"><i class="fas fa-box-open fa-lg"></i></a></li>
-          <li><a href="#" title="Help" href="https://github.com/kreezii/jsgam" target="_blank"><i class="fas fa-question-circle fa-lg"></i></a></li>
+          <li><a title="Texture packer" href="https://www.codeandweb.com/tp-online/" target="_blank"><i class="fas fa-box-open fa-lg"></i></a></li>
+          <li><a title="Help" href="https://github.com/kreezii/jsgam" target="_blank"><i class="fas fa-question-circle fa-lg"></i></a></li>
           <li><i id="valid_icon" class="fas fa-check text-success tooltip tooltip-bottom" data-tooltip="Valid"></i></li>
         </ul>
       </nav>
@@ -65,7 +66,7 @@
     <!-- Footer -->
     <footer>
       © 2019-2020
-      <a class="btn btn-link tooltip tooltip-bottom" data-tooltip="JSGAM" href="https://www.codeandweb.com/tp-online/" target="_blank"><i class="fab fa-github fa-lg"></i></a>
+      <a title="JSGAM" href="https://www.codeandweb.com/tp-online/" target="_blank"><i class="fab fa-github fa-lg"></i></a>
 
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@json-editor/json-editor@latest/dist/jsoneditor.min.js"></script>
