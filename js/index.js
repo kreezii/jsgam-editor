@@ -7,7 +7,6 @@ var removeSources=false;
 var editor = new JSONEditor(document.getElementById('editor_holder'),{
   // Enable fetching schemas via ajax
   ajax: true,
-
   iconlib : 'fontawesome5',
   no_additional_properties: true,
   // The schema for the editor
@@ -32,12 +31,14 @@ editor.on('change',function() {
     indicator.classList.remove("fa-check","text-sucess");
     indicator.classList.add("fa-times","text-error");
     indicator.dataset.tooltip="Error";
+    indicator.style.color="red";
   }
   // Valid
   else {
     indicator.classList.remove("fa-times","text-error");
     indicator.classList.add("fa-check","text-sucess");
     indicator.dataset.tooltip="Valid";
+    indicator.style.color="green";
   }
 });
 

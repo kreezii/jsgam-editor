@@ -121,6 +121,7 @@
     },
     "TitleScreen": {
       "type": "object",
+      "description":"Select the title screen",
       "properties": {
         "Background": {
           "$ref": "sources-img.schema.json"
@@ -137,6 +138,8 @@
     },
     "HoldTime": {
       "type": "number",
+      "title":"Holding Time",
+      "description":"Seconds for touch screens to",
       "default":0.1
     },
     "Inventory": {

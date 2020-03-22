@@ -4,6 +4,7 @@
   "properties": {
     "Settings":{
       "title": "Settings",
+      "description":"Adventure settings",
       "format":"categories",
       "basicCategoryTitle": "Main",
       "$ref": "settings.schema.json",
