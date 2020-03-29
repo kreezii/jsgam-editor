@@ -6,6 +6,7 @@
     <title>JSGAM Editor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/jsgam-editor.css">
+    <link rel="icon" type="image/svg+xml" href="imgs/jsgam-logo.svg">
   </head>
 
   <body>
@@ -20,7 +21,7 @@
     	<p>Reset Adventure<br>Are you sure you want to reset your adventure?</p>
     	<form action="#ok">
     		<p>
-    			          <button id="resetYes">Yes</button>
+          <button id="resetYes">Yes</button>
     			<a href="#cancel">Cancel</a>
     		</p>
     	</form>
@@ -29,34 +30,34 @@
 
     <!-- Header -->
     <header>
-      <h1>
-        <a title="JSGAM Homepage" href="https://github.com/kreezii/jsgam" target="_blank"><img src="imgs/jsgam-logo.svg" alt="jsgam-logo"/></a>
-      </h1>
       <nav>
-        <ul>
-          <li><a href="#" id="upload" title="Load adventure" ><i class="fas fa-upload fa-lg"></i></a></li>
-          <li><a href="#" id="download" title="Save adventure"  popover-bottom="Save adventure"><i class="fas fa-download fa-lg"></i></a></li>
-          <li><a href="#" id="export" title="Export adventure"  popover-bottom="Export adventure"><i class="fas fa-file-export fa-lg"></i></a></li>
-          <li><a href="#resetConfirm" id="reset" title="Reset adventure" class="btn btn-link tooltip tooltip-bottom" data-tooltip="Reset adventure"><i class="fas fa-trash-alt fa-lg"></i></a>
-          </li>
-
-          <li><a href="#" id="import" title="Import"  popover-bottom="Import scene"><i class="far fa-object-group fa-lg"></i></a></li>
-          <li><a href="#sources-sub"><i class="fas fa-photo-video fa-lg"></i></a>
+        <label for="toggle"><i class="fas fa-bars"></i></label>
+        <input type="checkbox" id="toggle">
+        <ul id="menu">
+          <li><a title="JSGAM Homepage" href="https://github.com/kreezii/jsgam" target="_blank"><img src="imgs/jsgam-logo.svg" alt="jsgam-logo"/></a></li>
+          <li><a href="#" id="upload" title="Load adventure" ><i class="fas fa-upload fa-lg"></i><span>Load Adventure</span></a></li>
+          <li><a href="#" id="download" title="Save adventure"><i class="fas fa-download fa-lg"></i><span>Save Adventure</span></a></li>
+          <li><a href="#" id="export" title="Export adventure"><i class="fas fa-file-export fa-lg"></i><span>Export Adventure</span></a></li>
+          <li><a href="#resetConfirm" id="reset" title="Reset adventure"><i class="fas fa-trash-alt fa-lg"></i><span>Reset Adventure</span></a></li>
+          <li><a href="#" id="import" title="Import Scene"><i class="far fa-object-group fa-lg"></i><span>Import Scene</span></a></li>
+          <li><a href="#sources-sub"><i class="fas fa-photo-video fa-lg"></i><span>Sources</span></a>
                 <ul id="sources-sub">
                 <li><a href="#" id="addsrc"><i class="fas fa-images fa-lg"></i> Images</a></li>
                 <li><a href="#" id="addfnt" ><i class="fas fa-font fa-lg"></i> Font</a></li>
                 <li><a href="#" id="addsnd" ><i class="fas fa-music fa-lg"></i> Music</a></li>
               </ul>
           </li>
-          <li><a href="#sources-sub"><i class="fas fa-user-plus fa-lg"></i></a>
+          <li><a href="#npc-sub"><i class="fas fa-user-plus fa-lg"></i><span>Characters</span></a>
             <ul id="npc-sub">
               <li><a href="#" id="addplayer"><i class="fas fa-user fa-lg"></i> Player</a></li>
               <li><a href="#" id="addcharacter"><i class="fas fa-users fa-lg"></i> NPC</a></li>
             </ul>
           </li>
-          <li><a title="Texture packer" href="https://www.codeandweb.com/tp-online/" target="_blank"><i class="fas fa-box-open fa-lg"></i></a></li>
-          <li><a title="Help" href="https://github.com/kreezii/jsgam" target="_blank"><i class="fas fa-question-circle fa-lg"></i></a></li>
-          <li><i id="valid_icon" class="fas fa-check text-success tooltip tooltip-bottom" data-tooltip="Valid"></i></li>
+          <li><a title="Texture packer" href="https://www.codeandweb.com/tp-online/" target="_blank"><i class="fas fa-box-open fa-lg"></i><span>Texture packer</span></a></li>
+          <li><a title="Help" href="https://github.com/kreezii/jsgam" target="_blank"><i class="fas fa-question-circle fa-lg"></i><span>Help</span></a></li>
+          <li>
+                <i id="valid_icon" class="fas fa-check text-success" title="Valid"></i>
+          </li>
         </ul>
       </nav>
     </header>

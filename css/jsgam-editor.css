@@ -213,10 +213,14 @@ nav>ul li>a:nth-last-child(2):after{position:static;display:inline-block;content
 nav>ul ul li>a:nth-last-child(2):after{position:absolute;right:.5em;top:.5em;}
 /* popup */
 nav[id],nav[id]>ul{display:inline-block;}
+nav>ul>li>a>span{padding:var(--gaps-n);}
 nav[id]>ul>li>a{padding:0;}
 nav[id]>ul>li>a:after{display:none;}
 nav[id]>ul>li>ul{left:0;top:100%;}
 nav[id]>ul>li:last-child:not(:first-child) ul{left:auto;right:0;}
+/* menu button*/
+nav>input[type="checkbox"]{display:none;}
+nav>label[for]{display:flex;justify-content: center;background:var(--bg-pane);}
 
 /* tabs */
 nav>ul~section[id]:last-of-type{display:block;}
@@ -248,13 +252,19 @@ figure>section{min-height:100vh;display:flex;align-items:center;justify-content:
 	body{font-size:medium;}
 	form>table tr, form>table tr>*{display:block;padding:0;}
 	form>table tr{padding-bottom:var(--gap-s);}
+	/* menu button*/
+	nav>ul[id]{display: none;}
+	nav>input[type="checkbox"]:checked ~ ul[id]{display:block;}
 }
 
 @media screen and (min-width:55em){
 	/* desktop */
-	nav>ul{display:flex;flex-wrap:wrap; justify-content: center;}
+	nav>ul{display:flex;flex-wrap:wrap; justify-content: space-around; align-items: center;}
 	nav>ul ul{left:0;top:100%;}
 	nav>ul ul ul{left:100%;top:0;}
+	/* menu button*/
+	nav>ul>li>a>span{display: none;}
+	nav>label[for]{display: none;}
 	/* change dropdown direction*/
 	nav>ul>li:last-child:not(:first-child) ul{left:auto;right:0;}
 	nav>ul>li:last-child:not(:first-child) ul ul{right:100%;}
@@ -305,7 +315,7 @@ h3 > span > div{
 	background: var(--bg-pane) !important;
 }
 h3 > span > div > textarea:focus{
-	background: white;
+	background: white;nav>label[for]{display: none;}
 }
 ul > li > ul{
 	background: var(--bg-pane);
