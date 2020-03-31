@@ -1,104 +1,32 @@
 {
+  "title": "Settings",
+  "description": "Adventure settings",
+  "format": "categories",
+  "basicCategoryTitle": "Main",
   "type": "object",
   "properties": {
     "Languages": {
       "type": "array",
       "items": {
         "type": "string",
-        "title":"Language"
+        "title": "Language"
       },
-      "default":["English"]
+      "default": [
+        "English"
+      ]
     },
     "Text": {
       "type": "object",
       "properties": {
         "Style": {
-          "type": "object",
-          "properties": {
-            "font": {
-              "type":"object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "default":"bitmapfont"
-                },
-                "size": {
-                  "type": "integer",
-                  "default":55
-                }
-              },
-              "required":["name","size"]
-            },
-            "align": {
-              "type": "string",
-              "default":"center",
-              "enum": [
-                "left",
-                "center",
-                "right"
-              ]
-            }
-          },
-          "options": {
-            "collapsed": true
-          },
-          "required":["font","align"]
+          "$ref": "watch-fonts.schema.json"
         },
         "Button": {
-          "type": "object",
-          "properties": {
-            "font": {
-              "type":"object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "default":"bitmapfont"
-                },
-                "size": {
-                  "type": "integer",
-                  "default":55
-                }
-              },
-              "required":["name","size"]
-            },
-            "align": {
-              "type": "string",
-              "default":"center",
-              "enum": [
-                "left",
-                "center",
-                "right"
-              ]
-            }
-          },
-          "options": {
-            "collapsed": true
-          },
-          "required":["font","align"]
+          "$ref": "watch-fonts.schema.json"
         },
         "Credits": {
           "type": "object",
-          "properties": {
-            "font": {
-              "type":"object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "default":"bitmapfont"
-                },
-                "size": {
-                  "type": "integer",
-                  "default":55
-                }
-              },
-              "required":["name","size"]
-            },
-            "align": {
-              "type": "string",
-              "default":"center"
-            }
-          },
-          "required":["font","align"]
+          "$ref": "watch-fonts.schema.json"
         },
         "Position": {
           "type": "string",
@@ -106,7 +34,7 @@
             "top",
             "bottom"
           ],
-          "default":"bottom"
+          "default": "bottom"
         },
         "Size": {
           "type": "string",
@@ -114,14 +42,19 @@
             "half",
             "fourth"
           ],
-          "default":"fourth"
+          "default": "fourth"
         }
       },
-      "required":["Style","Button","Position","Size"]
+      "required": [
+        "Style",
+        "Button",
+        "Position",
+        "Size"
+      ]
     },
     "TitleScreen": {
       "type": "object",
-      "description":"Select the title screen",
+      "description": "Select the title screen",
       "properties": {
         "Background": {
           "$ref": "sources-img.schema.json"
@@ -130,17 +63,19 @@
           "type": "string"
         }
       },
-      "required":["Background"]
+      "required": [
+        "Background"
+      ]
     },
     "FirstScene": {
-      "$ref":"watch-scenes.schema.json",
-      "description":"The scene where the game begins"
+      "$ref": "watch-scenes.schema.json",
+      "description": "The scene where the game begins"
     },
     "HoldTime": {
       "type": "number",
-      "title":"Holding Time",
-      "description":"Seconds for touch screens to",
-      "default":0.1
+      "title": "Holding Time",
+      "description": "Seconds for touch screens to",
+      "default": 0.1
     },
     "Inventory": {
       "type": "object",
@@ -161,27 +96,33 @@
           "$ref": "sources-img.schema.json"
         }
       },
-      "required":["Position","Background","Icon"]
+      "required": [
+        "Position",
+        "Background",
+        "Icon"
+      ]
     },
     "Logos": {
       "type": "array",
       "items": {
-        "title":"Logo",
-        "anyOf":[
+        "title": "Logo",
+        "anyOf": [
           {
             "type": "string",
-            "title":"From Source",
+            "title": "From Source",
             "watch": {
               "sources": "Sources.Images"
             },
-            "enumSource": [{
-              "source": "sources",
-              "value": "{{item}}"
-            }]
+            "enumSource": [
+              {
+                "source": "sources",
+                "value": "{{item}}"
+              }
+            ]
           },
           {
-            "type":"string",
-            "title":"Custom"
+            "type": "string",
+            "title": "Custom"
           }
         ]
       }
@@ -194,5 +135,8 @@
     "FirstScene",
     "HoldTime",
     "Inventory"
-  ]
+  ],
+  "options": {
+    "disable_collapse": true
+  }
 }

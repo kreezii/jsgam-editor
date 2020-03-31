@@ -1,33 +1,17 @@
 {
-  "title":"Adventure",
+  "title": "Adventure",
   "type": "object",
   "properties": {
-    "Settings":{
-      "title": "Settings",
-      "description":"Adventure settings",
-      "format":"categories",
-      "basicCategoryTitle": "Main",
-      "$ref": "settings.schema.json",
-      "options":{
-        "disable_collapse": true
-      }
+    "Settings": {
+      "$ref": "settings.schema.json"
     },
-    "Texts":{
-      "title": "Texts",
-      "format":"categories",
-      "$ref": "texts.schema.json",
-      "options":{
-        "disable_collapse": true
-      }
+    "Texts": {
+      "$ref": "texts.schema.json"
     },
-    "Player":{
-      "title": "Player",
-      "$ref": "player.schema.json",
-      "options":{
-        "disable_collapse": true
-      }
+    "Player": {
+      "$ref": "player.schema.json"
     },
-    "Objects":{
+    "Objects": {
       "title": "Objects",
       "type": "array",
       "format": "tabs",
@@ -37,23 +21,23 @@
         "oneOf": [
           {
             "$ref": "objects-static.schema.json",
-            "title":"Static"
+            "title": "Static"
           },
           {
             "$ref": "objects-invisible.schema.json",
-            "title":"Invisible"
+            "title": "Invisible"
           },
           {
             "$ref": "objects-animated.schema.json",
-            "title":"Animated"
+            "title": "Animated"
           }
         ]
       },
-      "options":{
+      "options": {
         "disable_collapse": true
       }
     },
-    "Characters":{
+    "Characters": {
       "title": "Characters",
       "type": "array",
       "format": "tabs",
@@ -62,11 +46,11 @@
         "$ref": "characters.schema.json",
         "headerTemplate": "{{self.Name}}"
       },
-      "options":{
+      "options": {
         "disable_collapse": true
       }
     },
-    "Dialogues":{
+    "Dialogues": {
       "title": "Dialogues",
       "type": "array",
       "format": "tabs",
@@ -75,11 +59,11 @@
         "headerTemplate": "{{self.Name}}",
         "$ref": "dialogues.schema.json"
       },
-      "options":{
+      "options": {
         "disable_collapse": true
       }
     },
-    "Scenes":{
+    "Scenes": {
       "title": "Scenes",
       "type": "array",
       "format": "tabs",
@@ -88,11 +72,11 @@
         "$ref": "scenes.schema.json",
         "headerTemplate": "{{self.Name}}"
       },
-      "options":{
+      "options": {
         "disable_collapse": true
       }
     },
-    "Cutscenes":{
+    "Cutscenes": {
       "title": "Cutscenes",
       "type": "array",
       "format": "tabs",
@@ -110,26 +94,17 @@
           }
         ]
       },
-      "options":{
+      "options": {
         "disable_collapse": true
       }
     },
-    "Credits":{
-      "title": "Credits",
-      "type": "object",
-      "$ref": "credits.schema.json",
-      "options":{
-        "disable_collapse": true
-      }
+    "Credits": {
+      "$ref": "credits.schema.json"
     },
-    "Help":{
-      "title": "Help",
-      "$ref": "help.schema.json",
-      "options":{
-        "disable_collapse": true
-      }
+    "Help": {
+      "$ref": "help.schema.json"
     },
-    "Puzzles":{
+    "Puzzles": {
       "title": "Puzzles",
       "type": "array",
       "format": "tabs",
@@ -138,11 +113,11 @@
         "headerTemplate": "{{self.Name}}",
         "$ref": "puzzles.schema.json"
       },
-      "options":{
+      "options": {
         "disable_collapse": true
       }
     },
-    "Music":{
+    "Music": {
       "title": "Music",
       "type": "array",
       "format": "tabs",
@@ -151,23 +126,15 @@
         "$ref": "music.schema.json",
         "headerTemplate": "{{self.Name}}"
       },
-      "options":{
+      "options": {
         "disable_collapse": true
       }
     },
-    "Sources":{
-      "type": "object",
-      "$ref": "sources.schema.json",
-      "options":{
-        "disable_properties":true,
-        "disable_array_add":true
-      },
-      "options":{
-        "disable_collapse": true
-      }
+    "Sources": {
+      "$ref": "sources.schema.json"
     }
   },
-  "required":[
+  "required": [
     "Settings",
     "Texts",
     "Player",
@@ -177,11 +144,13 @@
     "Sources"
   ],
   "dependencies": {
-    "Dialogues": ["Characters"]
+    "Dialogues": [
+      "Characters"
+    ]
   },
-  "options":{
+  "options": {
     "disable_collapse": true,
     "compact": true
   },
-  "format":"categories"
+  "format": "categories"
 }

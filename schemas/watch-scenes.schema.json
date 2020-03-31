@@ -3,8 +3,10 @@
   "watch": {
     "scenes": "Scenes"
   },
-  "enumSource": [{
-    "source": "scenes",
-    "value": "{{item.Name}}"
-  }]
+  "enumSource": [
+    {
+      "source": "scenes",
+      "value": "{{item.Name}}"
+    }
+  ]
 }

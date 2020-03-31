@@ -182,10 +182,7 @@ function setFont(sources){
   let fntInfo=xmlDoc.getElementsByTagName("info")[0];
 
   if(fntInfo){
-    let fontValues={
-      "name":fntInfo.attributes["face"].nodeValue,
-      "size":fntInfo.attributes["size"].nodeValue
-    }
+    let fontValues=fntInfo.attributes["face"].nodeValue;
     let adventure=editor.getEditor('root.Sources.Fonts')
     var currentSrc=adventure.getValue();
     adventure.setValue(currentSrc.concat(fontValues));

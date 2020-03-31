@@ -2,7 +2,8 @@
     "type": "object",
     "properties": {
       "Name": {
-        "type": "string"
+        "type": "string",
+        "default":"New Scene"
       },
       "Background": {
         "$ref": "sources-img.schema.json"

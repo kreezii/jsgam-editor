@@ -1,68 +1,69 @@
 {
+  "type": "object",
   "properties": {
-    "Folders":{
-      "type":"object",
-      "format":"grid-strict",
+    "Folders": {
+      "type": "object",
+      "format": "grid-strict",
       "id": "structure",
-      "properties":{
-        "Main":{
-          "type":"string",
-          "default":"data/"
+      "properties": {
+        "Main": {
+          "type": "string",
+          "default": "data/"
         },
-        "Player":{
+        "Player": {
           "anyOf": [
             {
-              "type":"string",
-              "title":"Auto",
+              "type": "string",
+              "title": "Auto",
               "template": "{{mainFolder}}characters/",
               "watch": {
                 "mainFolder": "structure.Main"
               }
             },
             {
-              "type":"string",
+              "type": "string",
               "title": "Edit",
-              "default":"data/player/"
+              "default": "data/player/"
             }
           ]
         },
-        "NPC":{
+        "NPC": {
           "anyOf": [
             {
-              "type":"string",
-              "title":"Auto",
+              "type": "string",
+              "title": "Auto",
               "template": "{{mainFolder}}characters/",
               "watch": {
                 "mainFolder": "structure.Main"
               }
             },
             {
-              "type":"string",
+              "type": "string",
               "title": "Edit",
-              "default":"data/npc/"
+              "default": "data/npc/"
             }
           ]
         },
-        "Sounds":{
+        "Sounds": {
           "anyOf": [
             {
-              "type":"string",
-              "title":"Auto",
+              "type": "string",
+              "title": "Auto",
               "template": "{{mainFolder}}sounds/",
               "watch": {
                 "mainFolder": "structure.Main"
               }
             },
             {
-              "type":"string",
+              "type": "string",
               "title": "Edit",
-              "default":"data/sounds/"
+              "default": "data/sounds/"
             }
           ]
         }
       },
-      "description":"Game structure folders",
-      "required":[
+      "description": "Game structure folders",
+      "required": [
         "Main"
       ]
     },
@@ -71,33 +72,34 @@
       "items": {
         "type": "string"
       },
-      "options":{
-        "disable_properties":true,
-        "disable_array_add":true
+      "options": {
+        "disable_properties": true,
+        "disable_array_add": true
       }
     },
     "Fonts": {
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "size":{
-            "type": "number"
-          }
-        }
+        "type": "string",
+        "headerTemplate": "Font: {{i}}"
       },
-      "options":{
-        "disable_properties":true,
-        "disable_array_add":true
-      }
+      "options": {
+        "disable_properties": true,
+        "disable_array_add": true
+      },
+      "required": [
+        "name",
+        "size",
+        "align"
+      ]
     }
   },
-  "required":[
+  "required": [
     "Images",
     "Folders",
     "Fonts"
-  ]
+  ],
+  "options": {
+    "disable_collapse": true
+  }
 }

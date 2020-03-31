@@ -1,9 +1,13 @@
 {
+  "title": "Help",
+  "description": "Help screen to show the player how to play.",
+  "format": "categories",
   "type": "array",
   "items": {
     "$ref": "sources-img.schema.json",
-    "title":"Language"
+    "title": "Language"
   },
-  "description": "Help screen to show the player how to play.",
-  "format":"categories"
+  "options": {
+    "disable_collapse": true
+  }
 }

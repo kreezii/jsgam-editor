@@ -1,104 +1,128 @@
 {
+  "title": "Texts",
+  "format": "categories",
   "type": "object",
   "properties": {
     "NewGame": {
       "type": "array",
       "items": {
         "type": "string",
-        "title":"Language"
+        "title": "Language"
       },
-      "description":"Main menu text",
-      "default":["New game"]
+      "description": "Main menu text",
+      "default": [
+        "New game"
+      ]
     },
     "Continue": {
       "type": "array",
       "items": {
         "type": "string",
-        "title":"Language"
+        "title": "Language"
       },
-      "description":"Main menu text",
-      "default":["Continue"]
+      "description": "Main menu text",
+      "default": [
+        "Continue"
+      ]
     },
     "Options": {
       "type": "array",
       "items": {
         "type": "string",
-        "title":"Language"
+        "title": "Language"
       },
-      "description":"Main menu text",
-      "default":["Options"]
+      "description": "Main menu text",
+      "default": [
+        "Options"
+      ]
     },
     "Help": {
       "type": "array",
       "items": {
         "type": "string",
-        "title":"Language"
+        "title": "Language"
       },
-      "description":"Main menu text",
-      "default":["Help"]
+      "description": "Main menu text",
+      "default": [
+        "Help"
+      ]
     },
     "Credits": {
       "type": "array",
       "items": {
         "type": "string",
-        "title":"Language"
+        "title": "Language"
       },
-      "description":"Main menu text",
-      "default":["Credits"]
+      "description": "Main menu text",
+      "default": [
+        "Credits"
+      ]
     },
     "Back": {
       "type": "array",
       "items": {
         "type": "string",
-        "title":"Language"
+        "title": "Language"
       },
-      "description":"Main menu text",
-      "default":["Back"]
+      "description": "Main menu text",
+      "default": [
+        "Back"
+      ]
     },
     "Warning": {
       "type": "array",
       "items": {
         "type": "string",
-        "title":"Language"
+        "title": "Language"
       },
-      "description":"Main menu text",
-      "default":["Warning"]
+      "description": "Main menu text",
+      "default": [
+        "Warning"
+      ]
     },
     "Yes": {
       "type": "array",
       "items": {
         "type": "string",
-        "title":"Language"
+        "title": "Language"
       },
-      "description":"Main menu text",
-      "default":["Yes"]
+      "description": "Main menu text",
+      "default": [
+        "Yes"
+      ]
     },
     "No": {
       "type": "array",
       "items": {
         "type": "string",
-        "title":"Language"
+        "title": "Language"
       },
-      "description":"Main menu text",
-      "default":["No"]
+      "description": "Main menu text",
+      "default": [
+        "No"
+      ]
     },
     "NotUsable": {
       "type": "array",
       "items": {
         "type": "string",
-        "title":"Language"
+        "title": "Language"
       },
-      "description":"Text to say when player tries to use an object not usable",
-      "default":["It doesn't work"]
+      "description": "Text to say when player tries to use an object not usable",
+      "default": [
+        "It doesn't work"
+      ]
     },
     "NoDescription": {
       "type": "array",
       "items": {
         "type": "string",
-        "title":"Language"
+        "title": "Language"
       },
-      "description":"Text to say when player looks at an object without description",
-      "default":["I don't know what to say"]
+      "description": "Text to say when player looks at an object without description",
+      "default": [
+        "I don't know what to say"
+      ]
     }
   },
   "required": [
@@ -113,5 +137,8 @@
     "No",
     "NotUsable",
     "NoDescription"
-  ]
+  ],
+  "options": {
+    "disable_collapse": true
+  }
 }

@@ -1,10 +1,84 @@
 {
   "type": "object",
-  "watch": {
-    "scenes": "Sources.Fonts"
+  "properties": {
+    "font": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "anyOf": [
+            {
+              "type": "string",
+              "title": "Source",
+              "watch": {
+                "fonts": "Sources.Fonts"
+              },
+              "enumSource": [
+                {
+                  "source": "fonts",
+                  "value": "{{item}}"
+                }
+              ]
+            },
+            {
+              "type": "string",
+              "title": "Edit",
+              "default": "bitmapfont"
+            }
+          ]
+        },
+        "size": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "title": "Defaults",
+              "enum": [
+                10,
+                15,
+                20,
+                25,
+                30,
+                35,
+                40,
+                45,
+                50,
+                55,
+                60,
+                65,
+                70,
+                75,
+                80,
+                85
+              ],
+              "default": 55
+            },
+            {
+              "type": "integer",
+              "title": "Custom",
+              "default": 55
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "size"
+      ]
+    },
+    "align": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    }
   },
-  "enumSource": [{
-    "source": "scenes",
-    "value": "{{item.name}}"
-  }]
+  "options": {
+    "collapsed": true
+  },
+  "required": [
+    "font",
+    "align"
+  ]
 }
