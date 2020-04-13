@@ -1,7 +1,8 @@
 var importPlayer=false;
 var importNPC=false;
 var importFont=false;
-var removeSources=false;
+var importSound=false;
+var minify=false;
 // Initialize the editor
 
 var editor = new JSONEditor(document.getElementById('editor_holder'),{
@@ -85,16 +86,19 @@ var eventClickFire = function(el) {
 
  // Save JSON
  var downloadJSON = function() {
+   let space=2;
    var title = prompt('Enter the name of your file', 'New Adventure');
    var editorJSON=editor.getValue();
-   if(removeSources) delete editorJSON["Sources"];
-   removeSources=false;
-
+   if(minify){
+     delete editorJSON["Sources"];
+     space=0;
+     minify=false;
+   }
    if (title === null) return;
 
    var json = editorJSON,
        filename = (title || 'jsgam').toLowerCase().replace(/[\s<>:"\\|*]/g, "-") + '.json',
-       blob = new Blob([JSON.stringify(json, null, 2)], {type: "application/json;charset=utf-8"});
+       blob = new Blob([JSON.stringify(json, null, space)], {type: "application/json;charset=utf-8"});
 
    var a = document.createElement('a');
    a.download = filename;
@@ -105,7 +109,7 @@ var eventClickFire = function(el) {
 
  //Export JSON
  function exportJSON(){
-   removeSources=true;
+   minify=true;
    downloadJSON();
  }
 
@@ -159,6 +163,7 @@ var importSources = function(e) {
      if(importPlayer) setPlayer(file.name,parseJson(response));
      else if(importNPC) setNPC(file.name,parseJson(response));
      else if(importFont) setFont(response);
+     else if(importSound) setSound(file.name);
      else setSources(parseJson(response));
    };
    reader.readAsText(file)
@@ -174,6 +179,13 @@ function setSources(sources){
     adventure.setValue(currentSrc.concat(Object.getOwnPropertyNames(sources.frames)));
   }
 }
+
+function setSound(name){
+  let adventure=editor.getEditor('root.Sources.Audio');
+  var currentSrc=adventure.getValue();
+  adventure.setValue(currentSrc.concat(name));
+}
+
 
 function setFont(sources){
   importFont=false;
@@ -279,6 +291,12 @@ function setupButtons(){
   document.getElementById("addfnt").addEventListener('click',()=>{
     document.getElementById("srcFile").click();
     importFont=true;
+  });
+
+  //Add sounds
+  document.getElementById("addsnd").addEventListener('click',()=>{
+    document.getElementById("srcFile").click();
+    importSound=true;
   });
 
   //Add Player

@@ -1,15 +1,54 @@
 {
   "type": "object",
+  "id": "structure",
   "properties": {
     "Name": {
       "type": "string"
     },
     "Src": {
-      "type": "string"
+      "type": "string",
+      "anyOf": [
+        {
+          "type": "string",
+          "title": "From Source",
+          "watch": {
+            "folder": "structure.Folder",
+            "file": "structure.File"
+          },
+          "template":"{{folder}}{{file}}"
+        },
+        {
+          "type": "string",
+          "title": "Custom"
+        }
+      ]
+    },
+    "Folder": {
+      "type": "string",
+      "title": "Path",
+      "watch": {
+        "mainFolder": "Sources.Folders.Audio"
+      },
+      "template": "{{mainFolder}}"
+    },
+    "File": {
+      "type": "string",
+      "title": "File",
+      "watch": {
+        "sources": "Sources.Audio"
+      },
+      "enumSource": [
+        {
+          "source": "sources",
+          "value": "{{item}}"
+        }
+      ]
     }
   },
   "required": [
     "Name",
-    "Src"
+    "Src",
+    "Folder",
+    "File"
   ]
 }

@@ -44,12 +44,12 @@
             }
           ]
         },
-        "Sounds": {
+        "Audio": {
           "anyOf": [
             {
               "type": "string",
               "title": "Auto",
-              "template": "{{mainFolder}}sounds/",
+              "template": "{{mainFolder}}audio/",
               "watch": {
                 "mainFolder": "structure.Main"
               }
@@ -64,7 +64,8 @@
       },
       "description": "Game structure folders",
       "required": [
-        "Main"
+        "Main",
+        "Audio"
       ]
     },
     "Images": {
@@ -86,18 +87,25 @@
       "options": {
         "disable_properties": true,
         "disable_array_add": true
+      }
+    },
+    "Audio":{
+      "type": "array",
+      "items": {
+        "type": "string",
+        "headerTemplate": "Audio: {{i}}"
       },
-      "required": [
-        "name",
-        "size",
-        "align"
-      ]
+      "options": {
+        "disable_properties": true,
+        "disable_array_add": true
+      }
     }
   },
   "required": [
     "Images",
     "Folders",
-    "Fonts"
+    "Fonts",
+    "Audio"
   ],
   "options": {
     "disable_collapse": true
