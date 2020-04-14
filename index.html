@@ -14,15 +14,17 @@
     <aside id="inputs">
       <input id="uploadFile" type="file" title="Upload adventure" accept=".json">
       <input id="srcFile" type="file" title="Add sources">
+      <input id="fontFile" type="file">
       <input id="importFile" type="file" title="Import scenes and objects" accept=".json">
     </aside>
     <!-- Modal -->
     <aside id="resetConfirm">
-    	<p>Reset Adventure<br>Are you sure you want to reset your adventure?</p>
+      <h2>Reset Adventure</h2>
+    	<p>Are you sure you want to reset your adventure?</p>
     	<form action="#ok">
     		<p>
-          <button id="resetYes">Yes</button>
-    			<a href="#cancel">Cancel</a>
+          <button class="btn-alert" id="resetYes">Yes</button>
+          <button>No</button>
     		</p>
     	</form>
     </aside>
@@ -40,20 +42,25 @@
           <li><a href="#" id="export" title="Export adventure"><i class="fas fa-file-export fa-lg"></i><span>Export Adventure</span></a></li>
           <li><a href="#resetConfirm" id="reset" title="Reset adventure"><i class="fas fa-trash-alt fa-lg"></i><span>Reset Adventure</span></a></li>
           <li><a href="#" id="import" title="Import Scene"><i class="far fa-object-group fa-lg"></i><span>Import Scene</span></a></li>
-          <li><a href="#sources-sub"><i class="fas fa-photo-video fa-lg"></i><span>Sources</span></a>
+          <li><a href="#sources-sub" title="Import Sources"><i class="fas fa-photo-video fa-lg"></i><span>Sources</span></a>
                 <ul id="sources-sub">
                 <li><a href="#" id="addsrc"><i class="fas fa-images fa-lg"></i> Images</a></li>
                 <li><a href="#" id="addfnt" ><i class="fas fa-font fa-lg"></i> Font</a></li>
                 <li><a href="#" id="addsnd" ><i class="fas fa-music fa-lg"></i> Audio</a></li>
               </ul>
           </li>
-          <li><a href="#npc-sub"><i class="fas fa-user-plus fa-lg"></i><span>Characters</span></a>
+          <li><a href="#npc-sub" title="Import Character"><i class="fas fa-user-plus fa-lg"></i><span>Characters</span></a>
             <ul id="npc-sub">
               <li><a href="#" id="addplayer"><i class="fas fa-user fa-lg"></i> Player</a></li>
               <li><a href="#" id="addcharacter"><i class="fas fa-users fa-lg"></i> NPC</a></li>
             </ul>
           </li>
-          <li><a title="Texture packer" href="https://www.codeandweb.com/tp-online/" target="_blank"><i class="fas fa-box-open fa-lg"></i><span>Texture packer</span></a></li>
+          <li><a href="#tools" title="Tools"><i class="fas fa-tools fa-lg"></i></i><span>Tools</span></a>
+            <ul id="tools">
+              <li><a title="Texture packer" href="https://www.codeandweb.com/tp-online/" target="_blank"><i class="fas fa-box-open fa-lg"></i><span> Texture Packer</span></a></li>
+              <li><a href="#" id="convertfont"><i class="fas fa-spell-check fa-lg"></i></i> Convert Font</a></li>
+            </ul>
+          </li>
           <li><a title="Help" href="https://kreezii.github.io/jsgam/tutorial.html" target="_blank"><i class="fas fa-question-circle fa-lg"></i><span>Help</span></a></li>
           <li>
                 <i id="valid_icon" class="fas fa-check text-success" title="Valid"></i>
@@ -73,6 +80,9 @@
 
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@json-editor/json-editor@latest/dist/jsoneditor.min.js"></script>
+    <script src="js/fnt2xml.js"></script>
+    <script src="js/files.js"></script>
+    <script src="js/editor.js"></script>
     <script src="js/index.js"></script>
   </body>
 </html>

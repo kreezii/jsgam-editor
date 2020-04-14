@@ -351,3 +351,13 @@ select:hover{
 .row p{
 	color: var(--hover);
 }
+
+.btn-alert{
+	background: #dc3545;
+	color:white;
+}
+
+.btn-alert:hover{
+	background: #c82333;
+	color:white;
+}
