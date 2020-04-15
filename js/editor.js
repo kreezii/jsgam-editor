@@ -4,6 +4,7 @@ var importFont=false;
 var importSound=false;
 var importAdventure=false;
 var importScene=false;
+var convertFont=false;
 var minify=false;
 
 function setSources(sources){
@@ -81,7 +82,7 @@ function setAdventure(response){
   editor.setValue(parseJson(response)); //Apply twice
 }
 
-function setScene(){
+function setScene(response){
   importScene=false;
   var adventure=editor.getValue();
   editor.setValue(Object.assign(adventure,parseJson(response)));//Merge imported JSON with existing values
@@ -125,6 +126,12 @@ function setupEditor(){
   document.getElementById("addfnt").addEventListener('click',()=>{
     document.getElementById("srcFile").click();
     importFont=true;
+  });
+
+  //Add font format
+  document.getElementById("convertfont").addEventListener('click',()=>{
+    document.getElementById("srcFile").click();
+    convertFont=true;
   });
 
   //Add sounds

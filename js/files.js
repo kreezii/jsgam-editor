@@ -40,6 +40,7 @@ var saveJSON = function() {
 
 //Save Converted Font
 function saveFont(fntText){
+  convertFont=false;
   let parser = new DOMParser();
   let xmlDoc = parser.parseFromString(fntText,"text/xml");
   let fntInfo=xmlDoc.getElementsByTagName("info")[0];
@@ -111,23 +112,10 @@ var importFile = function(e) {
      else if(importFont) setFont(response);
      else if(importSound) setSound(file.name);
      else if(importAdventure) setAdventure(response);
-     else if(importScene) setScene(file.name);
+     else if(importScene) setScene(response);
+     else if(convertFont) saveFont(fnt2xml(response));
      else setSources(parseJson(response));
    };
    reader.readAsText(file)
  }
 };
-
-var importFont = function(e) {
-  e.preventDefault();
-  var files = e.target.files || e.dataTransfer.files;
-  if (files.length !== 0) {
-    var file = files[0];
-    var reader = new FileReader();
-    reader.onload = function(event) {
-      let resultado=fnt2xml(event.target.result);
-      saveFont(resultado);
-    };
-    reader.readAsText(file);
-  }
-}
