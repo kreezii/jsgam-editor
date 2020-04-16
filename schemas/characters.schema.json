@@ -12,8 +12,7 @@
         "type": "string"
       },
       "default": [
-        "idioma1",
-        "idioma2"
+        "Language 1"
       ],
       "description": "What players says when you look at the character"
     },
@@ -63,26 +62,17 @@
     },
     "Position": {
       "type": "array",
-      "items": [
-        {
-          "type": "number",
-          "headerTemplate": "x"
-        },
-        {
-          "type": "number",
-          "headerTemplate": "y"
-        }
-      ],
-      "default": [
-        0,
-        0
-      ],
-      "additionalItems": false,
-      "options": {
-        "disable_array_reorder": true,
-        "disable_array_delete": true,
-        "disable_array_add": true
+      "format": "table",
+      "items": {
+        "type": "number",
+        "format": "number",
+        "title": "Coordinates"
       },
+      "options": {
+        "disable_array_reorder": true
+      },
+      "maxItems": 2,
+      "minItems": 2,
       "description": "Position of the character"
     },
     "Color": {

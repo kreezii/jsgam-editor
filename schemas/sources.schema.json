@@ -1,6 +1,11 @@
 {
   "type": "object",
   "properties": {
+    "Filename":{
+      "type": "string",
+      "default":"game",
+      "description":"Default filename to save or export the adventure"
+    },
     "Folders": {
       "type": "object",
       "format": "grid-strict",
@@ -102,6 +107,7 @@
     }
   },
   "required": [
+    "Filename",
     "Images",
     "Folders",
     "Fonts",

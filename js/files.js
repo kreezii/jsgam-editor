@@ -18,8 +18,9 @@ var eventClickFire = function(el) {
 // Save JSON
 var saveJSON = function() {
  let space=2;
- var title = prompt('Enter the name of your file', 'New Adventure');
  var editorJSON=editor.getValue();
+ var adventureTitle=editorJSON["Sources"].Filename;
+ var title = prompt('Enter the name of your file', adventureTitle);
  if(minify){
    delete editorJSON["Sources"];
    space=0;

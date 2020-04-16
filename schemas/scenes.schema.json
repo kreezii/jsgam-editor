@@ -46,10 +46,7 @@
         "type": "number"
       },
       "Characters": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
+        "$ref":"watch-characters.schema.json"
       }
     },
     "required": [

@@ -3,6 +3,17 @@
   "format": "categories",
   "type": "object",
   "properties": {
+    "Title": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "title": "Language"
+      },
+      "description": "Game Title",
+      "default": [
+        "New Adventure"
+      ]
+    },
     "NewGame": {
       "type": "array",
       "items": {
@@ -136,7 +147,8 @@
     "Yes",
     "No",
     "NotUsable",
-    "NoDescription"
+    "NoDescription",
+    "Title"
   ],
   "options": {
     "disable_collapse": true
