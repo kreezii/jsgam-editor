@@ -302,6 +302,10 @@ footer{
 	margin-top: 0px;
 }
 
+.tabs{
+	overflow: hidden;	
+}
+
 .tabs > div{
 	border: none !important;
 	margin: 0 .2rem;

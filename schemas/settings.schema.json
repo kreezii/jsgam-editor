@@ -24,6 +24,9 @@
         "Button": {
           "$ref": "watch-fonts.schema.json"
         },
+        "Title": {
+          "$ref": "watch-fonts.schema.json"
+        },
         "Credits": {
           "type": "object",
           "$ref": "watch-fonts.schema.json"
@@ -60,7 +63,7 @@
           "$ref": "sources-img.schema.json"
         },
         "Music": {
-          "type": "string"
+          "$ref":"watch-music.schema.json"
         }
       },
       "required": [

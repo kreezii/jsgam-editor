@@ -28,9 +28,11 @@ var saveJSON = function() {
  }
  if (title === null) return;
 
- var json = editorJSON,
-     filename = (title || 'jsgam').toLowerCase().replace(/[\s<>:"\\|*]/g, "-") + '.json',
-     blob = new Blob([JSON.stringify(json, null, space)], {type: "application/json;charset=utf-8"});
+ var json = JSON.stringify(editorJSON, null, space).replace(/>/g,"\\n");//Convert break lines
+ var filename = (title || 'jsgam').toLowerCase().replace(/[\s<>:"\\|*]/g, "-") + '.json';
+ var blob = new Blob([json], {type: "application/json;charset=utf-8"});
+
+
 
  var a = document.createElement('a');
  a.download = filename;

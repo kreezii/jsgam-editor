@@ -23,9 +23,17 @@
         }
       },
       "Obstacles": {
-        "type": "object",
-        "format":"tabs",
-        "additionalProperties": { "type": "array", "format": "tabs-top" }
+        "type": "array",
+        "format": "tabs-top",
+        "items": {
+          "type": "array",
+          "headerTemplate": "Obstacle {{i}}",
+          "format": "tabs-top",
+          "items": {
+            "type": "number",
+            "headerTemplate": "Coord {{i}}"
+          }
+        }
       },
       "Player": {
         "type": "object",

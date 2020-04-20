@@ -99,6 +99,13 @@
           }
         },
         "description": "Check it when an object from the inventory is dragged over this object."
+      },
+      "Layer":{
+          "type": "string",
+          "enum": [
+            "Top",
+            "Bottom"
+          ]
       }
     },
     "required": [
