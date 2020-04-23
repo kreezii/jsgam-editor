@@ -1,13 +1,13 @@
 {
   "type": "object",
-  "format":"categories",
+  "format": "categories",
   "properties": {
     "Name": {
       "type": "string"
     },
     "Area": {
       "type": "array",
-      "format": "table",
+      "format": "tabs",
       "description": "Polygon"
     },
     "Description": {
@@ -30,15 +30,23 @@
       "type": "object",
       "properties": {
         "To": {
-          "type": "string",
+          "$ref": "watch-scenes.schema.json",
           "description": "Name of the scene to go"
         },
         "Player": {
           "type": "array",
+          "format": "table",
           "items": {
-            "type": "string"
+            "type": "number",
+            "format": "number",
+            "title": "Coordinates"
           },
-          "description": "Position of the player in the new scene"
+          "options": {
+            "disable_array_reorder": true
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "description": "Player's position in the first scene."
         }
       },
       "required": [
@@ -48,5 +56,9 @@
       "description": "Using the object changes to another scene."
     }
   },
-  "required":["Area"]
+  "required": [
+    "Name",
+    "Area",
+    "Description"
+  ]
 }

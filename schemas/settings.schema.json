@@ -7,6 +7,7 @@
   "properties": {
     "Languages": {
       "type": "array",
+      "description":"Languages used in the adventure",
       "items": {
         "type": "string",
         "title": "Language"
@@ -63,7 +64,7 @@
           "$ref": "sources-img.schema.json"
         },
         "Music": {
-          "$ref":"watch-music.schema.json"
+          "$ref": "watch-music.schema.json"
         }
       },
       "required": [
@@ -71,13 +72,15 @@
       ]
     },
     "FirstScene": {
-      "$ref": "watch-scenes.schema.json",
-      "description": "The scene where the game begins"
+      "description": "The scene where the game begins",
+      "$ref": "watch-scenes.schema.json"
     },
     "HoldTime": {
       "type": "number",
       "title": "Holding Time",
+      "format": "number",
       "description": "Seconds for touch screens to",
+      "step": 0.1,
       "default": 0.1
     },
     "Inventory": {
@@ -97,6 +100,12 @@
         },
         "Icon": {
           "$ref": "sources-img.schema.json"
+        },
+        "Margin": {
+          "type": "number",
+          "format": "number",
+          "default": 10,
+          "description": "Border margin for the inventory"
         }
       },
       "required": [

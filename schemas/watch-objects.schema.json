@@ -1,15 +1,12 @@
 {
-  "type": "array",
-  "items": {
-    "title":"Object",
-    "type": "string",
-    "watch": {
-      "objects": "Objects"
-    },
-    "enumSource": [{
+  "type": "string",
+  "watch": {
+    "objects": "Objects"
+  },
+  "enumSource": [
+    {
       "source": "objects",
       "value": "{{item.Name}}"
-    }]
-  },
-  "description": "Objects"
+    }
+  ]
 }

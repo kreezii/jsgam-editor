@@ -6,5 +6,8 @@
       "description": "Animated objects"
     }
   },
-  "required":["Animation"]
+  "required": [
+    "Name",
+    "Animation"
+  ]
 }

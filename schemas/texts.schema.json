@@ -2,6 +2,7 @@
   "title": "Texts",
   "format": "categories",
   "type": "object",
+  "description":"Texts for the adventure",
   "properties": {
     "Title": {
       "type": "array",

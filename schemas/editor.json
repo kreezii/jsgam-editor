@@ -14,11 +14,11 @@
     "Objects": {
       "title": "Objects",
       "type": "array",
-      "format": "tabs",
+      "format": "tabs-top",
       "items": {
         "title": "Object",
         "headerTemplate": "{{self.Name}}",
-        "oneOf": [
+        "anyOf": [
           {
             "$ref": "objects-static.schema.json",
             "title": "Static"

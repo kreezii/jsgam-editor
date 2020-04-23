@@ -51,6 +51,7 @@
       },
       "maxItems": 2,
       "minItems": 2,
+      "default":[250,250],
       "description": "Player's position in the first scene."
     },
     "Color": {

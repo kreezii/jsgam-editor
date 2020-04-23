@@ -84,8 +84,18 @@ function setAdventure(response){
 
 function setScene(response){
   importScene=false;
-  var adventure=editor.getValue();
-  editor.setValue(Object.assign(adventure,parseJson(response)));//Merge imported JSON with existing values
+
+  var importedScene=parseJson(response);
+
+  //Append objects
+  var objects=editor.getEditor('root.Objects');
+  var objectsList=objects.getValue();
+  objects.setValue(objectsList.concat(importedScene.Objects));
+
+  //Append Scenes
+  var scenes=editor.getEditor('root.Scenes');
+  var sceneList=scenes.getValue();
+  scenes.setValue(sceneList.concat(importedScene.Scenes));
 }
 
 //Clear Adventure

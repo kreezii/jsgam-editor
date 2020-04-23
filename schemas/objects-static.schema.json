@@ -5,5 +5,8 @@
       "$ref": "sources-img.schema.json"
     }
   },
-  "required":["Texture"]
+  "required": [
+    "Name",
+    "Texture"
+  ]
 }

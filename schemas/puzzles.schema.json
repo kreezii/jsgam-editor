@@ -4,168 +4,192 @@
     "Name": {
       "type": "string"
     },
-    "Objects": {
-      "$ref":"watch-objects.schema.json"
+    "Modify": {
+      "anyOf": [
+        {
+          "properties": {
+            "Object": {
+              "$ref": "objects.schema.json",
+              "title": "Properties",
+              "properties":{
+                "Name":{
+                  "type": "string",
+                  "watch": {
+                    "objects": "Objects"
+                  },
+                  "enumSource": [{
+                    "source": "objects",
+                    "value": "{{item.Name}}"
+                  }]
+                }
+              }
+            }
+          },
+          "options": {
+            "disable_properties": true
+          },
+          "required": [
+            "Name"
+          ],
+          "title": "Object"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Player": {
+              "$ref": "property-player.schema.json",
+              "title": "Properties"
+            }
+          },
+          "options": {
+            "disable_properties": true
+          },
+          "required": [
+            "Player"
+          ],
+          "title": "Player"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "NPC": {
+              "$ref": "property-character.schema.json",
+              "title": "Properties"
+            }
+          },
+          "options": {
+            "disable_properties": true
+          },
+          "required": [
+            "NPC"
+          ],
+          "title": "Character"
+        }
+      ]
     },
-    "Modify":{
-      "type":"array",
+    "Remove": {
+      "type": "array",
       "format": "tabs-top",
-      "items":{
-        "title":"Target",
-        "anyOf":[
+      "items": {
+        "title": "Target",
+        "anyOf": [
           {
-            "properties":{
-              "Object":{
-                "$ref":"property-objects.schema.json",
-                "title":"Properties"
+            "properties": {
+              "Object": {
+                "$ref": "property-objects.schema.json",
+                "title": "Properties"
               }
             },
-            "options":{
-              "disable_properties":true
+            "options": {
+              "disable_properties": true
             },
-            "required":["Object"],
-            "title":"Object"
+            "required": [
+              "Object"
+            ],
+            "title": "Object"
           },
           {
-            "type":"object",
-            "properties":{
-              "Player":{
-                "$ref":"property-player.schema.json",
-                "title":"Properties"
+            "properties": {
+              "Door": {
+                "$ref": "property-objects.schema.json",
+                "title": "Properties"
               }
             },
-            "options":{
-              "disable_properties":true
+            "options": {
+              "disable_properties": true
             },
-            "required":["Player"],
-            "title":"Player"
+            "required": [
+              "Door"
+            ],
+            "title": "Door"
           },
           {
-            "type":"object",
-            "properties":{
-              "NPC":{
-                "$ref":"property-character.schema.json",
-                "title":"Properties"
+            "type": "object",
+            "properties": {
+              "Player": {
+                "$ref": "property-player.schema.json",
+                "title": "Properties"
               }
             },
-            "options":{
-              "disable_properties":true
+            "options": {
+              "disable_properties": true
             },
-            "required":["NPC"],
-            "title":"Character"
+            "required": [
+              "Player"
+            ],
+            "title": "Player"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "NPC": {
+                "$ref": "property-character.schema.json",
+                "title": "Properties"
+              }
+            },
+            "options": {
+              "disable_properties": true
+            },
+            "required": [
+              "NPC"
+            ],
+            "title": "Character"
           }
         ]
       }
     },
-    "Remove":{
-      "type":"array",
+    "Add": {
+      "type": "array",
       "format": "tabs-top",
-      "items":{
-        "title":"Target",
-        "anyOf":[
+      "items": {
+        "title": "Target",
+        "anyOf": [
           {
-            "properties":{
-              "Object":{
-                "$ref":"property-objects.schema.json",
-                "title":"Properties"
+            "properties": {
+              "Object": {
+                "$ref": "property-objects.schema.json",
+                "title": "Properties"
               }
             },
-            "options":{
-              "disable_properties":true
+            "options": {
+              "disable_properties": true
             },
-            "required":["Object"],
-            "title":"Object"
+            "required": [
+              "Object"
+            ],
+            "title": "Object"
           },
           {
-            "properties":{
-              "Door":{
-                "$ref":"property-objects.schema.json",
-                "title":"Properties"
+            "type": "object",
+            "properties": {
+              "Player": {
+                "$ref": "property-player.schema.json",
+                "title": "Properties"
               }
             },
-            "options":{
-              "disable_properties":true
+            "options": {
+              "disable_properties": true
             },
-            "required":["Door"],
-            "title":"Door"
+            "required": [
+              "Player"
+            ],
+            "title": "Player"
           },
           {
-            "type":"object",
-            "properties":{
-              "Player":{
-                "$ref":"property-player.schema.json",
-                "title":"Properties"
+            "type": "object",
+            "properties": {
+              "NPC": {
+                "$ref": "property-character.schema.json",
+                "title": "Properties"
               }
             },
-            "options":{
-              "disable_properties":true
+            "options": {
+              "disable_properties": true
             },
-            "required":["Player"],
-            "title":"Player"
-          },
-          {
-            "type":"object",
-            "properties":{
-              "NPC":{
-                "$ref":"property-character.schema.json",
-                "title":"Properties"
-              }
-            },
-            "options":{
-              "disable_properties":true
-            },
-            "required":["NPC"],
-            "title":"Character"
-          }
-        ]
-      }
-    },
-    "Add":{
-      "type":"array",
-      "format": "tabs-top",
-      "items":{
-        "title":"Target",
-        "anyOf":[
-          {
-            "properties":{
-              "Object":{
-                "$ref":"property-objects.schema.json",
-                "title":"Properties"
-              }
-            },
-            "options":{
-              "disable_properties":true
-            },
-            "required":["Object"],
-            "title":"Object"
-          },
-          {
-            "type":"object",
-            "properties":{
-              "Player":{
-                "$ref":"property-player.schema.json",
-                "title":"Properties"
-              }
-            },
-            "options":{
-              "disable_properties":true
-            },
-            "required":["Player"],
-            "title":"Player"
-          },
-          {
-            "type":"object",
-            "properties":{
-              "NPC":{
-                "$ref":"property-character.schema.json",
-                "title":"Properties"
-              }
-            },
-            "options":{
-              "disable_properties":true
-            },
-            "required":["NPC"],
-            "title":"Character"
+            "required": [
+              "NPC"
+            ],
+            "title": "Character"
           }
         ]
       }
@@ -179,7 +203,6 @@
     "Resolve": {
       "type": "string"
     },
-
     "AddObject": {
       "type": "object",
       "properties": {
@@ -209,7 +232,6 @@
     }
   },
   "required": [
-    "Name",
-    "Objects"
+    "Name"
   ]
 }

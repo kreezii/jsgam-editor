@@ -1,65 +1,72 @@
 {
-    "type": "object",
-    "properties": {
-      "Name": {
-        "type": "string",
-        "default":"New Scene"
-      },
-      "Background": {
-        "$ref": "sources-img.schema.json"
-      },
-      "Foreground": {
-        "$ref": "sources-img.schema.json"
-      },
-      "Music": {
-        "$ref":"watch-music.schema.json"
-      },
-      "WalkArea": {
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "default": "New Scene"
+    },
+    "Background": {
+      "$ref": "sources-img.schema.json"
+    },
+    "Foreground": {
+      "$ref": "sources-img.schema.json"
+    },
+    "Music": {
+      "$ref": "watch-music.schema.json"
+    },
+    "WalkArea": {
+      "type": "array",
+      "format": "tabs-top",
+      "items": {
+        "type": "number",
+        "headerTemplate": "{{i}}"
+      }
+    },
+    "Obstacles": {
+      "type": "array",
+      "format": "tabs-top",
+      "items": {
         "type": "array",
+        "headerTemplate": "Obstacle {{i}}",
         "format": "tabs-top",
         "items": {
           "type": "number",
-          "headerTemplate": "{{i}}"
+          "headerTemplate": "Coord {{i}}"
         }
-      },
-      "Obstacles": {
-        "type": "array",
-        "format": "tabs-top",
-        "items": {
-          "type": "array",
-          "headerTemplate": "Obstacle {{i}}",
-          "format": "tabs-top",
-          "items": {
-            "type": "number",
-            "headerTemplate": "Coord {{i}}"
-          }
-        }
-      },
-      "Player": {
-        "type": "object",
-        "properties": {
-          "Size": {
-            "type": "number"
-          }
-        },
-        "description": "Player options in this scene"
-      },
-      "Objects": {
-        "$ref":"watch-objects.schema.json"
-      },
-      "CutScene": {
-        "type": "string"
-      },
-      "Depth": {
-        "type": "number"
-      },
-      "Characters": {
-        "$ref":"watch-characters.schema.json"
       }
     },
-    "required": [
-      "Name",
-      "Background",
-      "WalkArea"
-    ]
+    "Player": {
+      "type": "object",
+      "properties": {
+        "Size": {
+          "type": "number"
+        }
+      },
+      "description": "Player options in this scene"
+    },
+    "Objects": {
+      "type": "array",
+      "format": "table",
+      "items": {
+        "$ref": "watch-objects.schema.json",
+        "headerTemplate": "{{self}}",
+        "title":"Object"
+      },
+      "description": "Scene Objects"
+    },
+    "CutScene": {
+      "type": "string"
+    },
+    "Depth": {
+      "type": "number"
+    },
+    "Characters": {
+      "$ref": "watch-characters.schema.json"
+    }
+  },
+  "required": [
+    "Name",
+    "Background",
+    "WalkArea"
+  ]
 }
