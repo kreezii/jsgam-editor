@@ -1,15 +1,14 @@
 {
-  "type": "array",
-  "items": {
-    "title":"Object",
-    "type": "string",
-    "watch": {
-      "puzzle": "Puzzles"
-    },
-    "enumSource": [{
+  "title": "Puzzle",
+  "type": "string",
+  "watch": {
+    "puzzle": "Puzzles"
+  },
+  "enumSource": [
+    {
       "source": "puzzle",
       "value": "{{item.Name}}"
-    }]
-  },
+    }
+  ],
   "description": "Puzzles"
 }

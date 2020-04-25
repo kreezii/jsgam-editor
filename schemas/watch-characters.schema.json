@@ -1,22 +1,13 @@
 {
-  "type": "array",
-  "items": {
-    "anyOf":[
-      {
-        "type": "string",
-        "title":"Characters",
-        "watch": {
-          "sources": "Characters"
-        },
-        "enumSource": [{
-          "source": "sources",
-          "value": "{{item.Name}}"
-        }]
-      },
-      {
-        "type":"string",
-        "title":"Edit"
-      }
-    ]
-  }
+  "type": "string",
+  "title": "Characters",
+  "watch": {
+    "sources": "Characters"
+  },
+  "enumSource": [
+    {
+      "source": "sources",
+      "value": "{{item.Name}}"
+    }
+  ]
 }

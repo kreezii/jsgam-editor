@@ -34,6 +34,9 @@ function validateAdventure(){
     indicator.classList.add("fa-check","text-sucess");
     indicator.title="No errors found";
     indicator.style.color="green";
+
+    //Autosave
+    localStorage.setItem('JSGAM-Autosave', JSON.stringify(editor.getValue(), null, 2));
   }
 }
 
@@ -44,6 +47,13 @@ editor.on('change',function() {
 });
 
 editor.on('ready',() => {
+  let autosave=localStorage.getItem('JSGAM-Autosave');
+
+  if(autosave){
+    editor.setValue(parseJson(autosave));
+    editor.setValue(parseJson(autosave)); //Apply twice
+  }
+
   // Now the api methods will be available
   validateAdventure();
 });

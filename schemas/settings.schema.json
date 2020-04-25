@@ -101,7 +101,7 @@
         "Icon": {
           "$ref": "sources-img.schema.json"
         },
-        "Margin": {
+        "Border": {
           "type": "number",
           "format": "number",
           "default": 10,

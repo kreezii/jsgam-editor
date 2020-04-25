@@ -1,124 +1,134 @@
 {
-    "type": "object",
-    "format":"categories",
-    "properties": {
-      "Name": {
+  "type": "object",
+  "format": "categories",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "default": "New Object"
+    },
+    "Description": {
+      "type": "array",
+      "items": {
         "type": "string",
-        "default":"New Object"
+        "title": "Language"
       },
-      "Description": {
-        "type": "array",
-        "items": {
-          "type": "string",
-          "title":"Language"
-        },
-        "description": "If not defined, the NoDescription property of the Texts schema will be used."
-      },
-      "Position": {
-        "type": "array",
-        "format":"table",
-        "items": {
-          "type": "number",
-          "format":"number",
-          "title":"Coordinates"
-        },
-        "options":{
-          "disable_array_reorder":true
-        },
-        "maxItems": 2,
-        "minItems": 2,
-        "description": "Position in the scene."
-      },
-      "Size": {
+      "description": "If not defined, the NoDescription property of the Texts schema will be used."
+    },
+    "Position": {
+      "type": "array",
+      "format": "table",
+      "items": {
         "type": "number",
-        "default": "1",
-        "description": "Size of the object"
+        "format": "number",
+        "title": "Coordinates"
       },
-      "Mirror": {
-        "type": "boolean",
-        "description": "Flip horizontally",
-        "default": false
+      "options": {
+        "disable_array_reorder": true
       },
-      "Lock": {
-        "type": "boolean",
-        "description": "Player can use but cannot drag the object",
-        "default": false
+      "maxItems": 2,
+      "minItems": 2,
+      "description": "Position in the scene."
+    },
+    "Size": {
+      "type": "number",
+      "default": "1",
+      "description": "Size of the object"
+    },
+    "Mirror": {
+      "type": "boolean",
+      "description": "Flip horizontally",
+      "default": false
+    },
+    "Lock": {
+      "type": "boolean",
+      "description": "Player can use but cannot drag the object",
+      "format": "checkbox",
+      "default": true,
+      "readOnly": true
+    },
+    "Interactive": {
+      "type": "boolean",
+      "description": "Set to true if the object is just for decoration",
+      "format": "checkbox",
+      "default": true,
+      "readOnly": true
+    },
+    "Take": {
+      "type": "boolean",
+      "format": "checkbox",
+      "default": true,
+      "readOnly": true
+    },
+    "Use": {
+      "type": "string",
+      "watch": {
+        "puzzles": "Puzzles"
       },
-      "Interactive": {
-        "type": "boolean",
-        "description": "Set to true if the object is just for decoration",
-        "default": true
-      },
-      "Take": {
-        "type": "boolean",
-        "format": "checkbox",
-        "default": true,
-        "readOnly": true
-      },
-      "Use": {
-        "type": "string",
-        "watch": {
-          "puzzles": "Puzzles"
-        },
-        "enumSource": [{
+      "enumSource": [
+        {
           "source": "puzzles",
           "value": "{{item.Name}}"
-        }],
-        "description": "Name of the puzzle "
-      },
-      "Door": {
-        "type": "object",
-        "properties": {
-          "To": {
-            "$ref": "watch-scenes.schema.json",
-            "description": "Name of the scene to go"
-          },
-          "Player": {
-            "type": "array",
-            "format": "table",
-            "items": {
-              "type": "number",
-              "format": "number",
-              "title": "Coordinates"
-            },
-            "options": {
-              "disable_array_reorder": true
-            },
-            "maxItems": 2,
-            "minItems": 2,
-            "description": "Player's position in the first scene."
-          }
+        }
+      ],
+      "description": "Name of the puzzle "
+    },
+    "Door": {
+      "type": "object",
+      "properties": {
+        "To": {
+          "$ref": "watch-scenes.schema.json",
+          "description": "Name of the scene to go"
         },
-        "required": [
-          "To",
-          "Player"
-        ],
-        "description": "Using the object changes to another scene."
-      },
-      "Combine": {
-        "type": "object",
-        "properties": {
-          "With": {
-            "$ref":"watch-objects.schema.json",
-            "description": "Name of the object in the inventory"
+        "Player": {
+          "type": "array",
+          "format": "table",
+          "items": {
+            "type": "number",
+            "format": "number",
+            "title": "Coordinates"
           },
-          "Puzzle": {
-            "$ref":"watch-puzzle.schema.json",
-            "description": "Name of the puzzle to resolve"
-          }
+          "options": {
+            "disable_array_reorder": true
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "description": "Player's position in the first scene."
+        }
+      },
+      "required": [
+        "To",
+        "Player"
+      ],
+      "description": "Using the object changes to another scene."
+    },
+    "Combine": {
+      "type": "object",
+      "properties": {
+        "With": {
+          "$ref": "watch-objects.schema.json",
+          "description": "Name of the object in the inventory"
         },
-        "description": "Check it when an object from the inventory is dragged over this object."
+        "Puzzle": {
+          "$ref": "watch-puzzle.schema.json",
+          "description": "Name of the puzzle to resolve"
+        }
       },
-      "Layer":{
-          "type": "string",
-          "enum": [
-            "Top",
-            "Bottom"
-          ]
-      },
-      "Icon": {
-        "$ref": "sources-img.schema.json",
-        "description": "Image to show when the object is in the inventory"
-      }
+      "required": [
+        "With",
+        "Puzzle"
+      ],
+      "description": "Check it when an object from the inventory is dragged over this object."
+    },
+    "Layer": {
+      "type": "string",
+      "enum": [
+        "Top",
+        "Bottom"
+      ]
+    },
+    "Icon": {
+      "$ref": "sources-img.schema.json",
+      "description": "Image to show when the object is in the inventory"
     }
+  }
 }

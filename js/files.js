@@ -18,11 +18,11 @@ var eventClickFire = function(el) {
 // Save JSON
 var saveJSON = function() {
  let space=2;
- var editorJSON=editor.getValue();
+ var editorJSON=JSON.parse(JSON.stringify(editor.getValue())); //Clone object so we don't modify the editor values
  var adventureTitle=editorJSON["Sources"].Filename;
  var title = prompt('Enter the name of your file', adventureTitle);
  if(minify){
-   delete editorJSON["Sources"];
+   delete editorJSON["Sources"]; //That's why we cloned the editor object
    space=0;
    minify=false;
  }
@@ -31,8 +31,6 @@ var saveJSON = function() {
  var json = JSON.stringify(editorJSON, null, space).replace(/>/g,"\\n");//Convert break lines
  var filename = (title || 'jsgam').toLowerCase().replace(/[\s<>:"\\|*]/g, "-") + '.json';
  var blob = new Blob([json], {type: "application/json;charset=utf-8"});
-
-
 
  var a = document.createElement('a');
  a.download = filename;

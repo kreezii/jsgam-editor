@@ -61,7 +61,15 @@
       "type": "number"
     },
     "Characters": {
-      "$ref": "watch-characters.schema.json"
+      "type": "array",
+      "format": "table",
+      "items": {
+        "$ref": "watch-characters.schema.json",
+        "headerTemplate": "{{self}}",
+        "title":"Character"
+      },
+      "description": "Scene Non-Playable Characters"
+
     }
   },
   "required": [

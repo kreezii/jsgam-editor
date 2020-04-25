@@ -11,16 +11,18 @@
             "Object": {
               "$ref": "objects.schema.json",
               "title": "Properties",
-              "properties":{
-                "Name":{
+              "properties": {
+                "Name": {
                   "type": "string",
                   "watch": {
                     "objects": "Objects"
                   },
-                  "enumSource": [{
-                    "source": "objects",
-                    "value": "{{item.Name}}"
-                  }]
+                  "enumSource": [
+                    {
+                      "source": "objects",
+                      "value": "{{item.Name}}"
+                    }
+                  ]
                 }
               }
             }
@@ -68,167 +70,61 @@
       ]
     },
     "Remove": {
-      "type": "array",
-      "format": "tabs-top",
-      "items": {
-        "title": "Target",
-        "anyOf": [
-          {
-            "properties": {
-              "Object": {
-                "$ref": "property-objects.schema.json",
-                "title": "Properties"
-              }
-            },
-            "options": {
-              "disable_properties": true
-            },
-            "required": [
-              "Object"
-            ],
-            "title": "Object"
-          },
-          {
-            "properties": {
-              "Door": {
-                "$ref": "property-objects.schema.json",
-                "title": "Properties"
-              }
-            },
-            "options": {
-              "disable_properties": true
-            },
-            "required": [
-              "Door"
-            ],
-            "title": "Door"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "Player": {
-                "$ref": "property-player.schema.json",
-                "title": "Properties"
-              }
-            },
-            "options": {
-              "disable_properties": true
-            },
-            "required": [
-              "Player"
-            ],
-            "title": "Player"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "NPC": {
-                "$ref": "property-character.schema.json",
-                "title": "Properties"
-              }
-            },
-            "options": {
-              "disable_properties": true
-            },
-            "required": [
-              "NPC"
-            ],
-            "title": "Character"
-          }
-        ]
+      "type": "object",
+      "format": "grid",
+      "properties": {
+        "Object": {
+          "$ref": "watch-objects.schema.json",
+          "title": "Object"
+        },
+        "Character": {
+          "$ref": "watch-characters.schema.json",
+          "title": "Character"
+        }
       }
     },
     "Add": {
-      "type": "array",
-      "format": "tabs-top",
-      "items": {
-        "title": "Target",
-        "anyOf": [
-          {
-            "properties": {
-              "Object": {
-                "$ref": "property-objects.schema.json",
-                "title": "Properties"
-              }
+      "type": "object",
+      "format": "grid",
+      "properties": {
+        "Object": {
+          "type": "object",
+          "properties": {
+            "Name": {
+              "$ref": "watch-objects.schema.json"
             },
-            "options": {
-              "disable_properties": true
-            },
-            "required": [
-              "Object"
-            ],
-            "title": "Object"
+            "Scene": {
+              "$ref": "watch-scenes.schema.json"
+            }
           },
-          {
-            "type": "object",
-            "properties": {
-              "Player": {
-                "$ref": "property-player.schema.json",
-                "title": "Properties"
-              }
+          "required": ["Scene","Name"],
+          "title": "Object"
+        },
+        "Inventory": {
+          "$ref": "watch-objects.schema.json",
+          "title": "Inventory"
+        },
+        "NPC": {
+          "type": "object",
+          "properties": {
+            "Name": {
+              "$ref": "watch-characters.schema.json"
             },
-            "options": {
-              "disable_properties": true
-            },
-            "required": [
-              "Player"
-            ],
-            "title": "Player"
+            "Scene": {
+              "$ref": "watch-scenes.schema.json"
+            }
           },
-          {
-            "type": "object",
-            "properties": {
-              "NPC": {
-                "$ref": "property-character.schema.json",
-                "title": "Properties"
-              }
-            },
-            "options": {
-              "disable_properties": true
-            },
-            "required": [
-              "NPC"
-            ],
-            "title": "Character"
-          }
-        ]
+          "required": ["Scene","Name"],
+          "title": "Character"
+        }
       }
     },
     "Say": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "$ref": "languages.schema.json"
     },
     "Resolve": {
-      "type": "string"
-    },
-    "AddObject": {
-      "type": "object",
-      "properties": {
-        "Name": {
-          "type": "string"
-        },
-        "Scene": {
-          "type": "string"
-        }
-      },
-      "required": []
-    },
-    "RemoveObject": {
-      "type": "string"
-    },
-    "SetDialogue": {
-      "type": "object",
-      "properties": {
-        "Character": {
-          "type": "string"
-        },
-        "Dialogue": {
-          "type": "string"
-        }
-      },
-      "required": []
+      "$ref": "watch-puzzle.schema.json",
+      "description": "Name of the puzzle to resolve"
     }
   },
   "required": [

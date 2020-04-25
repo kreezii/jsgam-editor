@@ -58,6 +58,8 @@
     "Size": {
       "type": "number",
       "default": "1.0",
+      "format": "number",
+      "step": 0.1,
       "description": "Size of the character"
     },
     "Position": {
@@ -86,11 +88,13 @@
     },
     "Mirror": {
       "type": "boolean",
-      "default": false,
+      "format": "checkbox",
+      "default": true,
+      "readOnly": true,
       "description": "Flip horizontally the character"
     },
     "Font": {
-      "type": "string",
+      "$ref": "watch-fonts.schema.json",
       "description": "Text font when the character speaks"
     }
   },
