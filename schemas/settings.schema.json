@@ -29,7 +29,6 @@
           "$ref": "watch-fonts.schema.json"
         },
         "Credits": {
-          "type": "object",
           "$ref": "watch-fonts.schema.json"
         },
         "Position": {

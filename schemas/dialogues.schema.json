@@ -59,20 +59,55 @@
                 },
                 "Repeat": {
                   "type": "boolean",
-                  "description": "If set to false the player only can use it one time.",
-                  "default": true
+                  "default": false,
+                  "readOnly": true,
+                  "description": "If set to false the player only can use it one time."
                 },
                 "Link": {
                   "type": "string",
+                  "watch": {
+                    "ramas": "idDialogues.Branches"
+                  },
+                  "enumSource": [
+                    {
+                      "source": "ramas",
+                      "value": "{{item.Name}}"
+                    }
+                  ],
                   "description": "Link to the name to another branch"
                 },
                 "Puzzle": {
-                  "type": "string",
+                  "$ref": "watch-puzzle.schema.json",
                   "description": "Puzzle to resolve when the choice is selected."
                 },
                 "EndDialogue": {
                   "type": "boolean",
+                  "format": "checkbox",
+                  "default": true,
+                  "readOnly": true,
                   "description": "If set to true, finish the dialogue."
+                },
+                "Size":{
+                  "type": "integer",
+                  "enum": [
+                    10,
+                    15,
+                    20,
+                    25,
+                    30,
+                    35,
+                    40,
+                    45,
+                    50,
+                    55,
+                    60,
+                    65,
+                    70,
+                    75,
+                    80,
+                    85
+                  ],
+                  "default": 30
                 }
               },
               "required": [

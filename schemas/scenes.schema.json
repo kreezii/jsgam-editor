@@ -39,10 +39,15 @@
       "type": "object",
       "properties": {
         "Size": {
-          "type": "number"
+          "type": "number",
+          "format": "number",
+          "step": 0.1,
+          "default": 1.0,
+          "description": "Size of the player sprite"
         }
       },
-      "description": "Player options in this scene"
+      "description": "Player options in this scene",
+      "required": ["Size"]
     },
     "Objects": {
       "type": "array",
@@ -55,7 +60,7 @@
       "description": "Scene Objects"
     },
     "CutScene": {
-      "type": "string"
+      "$ref": "watch-cutscenes.schema.json"
     },
     "Depth": {
       "type": "number"

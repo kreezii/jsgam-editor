@@ -37,7 +37,7 @@
         "Continue"
       ]
     },
-    "Options": {
+    "Language": {
       "type": "array",
       "items": {
         "type": "string",
@@ -45,7 +45,7 @@
       },
       "description": "Main menu text",
       "default": [
-        "Options"
+        "Language"
       ]
     },
     "Help": {
@@ -140,7 +140,7 @@
   "required": [
     "NewGame",
     "Continue",
-    "Options",
+    "Language",
     "Help",
     "Credits",
     "Back",

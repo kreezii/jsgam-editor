@@ -1,11 +1,11 @@
 {
   "type": "object",
   "properties": {
+    "Name":{
+      "$ref": "watch-characters.schema.json"
+    },
     "Dialogue": {
       "$ref":"watch-dialogues.schema.json"
     }
-  },
-  "dependencies": {
-    "Dialogue": ["Dialogues"]
   }
 }

@@ -12,6 +12,7 @@
           "type": "array",
           "items": {
             "type": "object",
+            "title": "Sequence",
             "properties": {
               "Image": {
                 "$ref": "sources-img.schema.json"
@@ -19,14 +20,19 @@
               "Text": {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "string",
+                  "title": "Language"
                 }
               },
               "Time": {
-                "type": "number"
+                "type": "number",
+                "format": "number",
+                "step": 1,
+                "default": 1,
+                "description": "Duration of the sequence in seconds"
               },
               "Music": {
-                "type": "string"
+                "$ref": "watch-music.schema.json"
               },
               "Voice": {
                 "type": "array",

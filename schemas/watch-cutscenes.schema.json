@@ -1,12 +1,11 @@
 {
   "type": "string",
-  "title": "Character",
   "watch": {
-    "sources": "Characters"
+    "cutscenes": "Cutscenes"
   },
   "enumSource": [
     {
-      "source": "sources",
+      "source": "cutscenes",
       "value": "{{item.Name}}"
     }
   ]

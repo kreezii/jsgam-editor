@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "title": "Name"
+    },
+    "value": {
+      "type": "array",
+      "title": "Time",
+      "format": "table",
+      "description": "Time in seconds where the audio starts and ends",
+      "items": {
+        "type": "number",
+        "format": "number",
+        "title": "Seconds"
+      },
+      "options": {
+        "disable_array_reorder": true
+      },
+      "maxItems": 2,
+      "minItems": 2
+    }
+  }
+}

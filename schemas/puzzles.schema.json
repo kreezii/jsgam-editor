@@ -7,6 +7,7 @@
     "Modify": {
       "anyOf": [
         {
+          "type": "object",
           "properties": {
             "Object": {
               "$ref": "objects.schema.json",
@@ -24,14 +25,14 @@
                     }
                   ]
                 }
-              }
+              },
+              "required": [
+                "Name"
+              ]
             }
           },
-          "options": {
-            "disable_properties": true
-          },
           "required": [
-            "Name"
+            "Object"
           ],
           "title": "Object"
         },
@@ -59,13 +60,39 @@
               "title": "Properties"
             }
           },
-          "options": {
-            "disable_properties": true
-          },
           "required": [
             "NPC"
           ],
           "title": "Character"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Scene": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "$ref": "watch-scenes.schema.json"
+                },
+                "WalkArea": {
+                  "type": "array",
+                  "format": "tabs-top",
+                  "items": {
+                    "type": "number",
+                    "headerTemplate": "{{i}}"
+                  }
+                }
+              },
+              "required": [
+                "Name",
+                "WalkArea"
+              ]
+            }
+          },
+          "title": "Scene",
+          "required": [
+            "Scene"
+          ]
         }
       ]
     },
@@ -97,7 +124,10 @@
               "$ref": "watch-scenes.schema.json"
             }
           },
-          "required": ["Scene","Name"],
+          "required": [
+            "Scene",
+            "Name"
+          ],
           "title": "Object"
         },
         "Inventory": {
@@ -114,8 +144,22 @@
               "$ref": "watch-scenes.schema.json"
             }
           },
-          "required": ["Scene","Name"],
+          "required": [
+            "Scene",
+            "Name"
+          ],
           "title": "Character"
+        }
+      }
+    },
+    "Sound": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "$ref": "watch-sounds.schema.json"
+        },
+        "Sprite": {
+          "type": "string"
         }
       }
     },

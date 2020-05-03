@@ -130,6 +130,19 @@
         "disable_collapse": true
       }
     },
+    "Sounds": {
+      "title": "Sounds",
+      "type": "array",
+      "format": "tabs",
+      "items": {
+        "title": "Sounds",
+        "$ref": "sounds.schema.json",
+        "headerTemplate": "{{self.Name}}"
+      },
+      "options": {
+        "disable_collapse": true
+      }
+    },
     "Sources": {
       "$ref": "sources.schema.json"
     }

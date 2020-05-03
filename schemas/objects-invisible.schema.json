@@ -13,7 +13,8 @@
     "Description": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "title": "Language"
       },
       "description": "If not defined, the NoDescription property of the Texts schema will be used."
     },
