@@ -48,9 +48,8 @@
     },
     "Interactive": {
       "type": "boolean",
-      "description": "Set to true if the object is just for decoration",
-      "format": "checkbox",
-      "default": true,
+      "description": "Set to false if the object is just for decoration",
+      "default": false,
       "readOnly": true
     },
     "Take": {
