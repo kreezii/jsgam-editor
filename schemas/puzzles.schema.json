@@ -166,9 +166,20 @@
     "Say": {
       "$ref": "languages.schema.json"
     },
+    "CutScene": {
+      "$ref": "watch-cutscenes.schema.json"
+    },
     "Resolve": {
       "$ref": "watch-puzzle.schema.json",
       "description": "Name of the puzzle to resolve"
+    },
+    "EndGame":{
+      "type": "object",
+      "properties": {
+        "CutScene":{
+          "$ref": "watch-cutscenes.schema.json"
+        }
+      }
     }
   },
   "required": [

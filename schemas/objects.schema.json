@@ -7,11 +7,7 @@
       "default": "New Object"
     },
     "Description": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "title": "Language"
-      },
+      "$ref": "languages.schema.json",
       "description": "If not defined, the NoDescription property of the Texts schema will be used."
     },
     "Position": {

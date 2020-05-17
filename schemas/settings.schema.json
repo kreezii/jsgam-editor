@@ -18,6 +18,7 @@
     },
     "Text": {
       "type": "object",
+      "format":"categories",
       "properties": {
         "Style": {
           "$ref": "watch-fonts.schema.json"

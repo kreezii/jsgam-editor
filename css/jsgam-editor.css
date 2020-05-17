@@ -291,6 +291,12 @@ footer{
 	margin: .5rem;
 }
 
+.center{
+	color: white;
+	text-align: center;
+	background: var(--bg-pane);
+}
+
 .je-indented-panel {
 	border: 1.5px solid var(--border-indented-panel) !important;
 	background: var(--bg-indented-panel);

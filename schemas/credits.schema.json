@@ -20,39 +20,25 @@
       "description": "Duration given in seconds of the credits.",
       "default": "20"
     },
-    "Style": {
-      "type": "object",
-      "properties": {
-        "font": {
-          "type": "string"
-        },
-        "align": {
-          "type": "string"
-        },
-        "tint": {
-          "type": "string"
-        }
-      },
-      "description": "Text style",
-      "required": [
-        "font"
-      ]
-    },
     "Lines": {
       "type": "array",
       "items": {
         "type": "object",
+        "title": "Line",
         "properties": {
           "Title": {
             "type": "array",
             "items": {
+              "title":"Language",
               "type": "string"
             },
             "description": "Title of the credit"
           },
           "Text": {
             "type": "array",
+            "format": "table",
             "items": {
+              "title":"Author",
               "type": "string"
             },
             "description": "People who made it!"
@@ -66,8 +52,7 @@
     }
   },
   "required": [
-    "Lines",
-    "Style"
+    "Lines"
   ],
   "options": {
     "disable_collapse": true

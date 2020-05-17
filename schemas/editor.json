@@ -107,7 +107,7 @@
     "Puzzles": {
       "title": "Puzzles",
       "type": "array",
-      "format": "tabs",
+      "format": "tabs-top",
       "items": {
         "title": "Puzzle",
         "headerTemplate": "{{self.Name}}",
@@ -159,6 +159,9 @@
   "dependencies": {
     "Dialogues": [
       "Characters"
+    ],
+    "Credits":[
+      "Settings"
     ]
   },
   "options": {

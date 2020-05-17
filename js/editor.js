@@ -7,12 +7,14 @@ var importScene=false;
 var convertFont=false;
 var minify=false;
 
-function setSources(sources){
+function setSources(sources,file){
   var adventure;
+  adventure=editor.getEditor('root.Sources.Images');
+  var currentSrc=adventure.getValue();
   if(sources.frames){
-    adventure=editor.getEditor('root.Sources.Images')
-    var currentSrc=adventure.getValue();
     adventure.setValue(currentSrc.concat(Object.getOwnPropertyNames(sources.frames)));
+  }else if(file!==undefined){
+    adventure.setValue(currentSrc.concat(file));
   }
 }
 
@@ -59,7 +61,7 @@ function setNPC(name,data){
   importNPC=false;
   let folder=editor.getEditor('root.Sources.Folders').getValue();
   let path=folder.Main;
-  if(folder.Characters!==undefined) path=folder.Characters;
+  if(folder.NPC!==undefined) path=folder.NPC;
   let characterSettings=editor.getEditor('root.Characters');
   if(characterSettings!==undefined){
     let nameJson=name.replace("ske", "tex");

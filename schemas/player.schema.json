@@ -4,7 +4,8 @@
   "format": "grid-strict",
   "properties": {
     "Avatar": {
-      "$ref": "sources-img.schema.json"
+      "$ref": "sources-img.schema.json",
+      "description":"The image shown when the player talks"
     },
     "Texture": {
       "type": "string"
@@ -36,7 +37,8 @@
         "Say": {
           "type": "string"
         }
-      }
+      },
+      "required":["Stand","Walk","Take","Use","Say"]
     },
     "Position": {
       "type": "array",

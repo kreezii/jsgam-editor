@@ -115,7 +115,7 @@ var importFile = function(e) {
      else if(importAdventure) setAdventure(response);
      else if(importScene) setScene(response);
      else if(convertFont) saveFont(fnt2xml(response));
-     else setSources(parseJson(response));
+     else setSources(parseJson(response),file.name);
    };
    reader.readAsText(file)
  }

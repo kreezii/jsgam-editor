@@ -9,11 +9,11 @@
       "type": "array",
       "title": "Time",
       "format": "table",
-      "description": "Time in seconds where the audio starts and ends",
+      "description": "Time in miliseconds where the audio starts and ends",
       "items": {
         "type": "number",
         "format": "number",
-        "title": "Seconds"
+        "title": "Miliseconds"
       },
       "options": {
         "disable_array_reorder": true

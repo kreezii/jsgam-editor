@@ -6,6 +6,13 @@
       "default":"game",
       "description":"Default filename to save or export the adventure"
     },
+    "Version":{
+      "type": "number",
+      "default": 0.0,
+      "format": "number",
+      "step": 0.1,
+      "description":"Adventure version"
+    },
     "Folders": {
       "type": "object",
       "format": "grid-strict",
@@ -75,11 +82,14 @@
     },
     "Images": {
       "type": "array",
+      "format":"table",
       "items": {
-        "type": "string"
+        "type": "string",
+        "headerTemplate": "Image: {{i}}"
       },
       "options": {
         "disable_properties": true,
+        "disable_array_reorder": true,
         "disable_array_add": true
       }
     },
@@ -108,6 +118,7 @@
   },
   "required": [
     "Filename",
+    "Version",
     "Images",
     "Folders",
     "Fonts",

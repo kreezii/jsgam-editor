@@ -44,7 +44,11 @@
                   "format": "tabs-top",
                   "items": {
                     "title": "Language Text",
-                    "type": "string"
+                    "type": "string",
+                    "format": "textarea",
+                    "options": {
+                      "input_height":"100px"
+                    }
                   },
                   "description": "Text for the player"
                 },
@@ -53,7 +57,11 @@
                   "format": "tabs-top",
                   "items": {
                     "title": "Language Answer",
-                    "type": "string"
+                    "type": "string",
+                    "format": "textarea",
+                    "options": {
+                      "input_height":"100px"
+                    }
                   },
                   "description": "Text for the non-playable character."
                 },
@@ -87,7 +95,7 @@
                   "readOnly": true,
                   "description": "If set to true, finish the dialogue."
                 },
-                "Size":{
+                "Size": {
                   "type": "integer",
                   "enum": [
                     10,

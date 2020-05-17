@@ -35,6 +35,13 @@ function validateAdventure(){
     indicator.title="No errors found";
     indicator.style.color="green";
 
+    let name = editor.getEditor('root.Texts.Title').getValue()[0];
+    let version = editor.getEditor('root.Sources.Version').getValue();
+
+    document.getElementById('adventure_name').textContent=name.replace(">", " ");;
+    document.getElementById('adventure_version').textContent=version;
+
+
     //Autosave
     localStorage.setItem('JSGAM-Autosave', JSON.stringify(editor.getValue(), null, 2));
   }

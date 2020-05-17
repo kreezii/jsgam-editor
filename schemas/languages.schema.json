@@ -2,6 +2,10 @@
   "type": "array",
   "items": {
     "type": "string",
-    "title": "Language"
+    "title": "Language",
+    "format": "textarea",
+    "options": {
+      "input_height":"100px"
+    }
   }
 }
