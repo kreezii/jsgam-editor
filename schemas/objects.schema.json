@@ -6,6 +6,27 @@
       "type": "string",
       "default": "New Object"
     },
+    "Animation": {
+      "anyOf": [
+        {
+          "type": "string",
+          "title": "Defaults",
+          "enum": [
+            "stand",
+            "walk",
+            "take",
+            "use",
+            "speak"
+          ]
+        },
+        {
+          "type": "string",
+          "title": "Other"
+        }
+      ],
+      "default": "use",
+      "description": "Animation to play when the player use this object"
+    },
     "Description": {
       "$ref": "languages.schema.json",
       "description": "If not defined, the NoDescription property of the Texts schema will be used."
@@ -88,6 +109,13 @@
           "maxItems": 2,
           "minItems": 2,
           "description": "Player's position in the first scene."
+        },
+        "NoLook": {
+          "type": "boolean",
+          "format": "checkbox",
+          "default": true,
+          "readOnly": true,
+          "description": "On click/touch uses the door without examine it"
         }
       },
       "required": [
