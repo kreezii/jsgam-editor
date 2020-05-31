@@ -1,11 +1,28 @@
 {
   "title": "Help",
+  "id": "structure",
   "description": "Help screen to show the player how to play.",
   "format": "categories",
   "type": "array",
   "items": {
-    "$ref": "sources-img.schema.json",
-    "title": "Language"
+    "title": "Language",
+    "type": "array",
+    "description":"Example: 'Look: Touch or click on a object or a character'",
+    "default":[
+      "Look: Touch or click on a object or a character",
+      "Take: Drag the object onto the inventory icon",
+      "Combine: Drag one object onto another one",
+      "Use: Right mouse click or long press",
+      "Talk: Right mouse click or long press over a character"
+    ],
+    "items": {
+      "type": "string",
+      "title": "Action",
+      "format": "textarea",
+      "options": {
+        "input_height":"100px"
+      }
+    }
   },
   "options": {
     "disable_collapse": true

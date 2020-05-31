@@ -32,6 +32,9 @@
         "Credits": {
           "$ref": "watch-fonts.schema.json"
         },
+        "Help": {
+          "$ref": "watch-fonts.schema.json"
+        },
         "Position": {
           "type": "string",
           "enum": [
@@ -113,6 +116,53 @@
         "Background",
         "Icon"
       ]
+    },
+    "Options": {
+      "type": "object",
+      "properties": {
+        "Sound": {
+          "type": "object",
+          "properties": {
+            "Icon":{
+              "$ref": "sources-img.schema.json"
+            },
+            "Position":{
+              "type": "string",
+              "enum": [
+                "top-left",
+                "top-right",
+                "bottom-right",
+                "bottom-left"
+              ]
+            }
+          },
+          "required": [
+            "Position",
+            "Icon"
+          ]
+        },
+        "Fullscreen":{
+          "type": "object",
+          "properties": {
+            "Icon":{
+              "$ref": "sources-img.schema.json"
+            },
+            "Position":{
+              "type": "string",
+              "enum": [
+                "top-left",
+                "top-right",
+                "bottom-right",
+                "bottom-left"
+              ]
+            }
+          },
+          "required": [
+            "Position",
+            "Icon"
+          ]
+        }
+      }
     },
     "Logos": {
       "type": "array",
