@@ -26,16 +26,16 @@
           "anyOf": [
             {
               "type": "string",
+              "title": "Edit",
+              "default": "data/player/"
+            },
+            {
+              "type": "string",
               "title": "Auto",
               "template": "{{mainFolder}}characters/",
               "watch": {
                 "mainFolder": "structure.Main"
               }
-            },
-            {
-              "type": "string",
-              "title": "Edit",
-              "default": "data/player/"
             }
           ]
         },
@@ -43,16 +43,16 @@
           "anyOf": [
             {
               "type": "string",
+              "title": "Edit",
+              "default": "data/npc/"
+            },
+            {
+              "type": "string",
               "title": "Auto",
               "template": "{{mainFolder}}characters/",
               "watch": {
                 "mainFolder": "structure.Main"
               }
-            },
-            {
-              "type": "string",
-              "title": "Edit",
-              "default": "data/npc/"
             }
           ]
         },
@@ -60,16 +60,16 @@
           "anyOf": [
             {
               "type": "string",
+              "title": "Edit",
+              "default": "data/sounds/"
+            },
+            {
+              "type": "string",
               "title": "Auto",
               "template": "{{mainFolder}}audio/",
               "watch": {
                 "mainFolder": "structure.Main"
               }
-            },
-            {
-              "type": "string",
-              "title": "Edit",
-              "default": "data/sounds/"
             }
           ]
         }

@@ -12,9 +12,14 @@ function setSources(sources,file){
   adventure=editor.getEditor('root.Sources.Images');
   var currentSrc=adventure.getValue();
   if(sources.frames){
-    adventure.setValue(currentSrc.concat(Object.getOwnPropertyNames(sources.frames)));
+    let framesArray=Object.getOwnPropertyNames(sources.frames);
+    let mergedArray=currentSrc.concat(framesArray); //Merge with current sources
+    currentSrc=mergedArray.filter((a, b) => mergedArray.indexOf(a) === b); //Remove doubles
+    adventure.setValue(currentSrc.sort());
   }else if(file!==undefined){
-    adventure.setValue(currentSrc.concat(file));
+    let mergedArray=currentSrc.concat(file); //Merge with current sources
+    currentSrc=mergedArray.filter((a, b) => mergedArray.indexOf(a) === b); //Remove doubles
+    adventure.setValue(currentSrc.sort());
   }
 }
 

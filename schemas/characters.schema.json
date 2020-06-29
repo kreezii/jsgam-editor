@@ -7,14 +7,8 @@
       "description": "Name to be used in the Characters property of the Scenes Schema"
     },
     "Description": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "default": [
-        "Language 1"
-      ],
-      "description": "What players says when you look at the character"
+      "$ref": "languages.schema.json",
+      "description": "If not defined, the NoDescription property of the Texts schema will be used."
     },
     "Avatar": {
       "$ref": "sources-img.schema.json",
