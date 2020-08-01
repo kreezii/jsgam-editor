@@ -33,7 +33,12 @@
         <label for="toggle"><i class="fas fa-bars"></i></label>
         <input type="checkbox" id="toggle">
         <ul id="menu">
-          <li><a title="JSGAM Homepage" href="https://github.com/kreezii/jsgam" target="_blank"><img src="imgs/jsgam-logo.svg" alt="jsgam-logo"/></a></li>
+          <li>
+            <figure class="logo">
+              <a title="JSGAM Homepage" href="https://github.com/kreezii/jsgam" target="_blank"><img src="imgs/jsgam-logo.svg" alt="jsgam-logo"/></a>
+              <figcaption class="version">v.5.1.0</figcaption>
+            </figure>
+          </li>
           <li><a href="#" id="upload" title="Load adventure" ><i class="fas fa-upload fa-lg"></i><span>Load Adventure</span></a></li>
           <li><a href="#" id="download" title="Save adventure"><i class="fas fa-download fa-lg"></i><span>Save Adventure</span></a></li>
           <li><a href="#" id="export" title="Export adventure"><i class="fas fa-file-export fa-lg"></i><span>Export Adventure</span></a></li>
@@ -56,16 +61,16 @@
             <ul id="tools">
               <li><a title="Texture packer" href="https://www.codeandweb.com/tp-online/" target="_blank"><i class="fas fa-box-open fa-lg"></i><span> Texture Packer</span></a></li>
               <li><a title="Convert fonts generated with Hiero Tool" href="#" id="convertfont"><i class="fas fa-spell-check fa-lg"></i></i> Convert Hiero Font</a></li>
-              <li><a title="Draw polygons" href="https://www.image-map.net/" id="drawpolygon"><i class="fas fa-draw-polygon fa-lg"></i></i></i> Draw polygons</a></li>
+              <li><a title="Draw polygons" href="https://www.image-map.net/" id="drawpolygon" target="_blank"><i class="fas fa-draw-polygon fa-lg"></i></i></i> Draw polygons</a></li>
             </ul>
           </li>
           <li><a title="Help" href="https://kreezii.github.io/jsgam/docs.html" target="_blank"><i class="fas fa-question-circle fa-lg"></i><span>Help</span></a></li>
           <li>
-                <i id="valid_icon" class="fas fa-check text-success" title="Valid"></i>
+                <i id="valid_icon" class="fas fa-check text-success validate-bg" title="Valid"></i>
           </li>
         </ul>
       </nav>
-      <p class="center"><span id="adventure_name"></span> v.<span id="adventure_version"></span></p>
+      <p class="title"><span class="title-bg"><span id="adventure_name"></span> v.<span id="adventure_version"></span></span></p>
 
     </header>
 

@@ -27,6 +27,7 @@
       "format": "tabs-top",
       "items": {
         "type": "array",
+        "title": "Obstacle",
         "headerTemplate": "Obstacle {{i}}",
         "format": "tabs-top",
         "items": {

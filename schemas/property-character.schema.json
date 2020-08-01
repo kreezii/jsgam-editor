@@ -6,6 +6,41 @@
     },
     "Dialogue": {
       "$ref":"watch-dialogues.schema.json"
+    },
+    "Position": {
+      "type": "array",
+      "format": "table",
+      "items": {
+        "type": "number",
+        "format": "number",
+        "title": "Coordinates"
+      },
+      "options": {
+        "disable_array_reorder": true
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "default": [
+        250,
+        250
+      ],
+      "description": "Player's position in the first scene."
+    },
+    "Skin":{
+      "anyOf": [
+        {
+          "title":"New Skin",
+          "$ref": "watch-characters.schema.json"
+        },
+        {
+          "title":"Default Skin",
+          "type":"string",
+          "template":"Default"
+        }
+      ]
+    },
+    "Scene":{
+      "$ref": "watch-scenes.schema.json"
     }
   }
 }

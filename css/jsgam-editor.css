@@ -9,7 +9,8 @@
 --border: thin solid rgba(0,0,0,.16);
 --bg-hilite: rgba(0,0,0,.05);
 --text-hilite: #3584e4;
---link: #383d48;
+--link: #9da5b4;
+--button: #383d48;
 --hover: #3584e4;
 --visited: var(--link);
 --rad: .2; /*em*/
@@ -183,7 +184,7 @@ button[disabled],[type="submit"][disabled]{opacity:.5;}
 input[type="range"], input[type="color"]{vertical-align:middle;padding:unset;}
 	input[type="range"]{border:initial;}
 /* color */
-button,[type="submit"]{background-color:var(--link);color:var(--text); margin: 0 .2rem;}
+button,[type="submit"]{background-color:var(--button);color:var(--text); margin: 0 .2rem;}
 button:hover{background: var(--hover); color: white;}
 button svg{color:var(--bg);}
 
@@ -286,9 +287,23 @@ footer{
 
 /* JSGAM theme */
 .logo{
-	max-width: 100%;
+/*	max-width: 100%;
   height: auto;
-	margin: .5rem;
+	margin: .5rem;*/
+	text-align: center;
+}
+
+.title{
+	text-align: center;
+	margin: .8rem;
+}
+
+.title-bg{
+	border-radius: 0 0 25px 25px;
+	background: white;
+	color: var(--text-hilite);
+	padding: 1rem;
+	background: var(--bg-pane);
 }
 
 .center{
@@ -342,7 +357,7 @@ select {
   font-weight: bold;
   cursor: pointer;
   border-radius: .2rem;
-  background-color: var(--link) !important;
+  background-color: var(--button) !important;
   border: none;
 	border-bottom: 2px solid var(--bg-pane);
   color: white;
@@ -370,4 +385,21 @@ select:hover{
 .btn-alert:hover{
 	background: #c82333;
 	color:white;
+}
+
+.version{
+	border-radius: 25px;
+	background: white;
+	color: black;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	font-size: .8rem;
+}
+
+.validate-bg{
+	text-align: center;
+	border-radius: 25px;
+	background: white;
 }

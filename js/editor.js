@@ -85,7 +85,7 @@ function setNPC(name,data){
 
 function setAdventure(response){
   importAdventure=false;
-  response=response.replace(/\\n/g,">");//Convert break lines
+  response=response.replace(/\\n/g,">").replace(/0x/g,"#");//Convert break lines
   editor.setValue(parseJson(response));
   editor.setValue(parseJson(response)); //Apply twice
 }

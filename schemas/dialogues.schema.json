@@ -31,6 +31,28 @@
             "type": "string",
             "description": "Name of the branch"
           },
+          "Size": {
+            "type": "integer",
+            "enum": [
+              10,
+              15,
+              20,
+              25,
+              30,
+              35,
+              40,
+              45,
+              50,
+              55,
+              60,
+              65,
+              70,
+              75,
+              80,
+              85
+            ],
+            "default": 30
+          },
           "Choices": {
             "type": "array",
             "format": "tabs-top",
@@ -47,7 +69,7 @@
                     "type": "string",
                     "format": "textarea",
                     "options": {
-                      "input_height":"100px"
+                      "input_height": "100px"
                     }
                   },
                   "description": "Text for the player"
@@ -60,7 +82,7 @@
                     "type": "string",
                     "format": "textarea",
                     "options": {
-                      "input_height":"100px"
+                      "input_height": "100px"
                     }
                   },
                   "description": "Text for the non-playable character."

@@ -35,14 +35,29 @@
       "$ref": "languages.schema.json",
       "description": "If not defined, the NoDescription property of the Texts schema will be used."
     },
+    "InteractionPoint": {
+      "type": "array",
+      "format": "table",
+      "items": {
+        "type": "number",
+        "format": "number",
+        "title": "Coordinates"
+      },
+      "options": {
+        "disable_array_reorder": true
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "description": "Player's position to interact with the object."
+    },
     "Interactive": {
       "type": "boolean",
       "description": "Set to true if the object is just for decoration",
       "default": true
     },
     "Use": {
-      "type": "string",
-      "description": "Name of the puzzle "
+      "$ref": "watch-puzzle.schema.json",
+      "description": "Name of the puzzle to resolve"
     },
     "Door": {
       "type": "object",

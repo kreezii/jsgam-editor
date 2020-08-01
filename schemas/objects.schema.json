@@ -46,6 +46,21 @@
       "minItems": 2,
       "description": "Position in the scene."
     },
+    "InteractionPoint": {
+      "type": "array",
+      "format": "table",
+      "items": {
+        "type": "number",
+        "format": "number",
+        "title": "Coordinates"
+      },
+      "options": {
+        "disable_array_reorder": true
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "description": "Player's position to interact with the object."
+    },
     "Size": {
       "type": "number",
       "default": "1",
@@ -128,8 +143,16 @@
       "type": "object",
       "properties": {
         "With": {
-          "$ref": "watch-objects.schema.json",
-          "description": "Name of the object in the inventory"
+          "anyOf": [
+            {
+              "$ref": "watch-objects.schema.json",
+              "description": "Name of the object in the inventory"
+            },
+            {
+              "$ref": "watch-characters.schema.json",
+              "description": "Name of the object in the inventory"
+            }
+          ]
         },
         "Puzzle": {
           "$ref": "watch-puzzle.schema.json",

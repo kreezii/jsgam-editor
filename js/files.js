@@ -30,7 +30,8 @@ var saveJSON = function() {
  }
  if (title === null) return;
 
- var json = JSON.stringify(editorJSON, null, space).replace(/>/g,"\\n");//Convert break lines
+ var json = JSON.stringify(editorJSON, null, space).replace(/>/g,"\\n").replace(/#/g,"0x");//Convert break lines
+
  var filename = (title || 'jsgam').toLowerCase().replace(/[\s<>:"\\|*]/g, "-") + extension + '.json';
  var blob = new Blob([json], {type: "application/json;charset=utf-8"});
 

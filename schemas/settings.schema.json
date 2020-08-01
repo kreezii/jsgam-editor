@@ -7,7 +7,7 @@
   "properties": {
     "Languages": {
       "type": "array",
-      "description":"Languages used in the adventure",
+      "description": "Languages used in the adventure",
       "items": {
         "type": "string",
         "title": "Language"
@@ -18,7 +18,7 @@
     },
     "Text": {
       "type": "object",
-      "format":"categories",
+      "format": "categories",
       "properties": {
         "Style": {
           "$ref": "watch-fonts.schema.json"
@@ -117,7 +117,7 @@
           },
           "maxItems": 2,
           "minItems": 2,
-          "description": "Position of the character"
+          "description": "Border for the inventory grid"
         }
       },
       "required": [
@@ -129,49 +129,32 @@
     "Options": {
       "type": "object",
       "properties": {
-        "Sound": {
-          "type": "object",
-          "properties": {
-            "Icon":{
-              "$ref": "sources-img.schema.json"
-            },
-            "Position":{
-              "type": "string",
-              "enum": [
-                "top-left",
-                "top-right",
-                "bottom-right",
-                "bottom-left"
-              ]
-            }
-          },
-          "required": [
-            "Position",
-            "Icon"
+        "Icon": {
+          "$ref": "sources-img.schema.json"
+        },
+        "Position": {
+          "type": "string",
+          "enum": [
+            "top-left",
+            "top-right",
+            "bottom-right",
+            "bottom-left"
           ]
         },
-        "Fullscreen":{
-          "type": "object",
-          "properties": {
-            "Icon":{
-              "$ref": "sources-img.schema.json"
-            },
-            "Position":{
-              "type": "string",
-              "enum": [
-                "top-left",
-                "top-right",
-                "bottom-right",
-                "bottom-left"
-              ]
-            }
-          },
-          "required": [
-            "Position",
-            "Icon"
-          ]
+        "Home": {
+          "$ref": "sources-img.schema.json"
+        },
+        "Sound": {
+          "$ref": "sources-img.schema.json"
+        },
+        "Fullscreen": {
+          "$ref": "sources-img.schema.json"
         }
-      }
+      },
+      "required": [
+        "Position",
+        "Icon"
+      ]
     },
     "Logos": {
       "type": "array",

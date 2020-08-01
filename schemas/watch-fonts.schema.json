@@ -1,67 +1,58 @@
 {
   "type": "object",
   "properties": {
-    "font": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "anyOf": [
+    "fontName": {
+      "anyOf": [
+        {
+          "type": "string",
+          "title": "Source",
+          "watch": {
+            "fonts": "Sources.Fonts"
+          },
+          "enumSource": [
             {
-              "type": "string",
-              "title": "Source",
-              "watch": {
-                "fonts": "Sources.Fonts"
-              },
-              "enumSource": [
-                {
-                  "source": "fonts",
-                  "value": "{{item}}"
-                }
-              ]
-            },
-            {
-              "type": "string",
-              "title": "Edit",
-              "default": "bitmapfont"
+              "source": "fonts",
+              "value": "{{item}}"
             }
           ]
         },
-        "size": {
-          "anyOf": [
-            {
-              "type": "integer",
-              "title": "Defaults",
-              "enum": [
-                10,
-                15,
-                20,
-                25,
-                30,
-                35,
-                40,
-                45,
-                50,
-                55,
-                60,
-                65,
-                70,
-                75,
-                80,
-                85
-              ],
-              "default": 55
-            },
-            {
-              "type": "integer",
-              "title": "Custom",
-              "default": 55
-            }
-          ]
+        {
+          "type": "string",
+          "title": "Edit",
+          "default": "bitmapfont"
         }
-      },
-      "required": [
-        "name",
-        "size"
+      ]
+    },
+    "fontSize": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "title": "Defaults",
+          "enum": [
+            10,
+            15,
+            20,
+            25,
+            30,
+            35,
+            40,
+            45,
+            50,
+            55,
+            60,
+            65,
+            70,
+            75,
+            80,
+            85
+          ],
+          "default": 55
+        },
+        {
+          "type": "integer",
+          "title": "Custom",
+          "default": 55
+        }
       ]
     },
     "align": {
@@ -78,7 +69,8 @@
     "collapsed": true
   },
   "required": [
-    "font",
+    "fontName",
+    "fontSize",
     "align"
   ]
 }
