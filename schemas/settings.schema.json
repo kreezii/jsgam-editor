@@ -147,6 +147,9 @@
         "Sound": {
           "$ref": "sources-img.schema.json"
         },
+        "Mute": {
+          "$ref": "sources-img.schema.json"
+        },
         "Fullscreen": {
           "$ref": "sources-img.schema.json"
         }

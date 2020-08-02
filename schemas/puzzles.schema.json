@@ -24,6 +24,10 @@
                       "value": "{{item.Name}}"
                     }
                   ]
+                },
+                "Texture": {
+                  "$ref": "sources-img.schema.json",
+                  "description": "Image to show when the object is in the inventory"
                 }
               },
               "required": [

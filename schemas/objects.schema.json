@@ -63,7 +63,9 @@
     },
     "Size": {
       "type": "number",
-      "default": "1",
+      "default": "1.0",
+      "format": "number",
+      "step": 0.01,
       "description": "Size of the object"
     },
     "Mirror": {
