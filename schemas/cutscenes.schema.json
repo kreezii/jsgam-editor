@@ -28,6 +28,47 @@
                   }
                 }
               },
+              "Position": {
+                "type": "string",
+                "enum": [
+                  "Top",
+                  "Center",
+                  "Bottom"
+                ],
+                "default": "Center"
+              },
+              "Size": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "title": "Defaults",
+                    "enum": [
+                      10,
+                      15,
+                      20,
+                      25,
+                      30,
+                      35,
+                      40,
+                      45,
+                      50,
+                      55,
+                      60,
+                      65,
+                      70,
+                      75,
+                      80,
+                      85
+                    ],
+                    "default": 55
+                  },
+                  {
+                    "type": "integer",
+                    "title": "Custom",
+                    "default": 55
+                  }
+                ]
+              },
               "Time": {
                 "type": "number",
                 "format": "number",

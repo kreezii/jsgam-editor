@@ -295,7 +295,12 @@ footer{
 
 .title{
 	text-align: center;
-	margin: .8rem;
+	margin: 0px;
+	padding-top: .5rem;
+}
+
+.title span{
+	padding-top: 1rem;
 }
 
 .title-bg{

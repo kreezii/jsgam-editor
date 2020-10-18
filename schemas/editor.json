@@ -40,7 +40,7 @@
     "Characters": {
       "title": "Characters",
       "type": "array",
-      "format": "tabs",
+      "format": "tabs-top",
       "items": {
         "title": "Character",
         "$ref": "characters.schema.json",
@@ -53,7 +53,7 @@
     "Dialogues": {
       "title": "Dialogues",
       "type": "array",
-      "format": "tabs",
+      "format": "tabs-top",
       "items": {
         "title": "Dialogue",
         "headerTemplate": "{{self.Name}}",
@@ -66,7 +66,7 @@
     "Scenes": {
       "title": "Scenes",
       "type": "array",
-      "format": "tabs",
+      "format": "tabs-top",
       "items": {
         "title": "Scene",
         "$ref": "scenes.schema.json",
@@ -79,7 +79,7 @@
     "Cutscenes": {
       "title": "Cutscenes",
       "type": "array",
-      "format": "tabs",
+      "format": "tabs-top",
       "items": {
         "title": "Cutscene",
         "headerTemplate": "{{self.Name}}",
@@ -120,7 +120,7 @@
     "Music": {
       "title": "Music",
       "type": "array",
-      "format": "tabs",
+      "format": "tabs-top",
       "items": {
         "title": "Music",
         "$ref": "music.schema.json",
@@ -133,7 +133,7 @@
     "Sounds": {
       "title": "Sounds",
       "type": "array",
-      "format": "tabs",
+      "format": "tabs-top",
       "items": {
         "title": "Sounds",
         "$ref": "sounds.schema.json",
