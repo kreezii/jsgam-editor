@@ -63,8 +63,25 @@
     "CutScene": {
       "$ref": "watch-cutscenes.schema.json"
     },
+    "Particles": {
+      "type": "string",
+      "enum": [
+        "Dust"
+      ],
+      "default": "Dust"
+    },
+    "Filter": {
+      "type": "string",
+      "enum": [
+        "Sun"
+      ],
+      "default": "Dust"
+    },
     "Depth": {
-      "type": "number"
+      "type": "number",
+      "format": "number",
+      "step": 0.01,
+      "default": 1.0
     },
     "Characters": {
       "type": "array",
