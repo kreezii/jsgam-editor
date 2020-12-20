@@ -112,6 +112,7 @@ var importFile = function(e) {
    reader.onload = function(e) {
      var response = e.target.result;
      if(importPlayer) setPlayer(file.name,parseJson(response));
+     else if(importPartner) setPartner(file.name,parseJson(response));
      else if(importNPC) setNPC(file.name,parseJson(response));
      else if(importFont) setFont(response);
      else if(importSound) setSound(file.name);

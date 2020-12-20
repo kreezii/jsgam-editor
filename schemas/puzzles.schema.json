@@ -111,6 +111,12 @@
         "Character": {
           "$ref": "watch-characters.schema.json",
           "title": "Character"
+        },
+        "Partner":{
+          "type": "boolean",
+          "format": "checkbox",
+          "default": true,
+          "readOnly": true
         }
       }
     },

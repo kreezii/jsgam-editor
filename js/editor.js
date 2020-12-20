@@ -1,4 +1,5 @@
 var importPlayer=false;
+var importPartner=false;
 var importNPC=false;
 var importFont=false;
 var importSound=false;
@@ -62,6 +63,24 @@ function setPlayer(name,data){
   playerSettings.setValue(playerObj);
 }
 
+function setPartner(name,data){
+  importPartner=false;
+  let folder=editor.getEditor('root.Sources.Folders').getValue();
+  let path=folder.Main;
+  if(folder.NPC!==undefined) path=folder.NPC;
+  let partnerSettings=editor.getEditor('root.Partner');
+  let nameJson=name.replace("ske", "tex");
+  let nameTex=nameJson.replace("json", "png")
+  let partnerObj={
+    Name:data.armature[0].name,
+    Skeleton:path+name,
+    Texture:path+nameTex,
+    Json:path+nameJson,
+    Armature:data.armature[0].name
+  }
+  if(partnerSettings) partnerSettings.setValue(partnerObj);
+}
+
 function setNPC(name,data){
   importNPC=false;
   let folder=editor.getEditor('root.Sources.Folders').getValue();
@@ -72,6 +91,7 @@ function setNPC(name,data){
     let nameJson=name.replace("ske", "tex");
     let nameTex=nameJson.replace("json", "png")
     let characterObj={
+      Name:data.armature[0].name,
       Skeleton:path+name,
       Texture:path+nameTex,
       Json:path+nameJson,
@@ -163,6 +183,12 @@ function setupEditor(){
   document.getElementById("addplayer").addEventListener('click',()=>{
     document.getElementById("srcFile").click();
     importPlayer=true;
+  });
+
+  //Add Partner
+  document.getElementById("addpartner").addEventListener('click',()=>{
+    document.getElementById("srcFile").click();
+    importPartner=true;
   });
 
   //Add Character

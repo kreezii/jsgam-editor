@@ -78,10 +78,18 @@
       "default": "Dust"
     },
     "Depth": {
-      "type": "number",
-      "format": "number",
-      "step": 0.01,
-      "default": 1.0
+      "type": "array",
+      "format": "tabs-top",
+      "items": {
+        "type": "array",
+        "title": "Area",
+        "headerTemplate": "Area {{i}}",
+        "format": "tabs-top",
+        "items": {
+          "type": "number",
+          "headerTemplate": "Coord {{i}}"
+        }
+      }
     },
     "Characters": {
       "type": "array",
@@ -93,6 +101,9 @@
       },
       "description": "Scene Non-Playable Characters"
 
+    },
+    "Partner": {
+      "$ref": "partner.schema.json"
     }
   },
   "required": [

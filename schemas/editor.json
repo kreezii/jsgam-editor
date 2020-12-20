@@ -11,6 +11,10 @@
     "Player": {
       "$ref": "player.schema.json"
     },
+    "Partner": {
+      "title": "Partner",
+      "$ref": "characters.schema.json"
+    },
     "Objects": {
       "title": "Objects",
       "type": "array",

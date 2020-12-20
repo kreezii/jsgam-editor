@@ -1,0 +1,39 @@
+{
+  "title": "Partner",
+  "type": "object",
+  "properties": {
+    "Dialogue": {
+      "$ref": "watch-dialogues.schema.json",
+      "description": "Name of the dialogue when the player talk to the character"
+    },
+    "Position": {
+      "type": "array",
+      "format": "table",
+      "items": {
+        "type": "number",
+        "format": "number",
+        "title": "Coordinates"
+      },
+      "options": {
+        "disable_array_reorder": true
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "default":[250,250],
+      "description": "Partner's position in the first scene."
+    },
+    "Size": {
+      "type": "number",
+      "default": "1.0",
+      "format": "number",
+      "step": 0.01,
+      "description": "Size of the character"
+    }
+  },
+  "required": [
+    "Dialogue",
+    "Position",
+    "Size"
+  ],
+  "description": "Player's non playable partner"
+}

@@ -87,7 +87,6 @@
               }
             },
             "required": [
-              "Image",
               "Text",
               "Time"
             ]
