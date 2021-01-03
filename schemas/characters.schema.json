@@ -10,6 +10,10 @@
       "$ref": "languages.schema.json",
       "description": "If not defined, the NoDescription property of the Texts schema will be used."
     },
+    "NotTalkable": {
+      "$ref": "languages.schema.json",
+      "description": "If not defined, the NotUsable property of the Texts schema will be used."
+    },
     "Avatar": {
       "$ref": "sources-img.schema.json",
       "description": "Name of the image showed when the character talks"

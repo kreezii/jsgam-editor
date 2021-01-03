@@ -31,6 +31,10 @@
       "$ref": "languages.schema.json",
       "description": "If not defined, the NoDescription property of the Texts schema will be used."
     },
+    "NotUsable": {
+      "$ref": "languages.schema.json",
+      "description": "If not defined, the NotUsable property of the Texts schema will be used."
+    },
     "Position": {
       "type": "array",
       "format": "table",

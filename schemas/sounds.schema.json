@@ -25,7 +25,7 @@
     },
     "Sprites": {
       "type": "array",
-      "format": "tabs",
+      "format": "tabs-top",
       "items": {
         "title": "Sound",
         "headerTemplate": "{{self.key}}",

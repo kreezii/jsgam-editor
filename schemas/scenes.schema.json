@@ -73,7 +73,9 @@
     "Filter": {
       "type": "string",
       "enum": [
-        "Sun"
+        "Sun",
+        "Night",
+        "Heat"
       ],
       "default": "Dust"
     },

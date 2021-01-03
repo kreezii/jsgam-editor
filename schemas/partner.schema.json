@@ -28,6 +28,13 @@
       "format": "number",
       "step": 0.01,
       "description": "Size of the character"
+    },
+    "Mirror": {
+      "type": "boolean",
+      "format": "checkbox",
+      "default": true,
+      "readOnly": true,
+      "description": "Flip horizontally the character"
     }
   },
   "required": [
