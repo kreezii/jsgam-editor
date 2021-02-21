@@ -75,6 +75,16 @@
       "minItems": 2,
       "description": "Position of the character"
     },
+    "Distance":{
+      "type": "string",
+      "enum": [
+        "Near",
+        "Default",
+        "Far"
+      ],
+      "default":"Default",
+      "description":"Distance where player stops"
+    },
     "Color": {
       "type": "string",
       "description": "Text color when the character speaks",

@@ -83,15 +83,33 @@
       "type": "array",
       "format": "tabs-top",
       "items": {
-        "type": "array",
-        "title": "Area",
-        "headerTemplate": "Area {{i}}",
-        "format": "tabs-top",
-        "items": {
-          "type": "number",
-          "headerTemplate": "Coord {{i}}"
+        "type": "object",
+        "format": "categories",
+        "headerTemplate": "Depth {{i}}",
+        "properties": {
+          "Area": {
+            "type": "array",
+            "title": "Area",
+
+            "format": "tabs-top",
+            "items": {
+              "type": "number",
+              "headerTemplate": "Coord {{i}}"
+            }
+          },
+          "Size": {
+            "type": "number",
+            "default": "1.0",
+            "format": "number",
+            "step": 0.01,
+            "description": "Size of the character"
+          }
         }
-      }
+      },
+      "required": [
+        "Area",
+        "Size"
+      ]
     },
     "Characters": {
       "type": "array",

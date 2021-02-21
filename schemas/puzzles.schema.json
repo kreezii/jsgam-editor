@@ -85,11 +85,14 @@
                     "type": "number",
                     "headerTemplate": "{{i}}"
                   }
+                },
+                "Partner": {
+                  "$ref": "partner.schema.json",
+                  "required":[]
                 }
               },
               "required": [
-                "Name",
-                "WalkArea"
+                "Name"
               ]
             }
           },
