@@ -87,8 +87,7 @@
                   }
                 },
                 "Partner": {
-                  "$ref": "partner.schema.json",
-                  "required":[]
+                  "$ref": "partner.schema.json"
                 }
               },
               "required": [
@@ -178,6 +177,21 @@
     },
     "Say": {
       "$ref": "languages.schema.json"
+    },
+    "NPCSay": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "$ref": "watch-characters.schema.json"
+        },
+        "Text": {
+          "$ref": "languages.schema.json"
+        }
+      },
+      "required": [
+        "Text",
+        "Name"
+      ]
     },
     "CutScene": {
       "$ref": "watch-cutscenes.schema.json"

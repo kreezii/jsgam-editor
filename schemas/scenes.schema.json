@@ -79,6 +79,13 @@
       ],
       "default": "Dust"
     },
+    "ScaleRatio":{
+      "type": "number",
+      "format": "number",
+      "step": 0.01,
+      "default": 1.0,
+      "description": "Size of the player sprite"
+    },
     "Depth": {
       "type": "array",
       "format": "tabs-top",
@@ -123,7 +130,12 @@
 
     },
     "Partner": {
-      "$ref": "partner.schema.json"
+      "$ref": "partner.schema.json",
+      "required": [
+        "Dialogue",
+        "Position",
+        "Size"
+      ]
     }
   },
   "required": [
