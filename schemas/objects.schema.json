@@ -145,20 +145,30 @@
       ],
       "description": "Using the object changes to another scene."
     },
+    "Give": {
+      "type": "object",
+      "properties": {
+        "To": {
+          "$ref": "watch-characters.schema.json",
+          "description": "Name of the object in the inventory"
+        },
+        "Puzzle": {
+          "$ref": "watch-puzzle.schema.json",
+          "description": "Name of the puzzle to resolve"
+        }
+      },
+      "required": [
+        "To",
+        "Puzzle"
+      ],
+      "description": "Check it when an object from the inventory is dragged over this object."
+    },
     "Combine": {
       "type": "object",
       "properties": {
         "With": {
-          "anyOf": [
-            {
-              "$ref": "watch-objects.schema.json",
-              "description": "Name of the object in the inventory"
-            },
-            {
-              "$ref": "watch-characters.schema.json",
-              "description": "Name of the object in the inventory"
-            }
-          ]
+          "$ref": "watch-objects.schema.json",
+          "description": "Name of the object in the inventory"
         },
         "Puzzle": {
           "$ref": "watch-puzzle.schema.json",
